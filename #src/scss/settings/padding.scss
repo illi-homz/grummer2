@@ -1,0 +1,148 @@
+@mixin setProperty($num, $property, $side) {
+    #{$property}-#{$side}: $num+px;
+}
+
+.px-0 {padding-left: 0;padding-right: 0;}
+
+// X
+@for $i from 0 through 35 {
+    .px-#{$i} {
+        @include setProperty($i, 'padding', 'left');
+        @include setProperty($i, 'padding', 'right');
+    }
+}
+@media (max-width: $lg+px) {
+    @for $i from 0 through 35 {
+        .px-lg-#{$i} {
+            @include setProperty($i, 'padding', 'left');
+            @include setProperty($i, 'padding', 'right');
+        }
+    }
+}
+@media (max-width: $md+px) {
+    @for $i from 0 through 35 {
+        .px-md-#{$i} {
+            @include setProperty($i, 'padding', 'left');
+            @include setProperty($i, 'padding', 'right');
+        }
+    }
+}
+@media (max-width: $sm+px) {
+    @for $i from 0 through 35 {
+        .px-sm-#{$i} {
+            @include setProperty($i, 'padding', 'left');
+            @include setProperty($i, 'padding', 'right');
+        }
+    }
+}
+@media (max-width: $xs+px) {
+    @for $i from 0 through 35 {
+        .px-xs-#{$i} {
+            @include setProperty($i, 'padding', 'left');
+            @include setProperty($i, 'padding', 'right');
+        }
+    }
+}
+
+// top
+@for $i from 0 through 35 {
+    .pt-#{$i} {@include setProperty($i, 'padding', 'top')}
+}
+@media (max-width: $lg+px) {
+    @for $i from 0 through 35 {
+        .pt-lg-#{$i} {@include setProperty($i, 'padding', 'top')}
+    }
+}
+@media (max-width: $md+px) {
+    @for $i from 0 through 35 {
+        .pt-md-#{$i} {@include setProperty($i, 'padding', 'top')}
+    }
+}
+@media (max-width: $sm+px) {
+    @for $i from 0 through 35 {
+        .pt-sm-#{$i} {@include setProperty($i, 'padding', 'top')}
+    }
+}
+@media (max-width: $xs+px) {
+    @for $i from 0 through 35 {
+        .pt-xs-#{$i} {@include setProperty($i, 'padding', 'top')}
+    }
+}
+
+
+// bottom
+@for $i from 0 through 35 {
+    .pb-#{$i} {@include setProperty($i, 'padding', 'bottom')}
+}
+@media (max-width: $lg+px) {
+    @for $i from 0 through 35 {
+        .pb-lg-#{$i} {@include setProperty($i, 'padding', 'bottom')}
+    }
+}
+@media (max-width: $md+px) {
+    @for $i from 0 through 35 {
+        .pb-md-#{$i} {@include setProperty($i, 'padding', 'bottom')}
+    }
+}
+@media (max-width: $sm+px) {
+    @for $i from 0 through 35 {
+        .pb-sm-#{$i} {@include setProperty($i, 'padding', 'bottom')}
+    }
+}
+@media (max-width: $xs+px) {
+    @for $i from 0 through 35 {
+        .pb-xs-#{$i} {@include setProperty($i, 'padding', 'bottom')}
+    }
+}
+
+
+// left
+@for $i from 0 through 35 {
+    .pl-#{$i} {@include setProperty($i, 'padding', 'left')}
+}
+@media (max-width: $lg+px) {
+    @for $i from 0 through 35 {
+        .pl-lg-#{$i} {@include setProperty($i, 'padding', 'left')}
+    }
+}
+@media (max-width: $md+px) {
+    @for $i from 0 through 35 {
+        .pl-md-#{$i} {@include setProperty($i, 'padding', 'left')}
+    }
+}
+@media (max-width: $sm+px) {
+    @for $i from 0 through 35 {
+        .pl-sm-#{$i} {@include setProperty($i, 'padding', 'left')}
+    }
+}
+@media (max-width: $xs+px) {
+    @for $i from 0 through 35 {
+        .pl-xs-#{$i} {@include setProperty($i, 'padding', 'left')}
+    }
+}
+
+
+// right
+@for $i from 0 through 35 {
+    .pr-#{$i} {@include setProperty($i, 'padding', 'right')}
+}
+@media (max-width: $lg+px) {
+    @for $i from 0 through 35 {
+        .pr-lg-#{$i} {@include setProperty($i, 'padding', 'right')}
+    }
+}
+@media (max-width: $md+px) {
+    @for $i from 0 through 35 {
+        .pr-md-#{$i} {@include setProperty($i, 'padding', 'right')}
+    }
+}
+@media (max-width: $sm+px) {
+    @for $i from 0 through 35 {
+        .pr-sm-#{$i} {@include setProperty($i, 'padding', 'right')}
+    }
+}
+@media (max-width: $xs+px) {
+    @for $i from 0 through 35 {
+        .pr-xs-#{$i} {@include setProperty($i, 'padding', 'right')}
+    }
+}
