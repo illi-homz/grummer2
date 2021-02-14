@@ -1,77 +1,62 @@
 'use strict';
 
-(function () {
-  // changing bg on main section
-  const backgrounds = ['1_dog.jpg', '2_cat.jpg', '3_dog.jpg', '4_cat.jpg']
-  const headerBg = $('div.header__bg')
-  // changeBg(headerBg, backgrounds, 1000, 9000)
-
-  //add link on navbar
-  const links = [
-    {title: 'О салоне', value: 'about'},
-    {title: 'Услуги', value: 'services'},
-    {title: 'Наши работы', value: 'ourworks'},
-    {title: 'Акции', value: 'stocks'},
-    {title: 'Отзывы', value: 'feedbacks'},
-    {title: 'Контакты', value: 'contacts'}
-  ]
-  const navList = $('.header__links')
-  const mobileMenuLinks = $('.header__mobile-menu-links')
-  const mobileMenu = $('.header__mobile-menu')
-  let linksTemplate = $.trim( $('#header__links').html() )
-
-  linksTemplating(links, linksTemplate, navList)
-  linksTemplating(links, linksTemplate, mobileMenuLinks)
-
-  $('[href="#call"]').on('click', function() {
-    goToBlock($(this).attr('href'))
-  })
-
-  $('div.header__burger').on('click', function() {
-    mobileMenu.slideToggle(300)
-    $(this).children('div').first().toggleClass('active')
-  })
-
-
-
-  function changeBg( obj, arr, timeFade,  timeChange) {
+grummer.header = {
+  init() {
+    this.dataInit()
+    this.linksTemplating(this.navList)
+    this.linksTemplating(this.mobileMenuLinks)
+    // this.changeBg()
+  },
+  dataInit() {
+    this.backgrounds = ['1_dog.jpg', '2_cat.jpg', '3_dog.jpg', '4_cat.jpg']
+    this.headerBg = $('div.header__bg')
+    this.links = [
+      {title: 'О салоне', value: 'about'},
+      {title: 'Услуги', value: 'services'},
+      {title: 'Наши работы', value: 'ourworks'},
+      {title: 'Акции', value: 'stocks'},
+      {title: 'Отзывы', value: 'feedbacks'},
+      {title: 'Контакты', value: 'contacts'}
+    ]
+    this.navList = $('.header__links')
+    this.mobileMenuLinks = $('.header__mobile-menu-links')
+    this.linksTemplate = $.trim( $('#header__links').html() )
+    this.menu = $('.header__mobile-menu')
+    this.burger = $('.header__burger')
+  },
+  changeBg() {
     let count = 1
-    const arrLen = arr.length
+    const timeFade = 1000
+    const timeChange = 9000
+    const arrLen = this.backgrounds.length
 
     return setInterval(() => {
       if ( count > arrLen - 1 ) count = 0
-      obj.fadeOut(timeFade, () => {
-        obj.css({background: `url(../img/main/${arr[count]}) bottom / cover no-repeat`})
-        obj.fadeIn(timeFade)
+      this.headerBg.fadeOut(timeFade, () => {
+        this.headerBg.css({background: `url(../img/main/${this.backgrounds[count]}) bottom / cover no-repeat`})
+        this.headerBg.fadeIn(timeFade)
         count++
       })
     }, timeChange)
-  }
+  },
+  linksTemplating( list ) {
+    const isMobile = list.hasClass( 'header__mobile-menu-links' )
 
-  function linksTemplating( linksArr, temp, list ) {
     let frag = ''
-    $.each( linksArr, function( index, obj ) {
-      frag += temp
+    $.each( this.links, ( index, obj ) => {
+      frag += this.linksTemplate
         .replace( /{{title}}/ig, obj.title )
         .replace( /{{value}}/ig, obj.value )
+        .replace( /{{isMobile}}/ig, isMobile )
     })
     list.append(frag)
-    addEventClickOnLinks(list)
+  },
+  goToBlock(target, isMobile=false) {
+    grummer.goToBlock(target)
+    if (isMobile) this.toggleMenu()
+  },
+  toggleMenu() {
+    this.menu.slideToggle( 300 )
+    this.burger.toggleClass('active')
   }
-
-  function addEventClickOnLinks( list ) {
-    list.find('a').each(function(i, obj) {
-      $(obj).on('click', function(obj) {
-        goToBlock($(this).attr('href'))
-
-        if (list.hasClass('header__mobile-menu-links')) {
-          mobileMenu.fadeOut(300)
-        }
-      })
-    })
-  }
-  
-  function goToBlock( target ) {
-    console.log(target)
-  }
-})()
+}

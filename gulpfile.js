@@ -1,4 +1,4 @@
-let project_folder = 'dist-' + require('path').basename(__dirname);
+let project_folder = 'dist';
 let source_folder = '#src';
 const wait = require('gulp-wait');
 

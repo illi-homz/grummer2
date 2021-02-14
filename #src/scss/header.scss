@@ -10,9 +10,8 @@
     background: url(../img/main/1_dog.jpg) bottom / cover no-repeat;
   }
 
-  .wrapper {
+  &__wrapper {
     padding-top: 40px;
-    height: 100%;
   }
 
   &__mobile-menu {
@@ -22,7 +21,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: $defaultColor;
+    background-color: $defaultGray;
     padding: 20px 15px;
   }
   &__mobile-menu-links {
@@ -36,19 +35,78 @@
     }
   }
 
-  &__burger {
-    display: none !important;
-  }
-
-  nav {
+  &__burger-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    width: 37px;
+    height: 34px;
+    border-radius: 8px;
     position: relative;
     z-index: 2;
+    cursor: pointer;
+  }
+  &__burger {
+    height: 2px;
+    width: 12px;
+    background-color: $textColor;
+    border-radius: 2px;
+    position: relative;
+    transition: all .3s ease;
+
+    &:before,
+    &:after {
+      content: '';
+      height: 2px;
+      width: 12px;
+      border-radius: 2px;
+      background-color: $textColor;
+      position: absolute;
+      transition-duration: .3s;
+    }
+    &:before {
+      top: -4px;
+    }
+    &:after {
+      bottom: -4px;
+    }
+
+    &.active {
+      background-color: #ffffff00;
+      &:before {
+        transform: rotate(-225deg);
+        top: 0;
+      }
+      &:after {
+        transform: rotate(225deg);
+        bottom: 0;
+      }
+    }
+  }
+
+  &__nav {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 15px;
   }
 
   &__links {
     padding-right: 35px;
+    display: flex;
+    padding-bottom: 2px;
+    width: 100%;
+    max-width: 650px;
+    display: flex;
+    justify-content: space-between;
     li {
-      margin-right: 56px;
+      // margin-right: 56px;
     }
     a {
       font-weight: bold;
@@ -65,26 +123,27 @@
       margin-top: 30px;
       margin-bottom: 40px;
     }
-    .btn {
-      width: 305px;
-    }
+  }
+  &__call-btn {
+    max-width: 305px;
+    height: 65px;
   }
 }
 
-@media (max-width: $xs+px) {
+@media (max-width: $sm+px) {
   .header {
-    height: auto;
+    height: 405px;
     img {
       height: 40px;
     }
-    &__burger {
-      display: flex !important;
+    &__burger-btn {
+      display: flex;
     }
-    .wrapper {
+    &__wrapper {
       padding-top: 20px;
     }
     &__links {
-      display: none !important;
+      display: none;
     }
     &__content {
       margin-top: 35px;
@@ -96,9 +155,9 @@
         margin-top: 15px;
         margin-bottom: 30px;
       }
-      .btn {
-        width: calc(100vw - 20px);
-      }
+    }
+    &__call-btn {
+      max-width: none;
     }
   }
 }

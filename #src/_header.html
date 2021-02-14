@@ -1,35 +1,39 @@
 <header class="header">
     <div class="header__bg"></div>
-    <div class="container">
-        <div class="wrapper">
-            <div class="header__mobile-menu">
-<!--                <img src="img/logo.svg" alt="logo" class="logo">-->
-                <ul class="header__mobile-menu-links">
-                </ul>
-            </div>
 
-            <nav class="df jcsb aic">
-                <a href="#">
-                    <img src="img/logo.svg" alt="logo" class="logo">
-                </a>
-                <ul class="header__links df pb-2">
-                    <script id="header__links" type="tuts/template">
-                        <li><a href="#{{value}}">{{title}}</a></li>
-                    </script>
-                </ul>
-                <div class="nav-btn header__burger">
-                    <div class="burger"></div>
-                </div>
-            </nav>
-            <div class="header__content">
-                <h1>Стрижка<br>домашних<br>животных</h1>
-                <p>Ваша благодарность питомцу<br>за его любовь без остатка</p>
-                <a href="#call">
-                    <div class="btn yellow">
-                        Заказать звонок
-                    </div>
-                </a>
+    <div class="header__wrapper container">
+        <div class="header__mobile-menu">
+            <ul class="header__mobile-menu-links">
+            </ul>
+        </div>
+
+        <nav class="header__nav">
+            <a href="#" class="header__logo">
+                <img src="img/logo.svg" alt="logo">
+            </a>
+            <ul class="header__links">
+                <script id="header__links" type="tuts/template">
+                    <li>
+                        <a
+                            href="#{{value}}"
+                            onclick="grummer.header.goToBlock(this.attributes.href.value, {{isMobile}})">
+                            {{title}}
+                        </a>
+                    </li>
+                </script>
+            </ul>
+            <div class="nav-btn header__burger-btn" onclick="grummer.header.toggleMenu()">
+                <div class="header__burger"></div>
             </div>
+        </nav>
+        <div class="header__content">
+            <h1>Стрижка<br>домашних<br>животных</h1>
+            <p>Ваша благодарность питомцу<br>за его любовь без остатка</p>
+            <a href="#call">
+                <div class="btn header__call-btn yellow">
+                    Заказать звонок
+                </div>
+            </a>
         </div>
     </div>
 </header>

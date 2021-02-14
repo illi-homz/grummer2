@@ -1,26 +1,143 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e49d939-6d55-4a5e-a363-120e35010713" name="Default Changelist" comment="" />
+    <list default="true" id="4e49d939-6d55-4a5e-a363-120e35010713" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/#src/_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/#src/_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/#src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/js/header.js" beforeDir="false" afterPath="$PROJECT_DIR$/#src/js/header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/#src/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/scss/header.scss" beforeDir="false" afterPath="$PROJECT_DIR$/#src/scss/header.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/scss/settings/flex.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/scss/settings/margin.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/scss/settings/padding.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/#src/scss/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/#src/scss/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/css/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/css/style.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-Bold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-Medium.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-Regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-SemiBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/fonts/Raleway-SemiBold.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/answers-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/answers-bg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/avatars/ava-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/avatars/ava-1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/consult-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/consult-bg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/favicon.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/1_dog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/1_dog.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/2_cat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/2_cat.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/3_dog.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/3_dog.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/4_cat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/main/4_cat.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/insta.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/insta.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/mail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/mail.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/maps.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/maps.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/ok.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/ok.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/tel.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/tel.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/vk.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/networks/vk.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ok.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ok.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/1.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/cat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/cat.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/pudel.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/pudel.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/pudel2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/pudel2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/spits.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/spits.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/spits2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/spits2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/york.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/ourworks/york.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/promotions-bg-md3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/promotions-bg-md3.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/promotions-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/promotions-bg.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/quotes-gray.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/quotes-yellow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/antiparasite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/bad-animal.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/barbershop.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/color-wool.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/comb-kolts.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/comb-out.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/express-linka.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/foot.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/help-grummer.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/ozon-mask.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/ozon-nomask.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/plus-box.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/rek.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/spa.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/tick.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/tooth.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/toothpaste.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/trim-kolt.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/trim.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/wash-plus.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/wash.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/services/zootaxi.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/zootaxi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/img/zootaxi.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/js/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist-Grummer2/js/script.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulpfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/gulpfile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/#src/js/script.js" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1nPtklgwDPux5PMGC9hAqdadGlP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -45,10 +162,23 @@
       <updated>1611303698698</updated>
       <workItem from="1611303699756" duration="12829000" />
       <workItem from="1611383978715" duration="11651000" />
+      <workItem from="1611991904953" duration="13000" />
+      <workItem from="1613277259708" duration="2834000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
