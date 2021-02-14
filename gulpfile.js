@@ -1,4 +1,5 @@
-let project_folder = 'dist';
+// let project_folder = 'dist';
+let project_folder = 'docs';
 let source_folder = '#src';
 const wait = require('gulp-wait');
 
