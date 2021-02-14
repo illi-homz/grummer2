@@ -28,6 +28,7 @@
   {
     margin-top: 30px;
     display: none;
+    width: 100%;
   }
   &__note
   {
@@ -37,7 +38,7 @@
   {
     display: flex;
     position: relative;
-    width: fit-content;
+    width: 100%;
   }
   &__filters-cleaner
   {
@@ -61,7 +62,7 @@
   }
   &__filter
   {
-    width: 305px;
+    min-width: 305px;
     margin-right: 20px;
   }
   &__filter-title { margin-bottom: 10px; }
@@ -188,6 +189,17 @@
 {
   .services
   {
+    &__filters
+    {
+      flex-direction: column;
+    }
+    &__filter
+    {
+      &:not(:first-of-type)
+      {
+        margin-top: 20px;
+      }
+    }
     &__slider
     {
       height: 370px;

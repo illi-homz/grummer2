@@ -486,6 +486,7 @@ h1 {
 .services__info-for-dogs {
   margin-top: 30px;
   display: none;
+  width: 100%;
 }
 
 .services__note {
@@ -497,9 +498,7 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
 }
 
 .services__filters-cleaner {
@@ -527,7 +526,7 @@ h1 {
 }
 
 .services__filter {
-  width: 305px;
+  min-width: 305px;
   margin-right: 20px;
 }
 
@@ -768,6 +767,17 @@ h1 {
 }
 
 @media (max-width: 992.98px) {
+  .services__filters {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .services__filter:not(:first-of-type) {
+    margin-top: 20px;
+  }
+
   .services__slider {
     height: 370px;
     margin-top: 40px;
