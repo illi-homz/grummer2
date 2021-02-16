@@ -763,7 +763,7 @@ h1 {
       -ms-flex: 1 0;
           flex: 1 0;
   max-width: 520px;
-  background: url("/img/zootaxi.jpg") center/cover no-repeat;
+  background: url("../img/zootaxi.jpg") center/cover no-repeat;
 }
 
 * {
@@ -1029,12 +1029,11 @@ h1 {
         -ms-flex: 1 0;
             flex: 1 0;
     max-width: none;
-    background: url("../img/zootaxi.jpg") center/cover no-repeat;
   }
 }
 @supports (-webkit-appearance:none){
 .header__bg{background:url(../img/main/1_dog.webp) bottom/cover no-repeat}
-.zootaxi__img{background:url("/img/zootaxi.webp") center/cover no-repeat}
+.zootaxi__img{background:url("../img/zootaxi.webp") center/cover no-repeat}
 }
 
  @media (max-width: 992.98px){
@@ -1048,7 +1047,7 @@ h1 {
  @media (max-width: 767.98px){
 
 @supports (-webkit-appearance:none){
-.zootaxi__img{background:url("../img/zootaxi.webp") center/cover no-repeat}
+
 }
 
 }
