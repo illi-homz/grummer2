@@ -155,5 +155,17 @@ grummer.services = {
   removeCleaner()
   {
     $('.services__filters-cleaner').removeClass('active')
+  },
+
+  openPopup(title)
+  {
+    const service = grummer.servicesList.find(obj => {
+      return obj.title === title
+    })
+    const breed = grummer.breeds.find(obj => {
+      return obj.value === this.breed
+    })
+
+    console.log(service, breed );
   }
 }

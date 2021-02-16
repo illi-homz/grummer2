@@ -14,9 +14,6 @@
     <div class="services__info-for-dogs">
         <div class="services__note">Выберете породу вашего любимца и категорию услуг</div>
         <div class="services__filters">
-            <div class="services__filters-cleaner" onclick="grummer.services.cleanFilter()">
-                <img src="img/clean.svg" alt="clean">Сбросить
-            </div>
             <div class="services__filter">
                 <div class="services__filter-title">Порода</div>
                 <div class="services__breeds g-select _select">
@@ -66,6 +63,9 @@
                     </div>
                 </div>
             </div>
+            <div class="services__filters-cleaner" onclick="grummer.services.cleanFilter()">
+                <img src="img/clean.svg" alt="clean">Сбросить
+            </div>
         </div>
     </div>
     <div class="services__slider">
@@ -84,7 +84,9 @@
                         </div>
                         <div class="services__slide-price">{{price}}</div>
                         <div class="services__slide-time">{{time}}</div>
-                        <button class="services__slide-btn btn gray">Записаться</button>
+                        <button class="services__slide-btn btn gray" onclick="grummer.services.openPopup('{{title}}')">
+                            Записаться
+                        </button>
                     </div>
                 </div>
             </div>

@@ -7,6 +7,7 @@
 @import 'header';
 @import 'about';
 @import 'services';
+@import 'zootaxi';
 
 *
 {
@@ -46,6 +47,8 @@
 .header { margin-bottom: 20px; }
 
 .about {margin-bottom: 160px;}
+
+.services {margin-bottom: 180px;}
 
 
 @media (max-width: $sm+px)

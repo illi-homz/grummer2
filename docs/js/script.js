@@ -5560,6 +5560,17 @@ grummer.services = {
   },
   removeCleaner: function removeCleaner() {
     $('.services__filters-cleaner').removeClass('active');
+  },
+  openPopup: function openPopup(title) {
+    var _this3 = this;
+
+    var service = grummer.servicesList.find(function (obj) {
+      return obj.title === title;
+    });
+    var breed = grummer.breeds.find(function (obj) {
+      return obj.value === _this3.breed;
+    });
+    console.log(service, breed);
   }
 };
 

@@ -239,6 +239,13 @@ h1 {
   font-weight: 700;
 }
 
+@font-face {
+  font-family: "Raleway";
+  font-display: swap;
+  src: url("../fonts/Raleway-Bold.woff") format("woff"), url("../fonts/file_name.woff2") format("woff2");
+  font-weight: 800;
+}
+
 .header {
   height: 100vh;
   position: relative;
@@ -453,6 +460,8 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   overflow: scroll;
+  padding: 10px;
+  margin-left: -10px;
   scrollbar-width: none;
 }
 
@@ -484,7 +493,7 @@ h1 {
 }
 
 .services__info-for-dogs {
-  margin-top: 30px;
+  margin-top: 20px;
   display: none;
   width: 100%;
 }
@@ -497,7 +506,9 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  position: relative;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
 }
 
@@ -506,12 +517,10 @@ h1 {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  position: absolute;
-  left: 100%;
-  top: 50%;
   color: #CDD7DC;
   font-size: 18px;
   font-weight: 500;
+  margin-top: 20px;
   cursor: pointer;
 }
 
@@ -542,7 +551,7 @@ h1 {
 .services__slider {
   height: 470px;
   position: relative;
-  margin-top: 60px;
+  margin-top: 50px;
   position: relative;
 }
 
@@ -703,6 +712,60 @@ h1 {
   height: 65px;
 }
 
+.zootaxi__wrapper {
+  height: 100vh;
+  max-height: 340px;
+  background-color: #CDD7DC;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.zootaxi__content {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0;
+          flex: 1 0;
+  padding-left: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding-right: 50px;
+}
+
+.zootaxi__title {
+  font-size: 80px;
+  line-height: 80px;
+  font-weight: 800;
+  letter-spacing: 0.15px;
+  font-style: "normal";
+  padding-bottom: 25px;
+}
+
+.zootaxi__text {
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: 500;
+  letter-spacing: 0.15px;
+  font-style: "normal";
+}
+
+.zootaxi__img {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0;
+          flex: 1 0;
+  max-width: 520px;
+  background: url("/img/zootaxi.jpg") center/cover no-repeat;
+}
+
 * {
   font-family: 'Raleway', sans-serif;
   font-size: 14px;
@@ -766,21 +829,40 @@ h1 {
   margin-bottom: 160px;
 }
 
+.services {
+  margin-bottom: 180px;
+}
+
 @media (max-width: 992.98px) {
+  .services__note {
+    margin-bottom: 20px;
+  }
+
   .services__filters {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: end;
+    margin-bottom: 20px;
+    padding-top: 10px;
   }
 
-  .services__filter:not(:first-of-type) {
-    margin-top: 20px;
+  .services__filters-cleaner {
+    margin: 0;
+  }
+
+  .services__filter {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 30px;
   }
 
   .services__slider {
     height: 370px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .services__slide-wrapper {
@@ -831,6 +913,10 @@ h1 {
 
   .services__slide-btn {
     height: 65px;
+  }
+
+  .zootaxi__content {
+    padding-left: 50px;
   }
 }
 
@@ -903,9 +989,52 @@ h1 {
   .about p:first-of-type {
     margin-bottom: 22px;
   }
+
+  .zootaxi__wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+    min-height: auto;
+  }
+
+  .zootaxi__content {
+    padding: 60px 0;
+  }
+
+  .zootaxi__title {
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 800;
+    letter-spacing: 0.15px;
+    font-style: "normal";
+    text-align: center;
+    padding: 0 10px 16px;
+  }
+
+  .zootaxi__text {
+    font-size: 16px;
+    line-height: 25px;
+    font-weight: 500;
+    letter-spacing: 0.15px;
+    font-style: "normal";
+    text-align: center;
+    padding: 0 10px;
+  }
+
+  .zootaxi__img {
+    min-height: 190px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0;
+            flex: 1 0;
+    max-width: none;
+    background: url("/img/zootaxi.jpg") center/cover no-repeat;
+  }
 }
 @supports (-webkit-appearance:none){
 .header__bg{background:url(../img/main/1_dog.webp) bottom/cover no-repeat}
+.zootaxi__img{background:url("/img/zootaxi.webp") center/cover no-repeat}
 }
 
  @media (max-width: 992.98px){
@@ -919,7 +1048,7 @@ h1 {
  @media (max-width: 767.98px){
 
 @supports (-webkit-appearance:none){
-
+.zootaxi__img{background:url("/img/zootaxi.webp") center/cover no-repeat}
 }
 
 }
