@@ -105,15 +105,7 @@
             left: 8px;
             transition: opacity .6s ease;
         }
-        &-quotes-g
-        {
-            background: url('img/quotes-g.svg') center/cover no-repeat;
-        }
-        &-quotes-y
-        {
-            background: url('img/quotes-y.svg') center/cover no-repeat;
-            opacity: 0;
-        }
+        &-quotes-y { opacity: 0; }
         &-img
         {
             display: flex;

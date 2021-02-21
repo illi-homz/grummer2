@@ -1167,12 +1167,7 @@ h1 {
   transition: opacity .6s ease;
 }
 
-.feedbacks__item-quotes-g {
-  background: url("/img/quotes-g.svg") center/cover no-repeat;
-}
-
 .feedbacks__item-quotes-y {
-  background: url("/img/quotes-y.svg") center/cover no-repeat;
   opacity: 0;
 }
 
@@ -1675,8 +1670,6 @@ h1 {
 .header__bg{background:url(../img/main/1_dog.webp) bottom/cover no-repeat}
 .zootaxi__img{background:url("../img/zootaxi.webp") center/cover no-repeat}
 .promo__wrapper{background:url("/img/promo-bg-m.webp") center/cover no-repeat}
-.feedbacks__item-quotes-g{background:url("/img/quotes-g.svg") center/cover no-repeat}
-.feedbacks__item-quotes-y{background:url("/img/quotes-y.svg") center/cover no-repeat}
 }
 
  @media (min-width: 479.98px){
