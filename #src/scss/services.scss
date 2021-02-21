@@ -40,7 +40,6 @@
   {
     display: flex;
     align-items: center;
-    // position: relative;
     width: 100%;
   }
   &__filters-cleaner
@@ -83,25 +82,19 @@
     margin-top: 50px;
     position: relative;
 
-    &:hover .slick-arrow { display: flex !important; }
+    &:hover .slick-arrow {
+      visibility: visible;
+      opacity: 1;
+    }
   }
   .slick-arrow
   {
-    display: none !important;
+    @extend %arrows;
     position: absolute;
+    visibility: hidden;
+    opacity: 0;
     top: 40%;
-    z-index: 5;
-    font-size: 0;
-    width: 65px;
-    height: 65px;
-    background-color: #fff;
-    box-shadow: 0px 4px 6px rgba(46, 84, 103, 0.04), 0px 10px 16px rgba(42, 77, 95, 0.05);
-    border-radius: 12px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-
-    &.slick-disabled {display: none;}
+    transition: all .2s ease;
 
     &:active:not(.slick-disabled) {
       transform: translateY(2px);

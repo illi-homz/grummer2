@@ -1,0 +1,47 @@
+.promo
+{
+    padding-top: 70px;
+
+    @media ($tablet) { padding-top: 100px; }
+
+    .container {
+        padding: 0;
+
+        @media ($tablet) { padding: 0 15px; }
+    }
+    h1
+    {
+        margin-bottom: 40px;
+        text-align: center;
+        @media ($tablet) {
+            padding-top: 55px;
+            text-align: left;
+        }
+}
+    &__wrapper
+    {
+        height: 265px;
+        background: url('/img/promo-bg-m.jpg') center / cover no-repeat ;
+        padding: 35px;
+        @media ($tablet) {
+            height: 495px;
+            background-position: center;
+            background: url('/img/promo-bg.jpg') center / cover no-repeat ;
+            padding: 55px;
+        }
+        @media ($desctop) {padding: 95px;}
+    }
+    &__title
+    {
+        @include fontSet(30, 35, 800);
+        margin-bottom: 15px;
+        @media ($mobile) { @include fontSet(40, 49, 800); }
+        @media ($tablet) { @include fontSet(50, 59, 800); }
+    }
+    &__text
+    {
+        @include fontSet(16, 19, 500);
+        @media ($mobile) { @include fontSet(23, 27, 500); }
+        @media ($tablet) { @include fontSet(23, 27, 500); }
+    }
+}

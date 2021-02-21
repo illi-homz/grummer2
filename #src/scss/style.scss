@@ -3,11 +3,17 @@
 @import 'settings/mixins';
 @import 'settings/tipografy';
 @import 'settings/g-select';
+@import 'fragments';
+
 @import 'fonts';
 @import 'header';
 @import 'about';
 @import 'services';
 @import 'zootaxi';
+@import 'ourworks';
+@import 'questions';
+@import 'promo';
+@import 'feedbacks';
 
 *
 {
@@ -18,10 +24,10 @@
 
 .container
 {
-  max-width: ($lg+20)+px;
+  max-width: ($lg+30)+px;
   margin: 0 auto;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .row { display: flex; }
@@ -44,13 +50,22 @@
 
 .text-center { text-align: center; }
 
-.header { margin-bottom: 20px; }
+.header {
+  margin-bottom: 20px;
+  @media ($tablet) { margin-bottom: 50px; }
+}
 
-.about {margin-bottom: 160px;}
+.about {
+  margin-bottom: 70px;
+  @media ($tablet) { margin-bottom: 160px; }
+}
 
-.services {margin-bottom: 180px;}
+.services {
+  margin-bottom: 120px;
+  @media ($tablet) { margin-bottom: 180px; }
+}
 
-
-@media (max-width: $sm+px)
-{
+.zootaxi {
+  // margin-bottom: 100px;
+  // @media ($tablet) { margin-bottom: 60px; }
 }

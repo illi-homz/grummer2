@@ -1,4 +1,7 @@
 h1
 {
-  @include fontSet(45, 47, 800);
+  @include fontSet(30, 32, 800);
+  @media ($tablet) {
+    @include fontSet(45, 47, 800);
+  }
 }

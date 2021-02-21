@@ -1,0 +1,113 @@
+.ourworks
+{
+    padding: 70px 0 35px;
+    @media ($tablet) { padding: 110px 0 80px; }
+
+    h1
+    {
+        margin-bottom: 40px;
+        @media ($tablet) { margin-bottom: 80px; }
+    }
+
+    &__wrapper
+    {
+        display: flex;
+        flex-direction: column;
+
+        @media ($tablet) {
+            flex-direction: row;
+        }
+    }
+
+    &__info
+        {
+        position: relative;
+        flex: 1 0;
+        padding-top: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        @media ($tablet) {
+            padding: 0 0 0 15px;
+            max-width: 430px;
+        }
+    }
+    &__nav
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+        margin-top: 25px;
+
+        @media ($tablet) {
+            position: absolute;
+            bottom: 0;
+            width: calc(100% - 15px);
+            margin-top: 0;
+        }
+    }
+    &__title
+    {
+        @include fontSet(19, 20, 700);
+        margin-bottom: 15px;
+        @media ($tablet) {margin-bottom: 25px;}
+    }
+    &__text
+    {
+        @include fontSet(16, 20, 500);
+    }
+
+    &__slider
+    {
+        overflow: hidden;
+        flex: 2 0;
+        position: relative;
+        height: 250px;
+
+        @media ($tablet) {
+            height: 565px;
+        }
+        &-item
+        {
+            img
+            {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+        .slick-list
+        {
+            height: inherit;
+        }
+        .slick-track
+        {
+            display: flex;
+            height: inherit;
+        }
+    }
+    .slick-arrow
+    {
+        @extend %arrows;
+        visibility: hidden;
+        height: 0;
+
+        @media ($tablet) {
+            height: 65px;
+            visibility: visible;
+        }
+    }
+    .prev-arrow
+    {
+        img { transform: rotate(180deg); }
+    }
+    .slick-dots
+    {
+        @extend %dots;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,18 @@
+<section class="questions" id="questions">
+    <h1 class="text-center">Ответы на ваши вопросы</h1>
+    <div class="questions__wrapper">
+        <div class="questions__spoiler">
+            <ul>
+                <script id="questions__spoiler-temp" type="tuts/template">
+                    <li class="questions__item">
+                        <div class="questions__item-icon"></div>
+                        <h4 onclick="grummer.questions.toggleText(this)">{{question}}</h4>
+                        <div class="questions__item-text">
+                            {{answer}}
+                        </div>
+                    </li>
+                </script>
+            </ul>
+        </div>
+    </div>
+</section>
