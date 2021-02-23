@@ -1,0 +1,101 @@
+.footer
+{
+    background-color: #ECECEC;
+    &__wrapper
+    {
+        position: relative;
+        padding: 125px 0 70px;
+        @media ($tablet) {
+            display: flex;
+            justify-content: space-between;
+            padding-right: 50px;
+        }
+        @media ($desctop) {
+            padding-right: 160px;
+        }
+    }
+    &__logo
+    {
+        margin-bottom: 40px;
+        img
+        {
+            width: 100%;
+            @media ($mobile) {width: auto;}
+        }
+    }
+    &__links
+    {
+        flex: 1 0;
+        max-width: 350px;
+        margin: 0 15px;
+        &-on-bloks
+        {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 56px;
+
+            li:not(:last-child) {margin-bottom: 32px;}
+
+            @media ($desctop) {
+                flex-direction: row;
+                margin-bottom: 35px;
+                justify-content: space-between;
+
+                li:not(:last-child)
+                {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        &-on-social
+        {
+            display: flex;
+            position: absolute;
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            li:not(:last-child) {margin-right: 8px;}
+
+            @media ($tablet) {
+                position: static;
+                transform: translateX(0);
+            }
+        }
+    }
+    &__contacts
+    {
+        h5
+        {
+            @include fontSet(14, 16, 700);
+            margin-bottom: 25px;
+        }
+        &-map-m
+        {
+            @media ($tablet) {display: none;}
+        }
+        &-map-d
+        {
+            display: none;
+            @media ($tablet) {display: block;}
+        }
+        li
+        {
+            &:not(:last-child) {
+                margin-bottom: 8px;
+            }
+        }
+        li a
+        {
+            display: inline-flex;
+            align-items: center;
+
+            img {margin-right: 10px;}
+
+            @media ($tablet)
+            {
+                img {margin-right: 16px;}
+            }
+        }
+    }
+}

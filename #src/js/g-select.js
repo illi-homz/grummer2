@@ -27,7 +27,7 @@ grummer.gSelect = {
   {
     $select.find('._select-input').val(value).trigger('change');
   },
-  selecttItem(instance)
+  selectItem(instance)
   {
     const $inst = $(instance)
     const $select = $inst.parents('._select');

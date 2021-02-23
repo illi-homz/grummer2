@@ -14,6 +14,8 @@
 @import 'questions';
 @import 'promo';
 @import 'feedbacks';
+@import 'callback';
+@import 'footer';
 
 *
 {
@@ -50,22 +52,55 @@
 
 .text-center { text-align: center; }
 
-.header {
-  margin-bottom: 20px;
-  @media ($tablet) { margin-bottom: 50px; }
+.form
+{
+  .field
+  {
+    &.error
+    {
+      .error-msg {display: block;}
+    }
+  }
+  .error-msg {display: none;}
 }
 
-.about {
-  margin-bottom: 70px;
-  @media ($tablet) { margin-bottom: 160px; }
+// .header {
+//   margin-bottom: 20px;
+//   @media ($tablet) { margin-bottom: 50px; }
+// }
+
+.about
+{
+  margin-bottom: 50px;
+  @media ($tablet) { margin-bottom: 110px; }
 }
 
-.services {
+.services
+{
   margin-bottom: 120px;
   @media ($tablet) { margin-bottom: 180px; }
 }
 
-.zootaxi {
-  // margin-bottom: 100px;
-  // @media ($tablet) { margin-bottom: 60px; }
+.zootaxi
+{
+  margin-bottom: 55px;
+  @media ($tablet) { margin-bottom: 60px; }
+}
+
+.questions
+{
+  margin-bottom: 55px;
+  @media ($tablet) { margin-bottom: 50px; }
+}
+
+.promo
+{
+  margin-bottom: 55px;
+  @media ($tablet) { margin-bottom: 60px; }
+}
+
+.callback
+{
+  margin-bottom: 50px;
+  @media ($tablet) { margin-bottom: 100px; }
 }

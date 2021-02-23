@@ -16,7 +16,7 @@
                     <li>
                         <a
                             href="#{{value}}"
-                            onclick="grummer.header.goToBlock(this.attributes.href.value, {{isMobile}})">
+                            onclick="grummer.goToBlock(event, this, {{isMobile}})">
                             {{title}}
                         </a>
                     </li>
@@ -29,7 +29,7 @@
         <div class="header__content">
             <h1>Стрижка<br>домашних<br>животных</h1>
             <p>Ваша благодарность питомцу<br>за его любовь без остатка</p>
-            <a href="#call">
+            <a href="#callback">
                 <div class="btn header__call-btn yellow">
                     Заказать звонок
                 </div>

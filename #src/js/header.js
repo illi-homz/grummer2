@@ -14,9 +14,9 @@ grummer.header = {
       {title: 'О салоне', value: 'about'},
       {title: 'Услуги', value: 'services'},
       {title: 'Наши работы', value: 'ourworks'},
-      {title: 'Акции', value: 'stocks'},
+      {title: 'Акции', value: 'promo'},
       {title: 'Отзывы', value: 'feedbacks'},
-      {title: 'Контакты', value: 'contacts'}
+      {title: 'Контакты', value: 'footer'}
     ]
     this.navList = $('.header__links')
     this.mobileMenuLinks = $('.header__mobile-menu-links')
@@ -51,12 +51,19 @@ grummer.header = {
     })
     list.append(frag)
   },
-  goToBlock(target, isMobile=false) {
-    grummer.goToBlock(target)
+  goToBlock(event, $el, isMobile=false) {
+    event.preventDefault();
+
+
+    grummer.goToBlock($el.hash)
     if (isMobile) this.toggleMenu()
   },
   toggleMenu() {
     this.menu.slideToggle( 300 )
     this.burger.toggleClass('active')
+
+    $('body').css('overflow') === 'visible'
+      ? $('body').css({overflow: 'hidden'})
+      : $('body').css({overflow: 'auto'})
   }
 }

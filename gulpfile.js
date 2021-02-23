@@ -48,7 +48,8 @@ let {src, dest} = require('gulp'),
   svgSprite = require('gulp-svg-sprite'),
   ttf2woff = require('gulp-ttf2woff'),
   ttf2woff2 = require('gulp-ttf2woff2'),
-  fonter = require('gulp-fonter');
+  fonter = require('gulp-fonter'),
+  uglify = require('gulp-uglify-es').default;
 
 
 function browserSync() {
@@ -94,7 +95,22 @@ function js() {
   return src(path.src.js)
     .pipe(fileinclude())
     .pipe(babel({ // изменение кода для старых браузеров
-      presets: ['@babel/env']
+      // presets: ['@babel/env']
+      env: {
+        release: {
+          presets: [
+            [
+              "@babel/preset-env",
+              {
+                "modules": false,
+                "targets": {
+                  "esmodules": true
+                }
+              }
+            ]
+          ],
+        }
+      }
     }))
     .pipe(dest(path.build.js))
     .pipe(uglify()) // сжатие
