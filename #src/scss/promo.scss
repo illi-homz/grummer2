@@ -20,12 +20,12 @@
     &__wrapper
     {
         height: 265px;
-        background: url('/img/promo-bg-m.jpg') center / cover no-repeat ;
+        background: url('../img/promo-bg-m.jpg') center / cover no-repeat ;
         padding: 35px;
         @media ($tablet) {
             height: 495px;
             background-position: center;
-            background: url('/img/promo-bg.jpg') center / cover no-repeat ;
+            background: url('../img/promo-bg.jpg') center / cover no-repeat ;
             padding: 55px;
         }
         @media ($desctop) {padding: 95px;}

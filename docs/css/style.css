@@ -1052,7 +1052,7 @@ h1 {
 
 .promo__wrapper {
   height: 265px;
-  background: url("/img/promo-bg-m.jpg") center/cover no-repeat;
+  background: url("../img/promo-bg-m.jpg") center/cover no-repeat;
   padding: 35px;
 }
 
@@ -1581,7 +1581,7 @@ h1 {
 
   .questions {
     padding: 180px 0;
-    background: url("/img/answers-bg.png") center/100% 100% no-repeat;
+    background: url("../img/answers-bg.png") center/100% 100% no-repeat;
   }
 
   .questions h1 {
@@ -1633,7 +1633,7 @@ h1 {
   .promo__wrapper {
     height: 495px;
     background-position: center;
-    background: url("/img/promo-bg.jpg") center/cover no-repeat;
+    background: url("../img/promo-bg.jpg") center/cover no-repeat;
     padding: 55px;
   }
 
@@ -1993,7 +1993,7 @@ h1 {
 @supports (-webkit-appearance:none){
 .header__bg{background:url(../img/main/1_dog.webp) bottom/cover no-repeat}
 .zootaxi__img{background:url("../img/zootaxi.webp") center/cover no-repeat}
-.promo__wrapper{background:url("/img/promo-bg-m.webp") center/cover no-repeat}
+.promo__wrapper{background:url("../img/promo-bg-m.webp") center/cover no-repeat}
 }
 
  @media (min-width: 479.98px){
@@ -2007,8 +2007,8 @@ h1 {
  @media (min-width: 767.98px){
 
 @supports (-webkit-appearance:none){
-.questions{background:url("/img/answers-bg.webp") center/100% 100% no-repeat}
-.promo__wrapper{background:url("/img/promo-bg.webp") center/cover no-repeat}
+.questions{background:url("../img/answers-bg.webp") center/100% 100% no-repeat}
+.promo__wrapper{background:url("../img/promo-bg.webp") center/cover no-repeat}
 }
 
 }
