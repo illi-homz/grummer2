@@ -1,0 +1,94 @@
+<div class="popup-main popup _popup-main" id="popup-main">
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__close" onclick="grummer.popup.close('_popup-main')"></div>
+            <h1>Оставить заявку</h1>
+            <form
+                onsubmit="grummer.popupMain.submit(this, event)"
+                class="popup-main__form">
+                <h3>Услуга</h3>
+                <script id="popup-main__form-services" type="tuts/template">
+                    <li class="popup-main__form-service">
+                        <label>
+                            <input type="hidden" name="services" value="{{title}}">
+                        </label>
+                        <span>{{title}}</span>
+                        <div class="popup-main__form-service-actions">
+                            <span class="popup-main__form-service-price">{{price}}</span>
+                            <div class="popup-main__form-service-close"></div>
+                        </div>
+                    </li>
+                </script>
+                <div class="popup-main__form-field popup-main__form-services one">
+                    <ul class="popup-main__form-services-ul">
+                        <!-- place serices -->
+                        <li
+                            class="popup-main__form-service popup-main__form-service-action mobile"
+                            onclick="grummer.popup.open('_popup-services')">
+                            <span>Добавить услугу</span>
+                            <div class="popup-main__form-service-action-btn"></div>
+                        </li>
+                    </ul>
+                    <div
+                        class="popup-main__form-service-action tablet"
+                        onclick="grummer.popup.open('_popup-services')">
+                        <span>Добавить услугу</span>
+                        <div class="popup-main__form-service-action-btn"></div>
+                    </div>
+                </div>
+                <div class="popup-main__form-wrapper">
+                    <div class="popup-main__form-field">
+                        <label class="field _field" data-call="empty" data-msg="Введите фамилию">
+                            <h3>Фамилия</h3>
+                            <input name="lastname" type="text" placeholder="Введите фамилию">
+                            <div class="error-msg _error-msg"></div>
+                        </label>
+                    </div>
+                    <div class="popup-main__form-field">
+                        <label class="field _field" data-call="empty" data-msg="Введите имя">
+                            <h3>Имя</h3>
+                            <input name="name" type="text" placeholder="Введите имя">
+                            <div class="error-msg _error-msg"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="popup-main__form-wrapper">
+                    <div class="popup-main__form-field">
+                        <label class="field _field" data-call="empty" data-msg="Введите телефон">
+                            <h3>Телефон</h3>
+                            <input name="tel" type="text" placeholder="+7">
+                            <div class="error-msg _error-msg"></div>
+                        </label>
+                    </div>
+                    <div class="popup-main__form-field _breed">
+                        <label class="field _field" data-call="empty" data-msg="Введите имя">
+                            <h3>Порода животного</h3>
+                            <input name="breed" type="text" placeholder="Введите имя">
+                            <div class="error-msg _error-msg"></div>
+                        </label>
+                    </div>
+                    <div class="popup-main__form-field">
+                        <label class="field _field" data-call="empty" data-msg="Введите имя">
+                            <h3>Дата</h3>
+                            <input name="date" type="text">
+                            <div class="error-msg _error-msg"></div>
+                        </label>
+                    </div>
+                </div>
+                <div class="popup-main__form-field">
+                    <label class="field _field" data-call="" data-msg="">
+                        <h3>Комментарий</h3>
+                        <textarea name="comment" placeholder="Особые пожелания"></textarea>
+                    </label>
+                </div>
+                <div class="popup-main__form-price">Итого: <span>1800</span></div>
+                <div class="popup-main__form-wrapper popup-main__form-wrapper-footer">
+                    <button class="btn yellow" type="submit">Отправить заявку</button>
+                    <div class="popup-main__form-info">
+                        *Оставьте заявку и мы перезвоним<br>в течение минуты
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -16,6 +16,9 @@
 @import 'feedbacks';
 @import 'callback';
 @import 'footer';
+@import 'popup';
+@import 'popup-main';
+@import 'popup-services';
 
 *
 {
@@ -23,6 +26,8 @@
   @include fontSet(14, 16, 400);
   color: $textColor;
 }
+
+body.lock {overflow: hidden !important;}
 
 .container
 {

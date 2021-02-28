@@ -1,0 +1,85 @@
+<div class="popup-services popup _popup-services" id="popup-services">
+    <div class="popup__body">
+        <div class="popup__content">
+            <div class="popup__back" onclick="grummer.popup.back('_popup-services')"></div>
+            <div class="popup__close" onclick="grummer.popup.close('_popup-services')"></div>
+            <h1>Оставить заявку</h1>
+            <div class="popup-services__filter">
+                <div class="popup-services__filter-title">Категоря</div>
+                <div class="popup-services__categories g-select _select">
+                    <input
+                    type="hidden"
+                    class="_select-input"
+                    onchange="grummer.popupServices.filterServicesByCategory(this.value)"/>
+                    <div class="g-select__header" onclick="grummer.gSelect.toggle(this)">
+                        <span class="_selected-text">Любая</span>
+                    </div>
+                    <div class="g-select__body _options">
+                        <ul class="g-select__items">
+                            <script class="popup-services__filter-temp" type="tuts/template">
+                                <li
+                                    class="g-select__item _option"
+                                    data-value="{{value}}"
+                                    onclick="grummer.gSelect.selectItem(this)">
+                                    <img src="img/services/{{icon}}.svg" />
+                                    {{title}}
+                                </li>
+                            </script>
+                            <li
+                                class="g-select__item _option"
+                                data-value=""
+                                onclick="grummer.gSelect.selectItem(this)">
+                                Любая
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="popup-services__sliders">
+                <div class="popup-services__slider popup-services__slider-services">
+                    <script id="popup-services__slider-temp" type="tuts/template">
+                        <div class="services__slide">
+                            <div class="services__slide-wrapper">
+                                <div>
+                                    <div class="services__slide-img">
+                                        <img src="img/services/{{img}}" alt="">
+                                    </div>
+                                </div>
+                                <div class="services__slide-data">
+                                    <div class="services__slide-title">{{title}}</div>
+                                    <div class="services__slide-desc">
+                                        {{text}}
+                                    </div>
+                                    <div class="services__slide-price">{{price}}</div>
+                                    <div class="services__slide-time">{{time}}</div>
+                                    <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}')">
+                                        Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                </div>
+                <h3>Дополнительные услуги</h3>
+                <div class="popup-services__slider popup-services__slider-add-services">
+                    <script id="popup-services__slider-add-temp" type="tuts/template">
+                        <div class="services__slide">
+                            <div class="services__slide-wrapper">
+                                <div class="services__slide-data">
+                                    <div class="services__slide-title">{{title}}</div>
+                                    <div class="services__slide-price">{{price}}</div>
+                                    <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}')">
+                                        Записаться
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </script>
+                </div>
+            </div>
+            <div class="popup-services__services-list">
+                hello
+            </div>
+        </div>
+    </div>
+</div>

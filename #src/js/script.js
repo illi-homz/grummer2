@@ -20,6 +20,9 @@ const grummer = {
 }
 
 @@include('lib/tlg.js');
+@@include('popup.js');
+@@include('popup-main.js');
+@@include('popup-services.js');
 
 @@include('store.js');
 @@include('g-select.js');
@@ -32,9 +35,11 @@ const grummer = {
 
 
 grummer.init = function() {
-  this.tlg.init()
-
   this.store.init()
+  this.tlg.init()
+  this.popup.init()
+  this.popupServices.init()
+
   this.header.init()
   this.services.init()
   this.ourworks.init()
