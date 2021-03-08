@@ -5,7 +5,7 @@ grummer.header = {
     this.dataInit()
     this.linksTemplating(this.navList)
     this.linksTemplating(this.mobileMenuLinks)
-    // this.changeBg()
+    this.changeBg()
   },
   dataInit() {
     this.backgrounds = ['1_dog.jpg', '2_cat.jpg', '3_dog.jpg', '4_cat.jpg']
