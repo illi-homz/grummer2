@@ -132,7 +132,7 @@ grummer.popupMain = {
       'Услуги': services,
       'Клиент': `${form.name.value} ${form.lastname.value}`,
       'Тел': form.tel.value,
-      'Парода': breed ? breed.title : '',
+      'Порода': breed ? breed.title : '',
       'Дата': form.date.value,
       'Комментарий': form.comment.value,
       'Мин. цена': form.price.value

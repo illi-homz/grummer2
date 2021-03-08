@@ -5980,9 +5980,10 @@ const grummer = {
 };
 grummer.tlg = {
   init() {
-    this.botToken = '1099602765:AAHqQuSvZMqFzjWQLhwHIYV977STJZLRG60';
-    this.chat_id = "256263953";
-    this.URL = `https://api.telegram.org/bot${this.botToken}/sendMessage`;
+    // this.botToken = '1099602765:AAHqQuSvZMqFzjWQLhwHIYV977STJZLRG60'
+    // this.chat_id = "256263953"
+    // this.URL = `https://api.telegram.org/bot${this.botToken}/sendMessage`
+    this.URL = `https://grummer-sender.herokuapp.com/sendMessage`;
   },
 
   async sendCallBack(form) {
@@ -5996,17 +5997,17 @@ grummer.tlg = {
   },
 
   async sendMessage(msg) {
-    const data = {
-      'chat_id': this.chat_id,
-      'text': msg,
-      'parse_mode': 'markdown'
-    };
+    // const data = {
+    // 	'chat_id': this.chat_id,
+    // 	'text': msg,
+    // 	'parse_mode': 'markdown'
+    // };
     return await fetch(this.URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(msg)
     }).then(response => response.status === 200);
   }
 
@@ -6198,7 +6199,7 @@ grummer.popupMain = {
       'Услуги': services,
       'Клиент': `${form.name.value} ${form.lastname.value}`,
       'Тел': form.tel.value,
-      'Парода': breed ? breed.title : '',
+      'Порода': breed ? breed.title : '',
       'Дата': form.date.value,
       'Комментарий': form.comment.value,
       'Мин. цена': form.price.value
