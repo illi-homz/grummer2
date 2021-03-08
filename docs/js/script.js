@@ -6877,7 +6877,8 @@ grummer.header = {
   init() {
     this.dataInit();
     this.linksTemplating(this.navList);
-    this.linksTemplating(this.mobileMenuLinks); // this.changeBg()
+    this.linksTemplating(this.mobileMenuLinks);
+    this.changeBg();
   },
 
   dataInit() {
