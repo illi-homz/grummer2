@@ -33,7 +33,7 @@ grummer.header = {
     return setInterval(() => {
       if ( count > arrLen - 1 ) count = 0
       this.headerBg.fadeOut(timeFade, () => {
-        this.headerBg.css({background: `url(../img/main/${this.backgrounds[count]}) bottom / cover no-repeat`})
+        this.headerBg.css({background: `url(img/main/${this.backgrounds[count]}) bottom / cover no-repeat`})
         this.headerBg.fadeIn(timeFade)
         count++
       })
