@@ -52,11 +52,11 @@
     left: -1px;
     top: 100%;
     border: 1px solid #ECEFEF;
-    border-bottom-left-radius: 11px;
-    border-bottom-right-radius: 11px;
+    border-radius: 11px;
     background-color: #fff;
     position: absolute;
     z-index: 5;
+    transition: border-radius .3s ease;
 
     li
     {
@@ -77,6 +77,11 @@
     {
       &:before {transform: rotate(-45deg);}
       &:after {transform: rotate(45deg);}
+    }
+    .g-select__body
+    {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
   }
   &.error

@@ -67,7 +67,12 @@
 		width: 16px;
 		margin-right: 8px;
 		}
-		.g-select__body {background: #f8f8f8;}
+		.g-select__body {background: #fff;}
+
+		@media ($tablet) {
+			.g-select__body {background: #f8f8f8;}
+			.g-select__item:last-child {display: none;}
+		}
 	}
 	&__mobile-services
 	{

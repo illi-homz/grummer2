@@ -17,6 +17,14 @@
                         <span class="_selected-text">Любая</span>
                     </div>
                     <div class="g-select__body _options">
+                        <script class="popup-services__filter-last-temp" type="tuts/template">
+                            <li
+                                class="g-select__item _option"
+                                data-value=""
+                                onclick="grummer.gSelect.selectItem(this)">
+                                Любая
+                            </li>
+                        </script>
                         <script class="popup-services__filter-temp" type="tuts/template">
                             <li
                                 class="g-select__item _option"
@@ -24,14 +32,6 @@
                                 onclick="grummer.gSelect.selectItem(this)">
                                 <img src="img/services/{{icon}}.svg" />
                                 {{title}}
-                            </li>
-                        </script>
-                        <script class="popup-services__filter-last-temp" type="tuts/template">
-                            <li
-                                class="g-select__item _option"
-                                data-value=""
-                                onclick="grummer.gSelect.selectItem(this)">
-                                Любая
                             </li>
                         </script>
                         <ul class="g-select__items"></ul>
