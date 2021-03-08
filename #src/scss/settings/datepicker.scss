@@ -1,0 +1,65 @@
+.datepicker
+{
+    box-shadow: none;
+
+    * {font-family: 'SFPro', 'Raleway', sans-serif;}
+}
+
+.datepicker--pointer { display: none; }
+
+.datepicker--nav
+{
+    min-height: 45px;
+    border-bottom-color: #CDD7DC;
+}
+.datepicker--nav-title
+{
+    @include fontSet(15, 20, 600);
+    color: 243138;
+}
+.datepicker--nav-action svg
+{
+    width: 6px;
+    height: 12px;
+}
+.datepicker--day-name
+{
+    color: rgba(36, 49, 56, .5);
+}
+
+.datepicker--cell
+{
+    @include fontSet(13, 18, 400);
+
+    &.-other-month-
+    {
+        color: #CDD7DC;
+    }
+
+    &.-focus-,
+    &.-selected-,
+    &.-selected-.-current-,
+    &.-selected-.-focus-
+    {
+        background: none;
+        border-radius: 50%;
+        position: relative;
+
+        &::before
+        {
+            content: '';
+            position: absolute;
+            width: 21.5px;
+            height: 20px;
+            background-color: #FEC71A;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+    }
+    &.-current- {color: #FEC71A;}
+
+    &.-focus-::before {background-color: #CDD7DC;}
+}

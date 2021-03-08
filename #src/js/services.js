@@ -3,7 +3,6 @@
 grummer.services = {
   init() {
     this.breed = ''
-    this.setBreeds(grummer.breeds)
     this.setCategories(grummer.categories)
 
     this.sliderList = $('.services__slider')
@@ -15,20 +14,6 @@ grummer.services = {
       this.sliderTemplate
     )
     this.initSlider()
-  },
-
-
-  setBreeds(arr)
-  {
-    const list = $('.services__breeds .g-select__items')
-    const template = $.trim( $('.services__breeds .services__filter-temp').html() )
-    let frag = ''
-    arr.forEach(item => {
-      frag += template
-        .replace( /{{title}}/ig, item.title )
-        .replace( /{{value}}/ig, item.value )
-    });
-    list.append(frag)
   },
   setCategories(arr)
   {
@@ -125,6 +110,8 @@ grummer.services = {
 
     const dogsMenu = $('.services__info-for-dogs')
 
+    grummer.animal = animal
+
     animal === 'dog' ? dogsMenu.slideDown(300) : dogsMenu.slideUp(300)
 
     animal
@@ -166,6 +153,9 @@ grummer.services = {
       return obj.value === this.breed
     })
 
-    console.log(service, breed );
+    grummer.currentServices = [service]
+    if (breed) grummer.currentBreed = breed.title
+
+    grummer.popupMain.open()
   }
 }

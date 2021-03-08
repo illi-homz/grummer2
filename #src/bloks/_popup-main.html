@@ -15,7 +15,9 @@
                         <span>{{title}}</span>
                         <div class="popup-main__form-service-actions">
                             <span class="popup-main__form-service-price">{{price}}</span>
-                            <div class="popup-main__form-service-close"></div>
+                            <div
+                                onclick="grummer.popupMain.removeService('{{title}}')"
+                                class="popup-main__form-service-remove"></div>
                         </div>
                     </li>
                 </script>
@@ -24,14 +26,14 @@
                         <!-- place serices -->
                         <li
                             class="popup-main__form-service popup-main__form-service-action mobile"
-                            onclick="grummer.popup.open('_popup-services')">
+                            onclick="grummer.popupServices.open()">
                             <span>Добавить услугу</span>
                             <div class="popup-main__form-service-action-btn"></div>
                         </li>
                     </ul>
                     <div
                         class="popup-main__form-service-action tablet"
-                        onclick="grummer.popup.open('_popup-services')">
+                        onclick="grummer.popupServices.open()">
                         <span>Добавить услугу</span>
                         <div class="popup-main__form-service-action-btn"></div>
                     </div>
@@ -52,25 +54,44 @@
                         </label>
                     </div>
                 </div>
-                <div class="popup-main__form-wrapper">
+                <div class="popup-main__form-wrapper cols-3">
                     <div class="popup-main__form-field">
                         <label class="field _field" data-call="empty" data-msg="Введите телефон">
                             <h3>Телефон</h3>
-                            <input name="tel" type="text" placeholder="+7">
+                            <input name="tel" class="_input-phone" type="text" placeholder="+7">
                             <div class="error-msg _error-msg"></div>
                         </label>
                     </div>
                     <div class="popup-main__form-field _breed">
-                        <label class="field _field" data-call="empty" data-msg="Введите имя">
+                        <label class="field _field">
                             <h3>Порода животного</h3>
-                            <input name="breed" type="text" placeholder="Введите имя">
-                            <div class="error-msg _error-msg"></div>
+                            <div class="popup-main__form-breeds g-select _select">
+                                <input
+                                    name="breed"
+                                    type="hidden"
+                                    class="_select-input"/>
+                                <div class="g-select__header" onclick="grummer.gSelect.toggle(this)">
+                                    <span class="_selected-text">Любая</span>
+                                </div>
+                                <div class="g-select__body _options">
+                                    <ul class="g-select__items _breeds-items">
+                                        <script class="__breeds-temp" type="tuts/template">
+                                            <li
+                                                class="g-select__item _option"
+                                                data-value="{{value}}"
+                                                onclick="grummer.gSelect.selectItem(this)">
+                                                {{title}}
+                                            </li>
+                                        </script>
+                                    </ul>
+                                </div>
+                            </div>
                         </label>
                     </div>
                     <div class="popup-main__form-field">
                         <label class="field _field" data-call="empty" data-msg="Введите имя">
                             <h3>Дата</h3>
-                            <input name="date" type="text">
+                            <input name="date" type="text" id="datepicker">
                             <div class="error-msg _error-msg"></div>
                         </label>
                     </div>
@@ -81,7 +102,10 @@
                         <textarea name="comment" placeholder="Особые пожелания"></textarea>
                     </label>
                 </div>
-                <div class="popup-main__form-price">Итого: <span>1800</span></div>
+                <div class="popup-main__form-price">
+                    <input name="price" type="hidden" id="_final-price">
+                    Итого: <span class="_final-price">1800</span>
+                </div>
                 <div class="popup-main__form-wrapper popup-main__form-wrapper-footer">
                     <button class="btn yellow" type="submit">Отправить заявку</button>
                     <div class="popup-main__form-info">

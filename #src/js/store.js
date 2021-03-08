@@ -170,7 +170,7 @@ grummer.store = {
       text: 'Стрижка когтей,чистка ушей,ультразвуковая чистка зубов,чистка анальных желёз',
       img: 'wash-plus.svg'},
 
-    {title: 'Выведение блох и удаление клещей', animal: 'cat', price: '300', time: '',
+    {title: 'Выведение блох и удаление клещей', animal: '', price: '300', time: '',
       category: 'add-services',
       text: 'Дополнительная услуга',
       img: 'tick.svg'},

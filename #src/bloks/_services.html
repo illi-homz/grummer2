@@ -25,8 +25,8 @@
                         <span class="_selected-text">Любая</span>
                     </div>
                     <div class="g-select__body _options">
-                        <ul class="g-select__items">
-                            <script class="services__filter-temp" type="tuts/template">
+                        <ul class="g-select__items _breeds-items">
+                            <script class="__breeds-temp" type="tuts/template">
                                 <li
                                     class="g-select__item _option"
                                     data-value="{{value}}"
@@ -84,7 +84,8 @@
                         </div>
                         <div class="services__slide-price">{{price}}</div>
                         <div class="services__slide-time">{{time}}</div>
-                        <button class="services__slide-btn btn gray" onclick="grummer.popupMain.open('{{title}}')">
+                        <!--<button class="services__slide-btn btn gray" onclick="grummer.popupMain.open('{{title}}')">-->
+                        <button class="services__slide-btn btn gray" onclick="grummer.services.openPopup('{{title}}')">
                             Записаться
                         </button>
                     </div>

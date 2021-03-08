@@ -88,7 +88,7 @@
                 align-items: center;
             }
             &-price {color: #CDD7DC;}
-            &-close
+            &-remove
             {
                 height: 20px;
                 width: 20px;
@@ -196,21 +196,68 @@
         }
         &-wrapper
         {
-            .popup-main__form-field {margin-right: 0;}
+            .popup-main__form-field {
+                margin-right: 0;
+            }
 
             &-footer {align-items: center;}
 
             @media ($tablet) {
                 display: flex;
-                .popup-main__form-field:not(:last-child) {margin-right: 20px;}
+
+                .popup-main__form-field:not(:last-child)
+                {
+                    margin-right: 20px;
+                }
+
+                &.cols-3
+                {
+                    & > div
+                    {
+                        max-width: calc(33.333% - 13.333px);
+                    }
+                }
             }
         }
         &-field
         {
             margin-bottom: 20px;
 
-            @media ($tablet) {
+            .field.error
+            {
+                input {border: 1px solid #FE6868;}
+                .error-msg
+                {
+                    @include fontSet(12, 16.8, 500);
+                    color: #FE6868;
+                    margin-top: 5px;
+                }
+            }
+
+            @media ($tablet)
+            {
                 flex: 1 0;
+                // overflow: hidden;
+            }
+        }
+        &-breeds
+        {
+            background: #fff;
+
+            .g-select
+            {
+                &__header
+                {
+                    padding-right: 50px;
+
+                    span
+                    {
+                        color: #243138;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                }
             }
         }
         &-price, &-price * { @include fontSet(25, 40, 700); }
@@ -240,4 +287,6 @@
             color: #CDD7DC;
         }
     }
+
+    #datepicker {text-transform: lowercase;}
 }

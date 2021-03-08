@@ -5,9 +5,12 @@
 @@include('lib/webp.js');
 @@include('lib/validator.js');
 @@include('lib/maskedinput.min.js');
+@@include('lib/air-datepicker.js');
 
 
 const grummer = {
+  currentServices: [],
+  currentBreed: undefined,
   goToBlock(event, $el, isMobile=false)
   {
     event.preventDefault();
@@ -16,7 +19,18 @@ const grummer = {
     $('html,body').animate({
       scrollTop: $($el.hash).offset().top
     });
-  }
+  },
+  setBreeds(arr)
+  {
+    const list = $('._breeds-items')
+    const template = $.trim( $('.__breeds-temp').html() )
+    let frag = arr.reduce((acc, item) => {
+      return acc += template
+        .replace( /{{title}}/ig, item.title )
+        .replace( /{{value}}/ig, item.value )
+    }, '');
+    list.append(frag)
+  },
 }
 
 @@include('lib/tlg.js');
@@ -36,16 +50,20 @@ const grummer = {
 
 grummer.init = function() {
   this.store.init()
+
+  $("._input-phone").mask("+7(999)999-99-99");
+  this.setBreeds(grummer.breeds)
+
   this.tlg.init()
   this.popup.init()
-  this.popupServices.init()
+  // this.popupServices.init()
 
   this.header.init()
   this.services.init()
   this.ourworks.init()
   this.questions.init()
   this.feedbacks.init()
-  this.callback.init()
+  // grummer.popupMain.init()
 }
 
 $(document).ready(() => {
