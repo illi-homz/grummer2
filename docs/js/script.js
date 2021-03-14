@@ -5960,11 +5960,11 @@ const grummer = {
   currentServices: [],
   currentBreed: undefined,
 
-  goToBlock(event, $el, isMobile = false) {
-    event.preventDefault();
+  goToBlock(target, event, isMobile = false) {
+    if (event) event.preventDefault();
     if (isMobile) this.header.toggleMenu();
     $('html,body').animate({
-      scrollTop: $($el.hash).offset().top
+      scrollTop: typeof target === 'string' ? target : $(target.hash).offset().top
     });
   },
 
@@ -6049,7 +6049,7 @@ grummer.popup = {
 
   back(popup) {
     this.close(popup, false);
-    this.$popupActive.addClass('open');
+    if (this.$popupActive) this.$popupActive.addClass('open');
   },
 
   bodyLock() {
@@ -6210,8 +6210,13 @@ grummer.popupMain = {
       msg += `#${key}: ${data[key]}\n`;
     }
 
-    const res = await grummer.tlg.sendMessage(msg);
-    console.log(res);
+    const res = await grummer.tlg.sendMessage(msg); // console.log(res);
+
+    if (res) setTimeout(() => {
+      console.log(res);
+      form.reset();
+      grummer.popup.open('_popup-ok');
+    }, 300);
   }
 
 };
@@ -6313,6 +6318,13 @@ grummer.popupServices = {
   addMore() {
     this.counter += 1;
     this.setMobileSlides(this.counter * this.slidesOnPage, this.servicesList, this.mobilefilter);
+  }
+
+};
+grummer.popupOk = {
+  gotoMain() {
+    grummer.popup.close('_popup-ok');
+    grummer.goToBlock('#header');
   }
 
 };
@@ -6937,12 +6949,6 @@ grummer.header = {
     list.append(frag);
   },
 
-  goToBlock(event, $el, isMobile = false) {
-    event.preventDefault();
-    grummer.goToBlock($el.hash);
-    if (isMobile) this.toggleMenu();
-  },
-
   toggleMenu() {
     this.menu.slideToggle(300);
     this.burger.toggleClass('active');
@@ -7207,9 +7213,13 @@ grummer.callback = {
     event.preventDefault();
     const validator = new Validator(form);
     const v = validator.validate();
-    if (!v) return;
-    const res = await grummer.tlg.sendCallBack(form);
-    console.log(res);
+    if (!v) return; // const res = await grummer.tlg.sendCallBack(form)
+    // console.log(res);
+
+    if (res) setTimeout(() => {
+      grummer.popup.open('_popup-ok');
+      form.reset();
+    }, 100);
   }
 
 };

@@ -48,7 +48,7 @@ grummer.popup = {
   back(popup)
   {
     this.close(popup, false)
-    this.$popupActive.addClass('open')
+    if (this.$popupActive) this.$popupActive.addClass('open')
   },
   bodyLock()
   {

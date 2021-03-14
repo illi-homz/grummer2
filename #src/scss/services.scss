@@ -7,7 +7,8 @@
   {
     display: flex;
     overflow: scroll;
-    padding: 10px;
+    padding: 0 10px 10px;
+    padding-bottom: 20px;
     margin-left: -10px;
 
     &::-webkit-scrollbar {
@@ -18,7 +19,7 @@
   &__nav-btn
   {
     height: 45px;
-    min-width: 200px;
+    min-width: 196px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,29 +31,43 @@
   }
   &__info-for-dogs
   {
-    margin-top: 20px;
+    margin-top: 10px;
     display: none;
     width: 100%;
   }
   &__note
   {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    @include fontSet(12, 19.2, 500, -.1);
+
+    @media ($tablet)
+    {
+      margin-bottom: 25px;
+    }
   }
   &__filters
   {
+    padding-top: 10px;
     display: flex;
-    align-items: center;
-    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media ($tablet)
+    {
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 0;
+      padding-top: 0;
+    }
   }
   &__filters-cleaner
   {
     display: none;
-    // display: flex;
     align-items: center;
     color: #CDD7DC;
     font-size: 18px;
     font-weight: 500;
-    margin-top: 20px;
 
     cursor: pointer;
 
@@ -62,13 +77,30 @@
     }
 
     &.active { display: flex; }
+
+    @media ($tablet)
+    {
+      margin-top: 20px;
+    }
   }
   &__filter
   {
-    min-width: 305px;
-    margin-right: 20px;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @media ($tablet)
+    {
+      width: 1px;
+      min-width: 305px;
+      margin-right: 20px;
+      margin-bottom: 0;
+    }
   }
-  &__filter-title { margin-bottom: 10px; }
+  &__filter-title
+  {
+    margin-bottom: 10px;
+    @include fontSet(16, 22.4, 500);
+  }
   &__categories
   {
     img
@@ -79,14 +111,19 @@
   }
   &__slider
   {
-    height: 470px;
     position: relative;
-    margin-top: 50px;
-    position: relative;
+    height: 380px;
+    margin-top: 20px;
 
     &:hover .slick-arrow {
       visibility: visible;
       opacity: 1;
+    }
+
+    @media ($tablet)
+    {
+      height: 480px;
+      margin-top: 40px;
     }
   }
   .slick-arrow
@@ -112,6 +149,7 @@
   {
     height: inherit;
     overflow: hidden;
+    // padding: 0 5px;
     margin: 0 -10px;
   }
   .slick-track
@@ -122,25 +160,37 @@
 
   &__slide
   {
-    margin: 10px 0;
+    margin: 10px 0 20px;
   }
   &__slide-wrapper
   {
     height: 100%;
-    box-shadow: 0px 4px 15px rgba(142, 142, 142, 0.2);
+    box-shadow: 0px 4px 9px rgba(142, 142, 142, 0.2);
     background-color: #fff;
     border: 1px solid #F5F5F5;
     border-radius: 12px;
     overflow: hidden;
     margin: 0 10px;
-    padding: 30px 13px 13px;
+    padding: 15px 13px 13px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media ($tablet)
+    {
+      padding-top: 30px;
+    }
   }
   &__slide-img {
+    height: 90px;
+    margin-bottom: 10px;
     text-align: center;
-    height: 120px;
+
+    @media ($tablet)
+    {
+      height: 120px;
+      margin-bottom: 0;
+    }
   }
   &__slide-data
   {
@@ -151,28 +201,48 @@
   &__slide-title
   {
     text-align: center;
-    @include fontSet(16, 22, 700);
+    @include fontSet(14, 20, 700);
     flex: 1 0;
+
+    @media ($tablet)
+    {
+      @include fontSet(16, 22, 700);
+    }
   }
   &__slide-desc
   {
+    @include fontSet(10, 14, 400);
+    height: 50px;
+    margin-bottom: 3px;
     text-align: center;
-    @include fontSet(11, 16, 400);
-    height: 65px;
-    margin-bottom: 10px;
+
+    @media ($tablet)
+    {
+      @include fontSet(11, 16, 400);
+      height: 65px;
+      margin-bottom: 10px;
+    }
   }
   &__slide-price
   {
     text-align: center;
-    @include fontSet(25, 35, 700);
-    margin-bottom: 12px;
+    @include fontSet(18, 25, 700);
+    margin-bottom: 10px;
+
+    @media ($tablet)
+    {
+      @include fontSet(25, 35, 700);
+      margin-bottom: 12px;
+    }
   }
   &__slide-time
   {
     text-align: center;
     @include fontSet(11, 15, 400);
     color: #CDD7DC;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+
+    @media ($tablet) {margin-bottom: 20px;}
   }
   &__slide-btn
   {
@@ -180,72 +250,5 @@
     height: 65px;
 
     &:hover {background-color: #FEC71A;}
-  }
-}
-
-
-@media (max-width: $md+px)
-{
-  .services
-  {
-    &__note
-    {
-      margin-bottom: 20px;
-    }
-    &__filters
-    {
-      flex-direction: column;
-      align-items: end;
-      margin-bottom: 20px;
-      padding-top: 10px;
-    }
-    &__filters-cleaner
-    {
-      margin: 0;
-    }
-    &__filter
-    {
-      width: 100%;
-      margin-right: 0;
-      margin-bottom: 30px;
-    }
-    &__slider
-    {
-      height: 370px;
-      margin-top: 20px;
-    }
-    &__slide-wrapper
-    {
-      padding-top: 15px;
-    }
-    &__slide-img {
-      height: 90px;
-      margin-bottom: 10px;
-    }
-    &__slide-title
-    {
-      @include fontSet(14, 20, 700);
-    }
-    &__slide-desc
-    {
-      @include fontSet(10, 14, 400);
-      height: 50px;
-      margin-bottom: 3px;
-    }
-    &__slide-price
-    {
-      @include fontSet(18, 25, 700);
-      margin-bottom: 10px;
-    }
-    &__slide-time
-    {
-      @include fontSet(11, 15, 400);
-      color: #CDD7DC;
-      margin-bottom: 10px;
-    }
-    &__slide-btn
-    {
-      height: 65px;
-    }
   }
 }

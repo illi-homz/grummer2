@@ -13,7 +13,12 @@ grummer.callback = {
 
     if(!v) return
 
-    const res = await grummer.tlg.sendCallBack(form)
-    console.log(res);
+    // const res = await grummer.tlg.sendCallBack(form)
+    // console.log(res);
+
+    if (res) setTimeout(() => {
+      grummer.popup.open('_popup-ok')
+      form.reset()
+    }, 100)
   }
 }

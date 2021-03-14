@@ -1,17 +1,39 @@
 .header {
-  height: 100vh;
   position: relative;
+
+  @media ($tablet)
+  {
+  }
+
+  img
+  {
+    height: 40px;
+    @media ($tablet) {height: 79px;}
+  }
 
   &__bg {
     height: 100%;
     width: 100%;
+    left: 0;
+    top: 0;
     position: absolute;
     z-index: -1;
     background: url(../img/main/1_dog.jpg) bottom / cover no-repeat;
   }
 
-  &__wrapper {
-    padding-top: 40px;
+  &__container
+  {
+    padding-top: 20px;
+    position: relative;
+    min-height: 405px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    @media ($tablet)
+    {
+      padding-top: 40px;
+      min-height: 100vh;
+    }
   }
 
   &__mobile-menu {
@@ -23,6 +45,7 @@
     left: 0;
     background-color: $defaultGray;
     padding: 20px 15px;
+    z-index: 1;
   }
   &__mobile-menu-links {
     padding-top: 60px;
@@ -36,7 +59,7 @@
   }
 
   &__burger-btn {
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-color: #fff;
@@ -46,6 +69,8 @@
     position: relative;
     z-index: 2;
     cursor: pointer;
+
+    @media ($tablet) {display: none;}
   }
   &__burger {
     height: 2px;
@@ -90,7 +115,11 @@
     z-index: 2;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+
+    @media ($tablet) {
+      padding-right: 80px;
+      align-items: center;
+    }
   }
 
   &__logo {
@@ -98,66 +127,71 @@
   }
 
   &__links {
-    padding-right: 35px;
-    display: flex;
-    padding-bottom: 2px;
-    width: 100%;
-    max-width: 650px;
-    display: flex;
-    justify-content: space-between;
-    li {
-      // margin-right: 56px;
-    }
-    a {
-      font-weight: bold;
-      letter-spacing: -.1px;
+    display: none;
+
+    @media ($tablet) {
+      flex: 1 0;
+      display: flex;
+      max-width: 654px;
+      justify-content: space-between;
+      padding-bottom: 3px;
+      a {
+        font-weight: bold;
+        letter-spacing: -.1px;
+      }
+      li
+      {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        margin-right: 10px;
+      }
     }
   }
   &__content {
-    margin-top: 114px;
+    padding-bottom: 44px;
+    flex: 1 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
     h1 {
-      @include fontSet(80, 85, 700, -.5);
+      @include fontSet(34, 36, 800, -.5);
     }
     p {
-      @include fontSet(18, 23, 600, -.2);
-      margin-top: 30px;
-      margin-bottom: 40px;
+      @include fontSet(16, 20, 500, -.2);
+      margin-top: 15px;
+      margin-bottom: 30px;
+    }
+
+    @media ($tablet) {
+      margin-top: 12vh;
+      padding-bottom: 50px;
+      justify-content: start;
+      h1 {
+        @include fontSet(80, 85, 700, -.5);
+      }
+      p {
+        @include fontSet(18, 23, 600, -.2);
+        margin-top: 30px;
+        margin-bottom: 40px;
+      }
     }
   }
   &__call-btn {
-    max-width: 305px;
+    max-width: none;
     height: 65px;
+
+    @media ($tablet) {max-width: 305px;}
   }
 }
 
 @media (max-width: $sm+px) {
   .header {
-    height: 405px;
-    img {
-      height: 40px;
-    }
-    &__burger-btn {
-      display: flex;
-    }
-    &__wrapper {
-      padding-top: 20px;
-    }
-    &__links {
-      display: none;
-    }
-    &__content {
-      margin-top: 35px;
-      h1 {
-        @include fontSet(34, 36, 800, -.5);
-      }
-      p {
-        @include fontSet(16, 20, 500, -.2);
-        margin-top: 15px;
-        margin-bottom: 30px;
-      }
-    }
+
+
+
     &__call-btn {
-      max-width: none;
+
     }
   }
 }

@@ -21,6 +21,7 @@
 @import 'popup';
 @import 'popup-main';
 @import 'popup-services';
+@import 'popup-ok';
 
 *
 {
@@ -84,8 +85,8 @@ body.lock {overflow: hidden !important;}
 
 .services
 {
-  margin-bottom: 120px;
-  @media ($tablet) { margin-bottom: 180px; }
+  margin-bottom: 110px;
+  @media ($tablet) { margin-bottom: 170px; }
 }
 
 .zootaxi

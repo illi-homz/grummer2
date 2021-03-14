@@ -146,6 +146,13 @@ grummer.popupMain = {
     }
 
     const res = await grummer.tlg.sendMessage(msg)
-    console.log(res);
+    // console.log(res);
+
+    if (res) setTimeout(() => {
+      console.log(res);
+      form.reset()
+
+      grummer.popup.open('_popup-ok')
+    }, 300)
   }
 }

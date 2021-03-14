@@ -9,9 +9,10 @@
             display: flex;
             justify-content: space-between;
             padding-right: 50px;
+            padding-top: 30px;
         }
         @media ($desctop) {
-            padding-right: 160px;
+            padding-right: 155px;
         }
     }
     &__logo
@@ -27,16 +28,26 @@
     {
         flex: 1 0;
         max-width: 350px;
-        margin: 0 15px;
+
+        @media ($tablet) {margin-left: 20px;}
+
         &-on-bloks
         {
             display: flex;
             flex-direction: column;
             margin-bottom: 56px;
 
-            li:not(:last-child) {margin-bottom: 32px;}
+            li:not(:last-child) {
+                margin-bottom: 32px;
+                @include fontSet(16, 16.44, 500);
+            }
+
+            @media ($tablet) {
+                padding-top: 24px;
+            }
 
             @media ($desctop) {
+
                 flex-direction: row;
                 margin-bottom: 35px;
                 justify-content: space-between;
@@ -65,6 +76,7 @@
     }
     &__contacts
     {
+        @media ($tablet) {padding-top: 25px;}
         h5
         {
             @include fontSet(14, 16, 700);

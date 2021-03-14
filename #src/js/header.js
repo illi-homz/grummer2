@@ -51,13 +51,6 @@ grummer.header = {
     })
     list.append(frag)
   },
-  goToBlock(event, $el, isMobile=false) {
-    event.preventDefault();
-
-
-    grummer.goToBlock($el.hash)
-    if (isMobile) this.toggleMenu()
-  },
   toggleMenu() {
     this.menu.slideToggle( 300 )
     this.burger.toggleClass('active')
