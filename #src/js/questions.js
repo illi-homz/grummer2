@@ -1,28 +1,8 @@
 grummer.questions = {
   init()
   {
-    this.initItems()
-
     this.$spoiler = $('.questions__spoiler')
     this.items = this.$spoiler.find('.questions__item')
-    // this.items.first().find('.questions__item-text')
-  },
-  initItems()
-  {
-    const template = $.trim( $('#questions__spoiler-temp').html() )
-    const list = $('.questions__spoiler ul')
-
-    const html = grummer.questionsList.reduce((acc, q) => {
-      const answer = q.answers.reduce((acc, a) => {
-        return acc += `<p>${a}</p>`
-      }, '')
-
-      return acc += template
-        .replace(/{{question}}/ig, q.question)
-        .replace(/{{answer}}/ig, answer)
-    }, '')
-
-    list.html(html)
   },
   toggleText(el)
   {

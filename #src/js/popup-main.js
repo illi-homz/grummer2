@@ -135,7 +135,7 @@ grummer.popupMain = {
       'Порода': breed ? breed.title : '',
       'Дата': form.date.value,
       'Комментарий': form.comment.value,
-      'Мин. цена': form.price.value
+      'Мин цена': form.price.value
     }
 
     let msg = '*Запись*\n\n'
