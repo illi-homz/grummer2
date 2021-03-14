@@ -5,6 +5,22 @@
         @include fontSet(16, 22, 500);
         margin-bottom: 10px;
     }
+    &__datepicker
+    {
+        position: relative;
+        &::after
+        {
+            content: '';
+            width: 20px;
+            height: 22px;
+            background-image: url(../img/calendar.svg);
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+    }
     &__form
     {
         margin-top: 35px;
@@ -21,7 +37,8 @@
 
             &::placeholder {color: #CDD7DC;}
         }
-        textarea {
+        textarea
+        {
             height: 120px;
             resize: none;
             padding: 10px 20px;

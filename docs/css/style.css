@@ -2361,6 +2361,24 @@ h1 {
   margin-bottom: 10px;
 }
 
+.popup-main__datepicker {
+  position: relative;
+}
+
+.popup-main__datepicker::after {
+  content: '';
+  width: 20px;
+  height: 22px;
+  background-image: url(../img/calendar.svg);
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 10;
+}
+
 .popup-main__form {
   margin-top: 35px;
 }
@@ -3735,6 +3753,7 @@ body.lock {
 .header__bg{background:url(../img/main/1_dog.webp) bottom/cover no-repeat}
 .zootaxi__img{background:url("../img/zootaxi.webp") center/cover no-repeat}
 .promo__wrapper{background:url("../img/promo-bg-m.webp") center/cover no-repeat}
+.popup-main__datepicker::after{background-image:url(../img/calendar.svg)}
 }
 
  @media (min-width: 479.98px){

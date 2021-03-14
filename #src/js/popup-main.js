@@ -24,7 +24,8 @@ grummer.popupMain = {
         nextHtml:  svg('M1 12.8713L7 6.87134L1 0.871338'),
         navTitles: {
           days: 'MM yyyy',
-        }
+        },
+        timepicker: true
       })
       .data('datepicker')
       .selectDate(new Date())
