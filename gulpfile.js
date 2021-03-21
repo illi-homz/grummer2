@@ -49,7 +49,8 @@ let {src, dest} = require('gulp'),
   ttf2woff = require('gulp-ttf2woff'),
   ttf2woff2 = require('gulp-ttf2woff2'),
   fonter = require('gulp-fonter'),
-  uglify = require('gulp-uglify-es').default;
+  uglify = require('gulp-uglify-es').default,
+  htmlbeautify = require('gulp-html-beautify');
 
 
 function browserSync() {
@@ -63,9 +64,25 @@ function browserSync() {
 }
 
 function html() {
+  const options = {
+		indentSize: 4,
+		unformatted: [
+			'abbr', 'area', 'b', 'bdi', 'bdo', 'br', 'cite',
+			'code', 'data', 'datalist', 'del', 'dfn', 'em', 'embed', 'i', 'ins', 'kbd', 'keygen', 'map', 'mark', 'math', 'meter', 'noscript',
+			'object', 'output', 'progress', 'q', 'ruby', 's', 'samp', 'small',
+			'strong', 'sub', 'sup', 'template', 'time', 'u', 'var', 'wbr', 'text',
+			'acronym', 'address', 'big', 'dt', 'ins', 'strike', 'tt', 'a'
+		],
+		"indent_char": " ",
+		"indent_level": 0,
+		"indent_with_tabs": false,
+	};
+
+
   return src(path.src.html)
     .pipe(fileinclude())
     .pipe(webphtml())
+    .pipe(htmlbeautify(options))
     .pipe(dest(path.build.html))
     .pipe(browsersync.stream()); // обновить страницу
 }

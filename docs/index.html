@@ -1,1 +1,338 @@
-<!DOCTYPE html><html lang="en"><head>  <title>Стрижка собак и кошек Вологда</title>  <meta name="description" content="Стрижка собак и кошек в Вологде.">  <meta name="keywords" content="вологда зоосалон стрижка кошек собак тримминг груминг">  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <link rel="stylesheet" href="css/style.min.css">  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"></head><body>  <header class="header" id="header">    <div class="header__bg"></div>    <nav class="header__mobile-menu">        <ul class="header__mobile-menu-links">        </ul>    </nav>    <div class="container header__container">        <nav class="header__nav">            <a href="#header" class="header__logo">                <picture><source srcset="img/logo.svg" type="image/webp"><img src="img/logo.svg" alt="logo"></picture>            </a>            <ul class="header__links">                <script id="header__links" type="tuts/template">                    <li>                        <a                            href="#{{value}}"                            onclick="grummer.goToBlock(this, event, {{isMobile}})">                            {{title}}                        </a>                    </li>                </script>            </ul>            <div class="nav-btn header__burger-btn" onclick="grummer.header.toggleMenu()">                <div class="header__burger"></div>            </div>        </nav>        <div class="header__content">            <h1>Стрижка<br>домашних<br>животных</h1>            <p>Ваша благодарность питомцу<br>за его любовь без остатка</p>            <a                class="btn header__call-btn yellow"                href="#callback"                onclick="grummer.goToBlock(this, event)">                Заказать звонок            </a>        </div>    </div></header>  <section class="about container" id="about">    <div class="about__wrapper">        <h1 class="text-center">О салоне</h1>        <p class="text-center">Добро пожаловать на сайт нашего салона. Мы молодой вологодский груминг салон, но даём гарантию на            качественное обслуживание у профессионалов своего дела, предоставляем полный спектр услуг, дорожим нашими клиентами и любим ваших четвероногих друзей</p>        <p class="text-center">Воспользовавшись услугами нашего салона – ваши питомцы покидают его в неотразимой визуальной красоте,а вы в прекрасном расположении духа</p>    </div></section>  <section class="services container" id="services">    <h1>Услуги</h1>    <div class="services__nav">        <div            class="services__nav-btn btn gray active"            onclick="grummer.services.filterServicesByBreed(this)">Универсально</div>        <div            class="services__nav-btn btn gray"            onclick="grummer.services.filterServicesByBreed(this, 'dog')">Для собак</div>        <div            class="services__nav-btn btn gray"            onclick="grummer.services.filterServicesByBreed(this, 'cat')">Для кошек</div>    </div>    <div class="services__info-for-dogs">        <div class="services__note">Выберете породу вашего любимца и категорию услуг</div>        <div class="services__filters">            <div class="services__filter">                <div class="services__filter-title">Порода</div>                <div class="services__breeds g-select _select">                    <input                        type="hidden"                        class="_select-input"                        onchange="grummer.services.setBreed(this.value)"/>                    <div class="g-select__header" onclick="grummer.gSelect.toggle(this)">                        <span class="_selected-text">Любая</span>                    </div>                    <div class="g-select__body _options">                        <ul class="g-select__items _breeds-items">                            <script class="__breeds-temp" type="tuts/template">                                <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.gSelect.selectItem(this)">                                    {{title}}                                </li>                            </script>                        </ul>                    </div>                </div>            </div>            <div class="services__filter">                <div class="services__filter-title">Категоря</div>                <div class="services__categories g-select _select">                    <input                        type="hidden"                        class="_select-input"                        onchange="grummer.services.filterServicesByCategory(this.value)"/>                    <div class="g-select__header" onclick="grummer.gSelect.toggle(this)">                        <span class="_selected-text">Любая</span>                    </div>                    <div class="g-select__body _options">                        <ul class="g-select__items">                            <script class="services__filter-temp" type="tuts/template">                                <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.gSelect.selectItem(this)">                                    <picture><source srcset="img/services/{{icon}}.svg" type="image/webp"><img src="img/services/{{icon}}.svg" /></picture>                                    {{title}}                                </li>                            </script>                        </ul>                    </div>                </div>            </div>            <div class="services__filters-cleaner" onclick="grummer.services.cleanFilter()">                <picture><source srcset="img/clean.svg" type="image/webp"><img src="img/clean.svg" alt="clean"></picture>Сбросить            </div>        </div>    </div>    <div class="services__slider">        <script id="services__slider-temp" type="tuts/template">            <div class="services__slide">                <div class="services__slide-wrapper">                    <div>                        <div class="services__slide-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                        </div>                    </div>                    <div class="services__slide-data">                        <div class="services__slide-title">{{title}}</div>                        <div class="services__slide-desc">                            {{text}}                        </div>                        <div class="services__slide-price">{{price}}</div>                        <div class="services__slide-time">{{time}}</div>                        <!--<button class="services__slide-btn btn gray" onclick="grummer.popupMain.open('{{title}}')">-->                        <button class="services__slide-btn btn gray" onclick="grummer.services.openPopup('{{title}}')">                            Записаться                        </button>                    </div>                </div>            </div>        </script>    </div></section>  <section class="zootaxi">    <div class="container">        <div class="zootaxi__wrapper">            <div class="zootaxi__content">                <div class="zootaxi__title">ЗооТакси</div>                <div class="zootaxi__text">                    Заберём,а потом привезём вашего<br>питомца к вам домой после процедуры                </div>            </div>            <div class="zootaxi__img"></div>        </div>    </div></section>  <section class="ourworks" id="ourworks">    <div class="container">        <h1 class="text-center">Наши работы</h1>        <div class="ourworks__wrapper">            <div class="ourworks__slider">                <script id="ourworks__slider-temp" type="tuts/template">                    <div class="ourworks__slider-item">                        <picture><source srcset="img/ourworks/{{img}}" type="image/webp"><img src="img/ourworks/{{img}}"></picture>                    </div>                </script>            </div>            <div class="ourworks__info">                <div class="ourworks__title"></div>                <div class="ourworks__text"></div>                <div class="ourworks__nav"></div>            </div>        </div>    </div></section>  <section class="questions" id="questions">    <h1 class="text-center">Ответы на ваши вопросы</h1>    <div class="questions__wrapper">        <div class="questions__spoiler">            <ul>                <script id="questions__spoiler-temp" type="tuts/template">                    <li class="questions__item">                        <div class="questions__item-icon"></div>                        <h4 onclick="grummer.questions.toggleText(this)">{{question}}</h4>                        <div class="questions__item-text">                            {{answer}}                        </div>                    </li>                </script>                <li class="questions__item">                    <div class="questions__item-icon"></div>                    <h4 onclick="grummer.questions.toggleText(this)">Что такое эксперсс-линька?</h4>                    <div class="questions__item-text">                        <p>                            Линька у собак и кошек — это скорее проблема чистоты в доме, а не здоровья. Шерсть красивая на животном, но она гораздо менее привлекательна, когда прилипает к одежде или мебели. Во время сезона линьки ваш дом может стать похожим на парикмахерскую. Линька питомца зачастую является настоящим бичом для ее владельца. Решить проблему вездесущей шерсти поможет такая процедура как экспресс-линька. С помощью специального инструмента удаляется до 90% отмершей шерсти, оставляя шубку животного обновленной, блестящей и красивой.                        </p>                    </div>                </li>                <li class="questions__item">                    <div class="questions__item-icon"></div>                    <h4 onclick="grummer.questions.toggleText(this)">                        Что нужно сделать перед походом к грумеру?                    </h4>                    <div class="questions__item-text">                        <p>                            Перед визитом в салон собачку необходимо выгулять;                        </p>                        <p>                            Не кормить за 2 часа до стрижки;                        </p>                        <p>                            До процедур необходимо сообщить Вашему мастеру о имеющихся болячках, бородавках, шрамах, образований на коже собачки, а так же о перенесённых операциях или других недомоганиях;                        </p>                        <p>                            Нельзя стричь больную или плохо чувствующую себя собаку (к примеру, с симптомами рвоты, поноса, кашля, насморка, свежими ранами и т.д.). Также рекомендуется отложить визит к грумеру если у собаки течка;                        </p>                        <p>                            Животное ОБЯЗАТЕЛЬНО должно быть привито и обработано от эктопаразитов!                        </p>                        <p>                            Постарайтесь ясно объяснить грумеру Ваши пожелания по стрижке или показать фото желаемой стрижки;                        </p>                        <p>                            Заранее предупредите грумера о характере собаки или кошки;                        </p>                        <p>                            Если по каким-то причинам Вы не можете приехать в оговоренное время или хотите перенести визит - будем очень признательны, если сообщите нам об этом как можно раньше (минимум за сутки).                        </p>                    </div>                </li>                <li class="questions__item">                    <div class="questions__item-icon"></div>                    <h4 onclick="grummer.questions.toggleText(this)">                        Почему появляются колтуны?                    </h4>                    <div class="questions__item-text">                        <p>                            КОЛТУН – это патологическое состояние шерстного покрова животного, при котором волосы становятся сальными и спутываются в плотные комки. Исключение составляют некоторые породы собак (командор), для которых это норма. Процесс колтунения происходит постепенно, но неумолимо. Кожа под колтуном плохо вентилируется и начинает преть, активизируются сальные железы. Животное стремиться освободиться от колтуна и чешет его лапами, еще больше запутывая и нанося себе раны когтями. Изменяются показатели кожи, снижается иммунный барьер, могут развиваться бактериальные и грибковые инфекции. Попытки же владельцев помыть животное со свалявшейся шерстью приводят к тому,что их волосы окончательно склеиваются между собой в сплошной войлочный ком. В таких запущенных состояниях единственным способом помочь животному является стрижка машинкой.                        </p>                    </div>                </li>                <li class="questions__item">                    <div class="questions__item-icon"></div>                    <h4 onclick="grummer.questions.toggleText(this)">                        Что такое грумминг?                    </h4>                    <div class="questions__item-text">                        <p>                            Груминг (от англ. groom — ухаживать, холить) — активное поведение животных, направленное на очистку поверхности тела, то есть умывание, вылизывание шерсти, купание и т.п.. Слово «груминг» означает форму поведения животных, которая выражается в уходе за мехом (умывание, вылизывание, купание) и показывает комфортность состояния животного. Грумер — это профессионал своего дела, который быстро и качественно выполнит такие обязанности, как расчесывание, сушка, мытье и стрижка, а ваш любимец останется непременно довольным.                        </p>                    </div>                </li>            </ul>        </div>    </div></section>  <section class="promo" id="promo">    <div class="container">        <h1>Акции</h1>        <div class="promo__wrapper">            <div class="promo__title">Дарим скидку<br>500 рублей</div>            <div class="promo__text">в зависимости от породы</div>        </div>    </div></section>  <section class="feedbacks" id="feedbacks">    <div class="container">        <h1 class="text-center">Отзывы</h1>        <div class="feedbacks__wrapper">            <div class="feedbacks__slider">                <script id="feedbacks__slider-temp" type="tuts/template">                    <div class="feedbacks__item">                        <div class="feedbacks__item-quotes feedbacks__item-quotes-g">                            <picture><source srcset="img/quotes-g.svg" type="image/webp"><img src="img/quotes-g.svg" alt=""></picture>                        </div>                        <div class="feedbacks__item-quotes feedbacks__item-quotes-y">                            <picture><source srcset="img/quotes-y.svg" type="image/webp"><img src="img/quotes-y.svg" alt=""></picture>                        </div>                        <div class="feedbacks__item-img">                            <picture><source srcset="img/avatars/{{img}}" type="image/webp"><img src="img/avatars/{{img}}" alt=""></picture>                        </div>                        <div class="feedbacks__item-text">                            {{text}}                        </div>                    </div>                </script>            </div>        </div>    </div></section>  <div class="callback" id="callback">    <div class="callback__wrapper">        <h1>Получить консультацию</h1>        <div class="callback__text">Оставьте свой номер телефона и мы вам перезвоним</div>        <form class="callback__form" onsubmit="grummer.callback.submit(this, event)">            <div class="callback__form-inputs">                <div class="callback__form-field">                    <label class="field _field" data-call="empty" data-msg="Введите имя">                        <h4>Имя</h4>                        <input name="name" type="text" placeholder="Введите имя">                        <div class="error-msg _error-msg"></div>                    </label>                </div>                <div class="callback__form-field">                    <label class="field _field" data-call="empty phone" data-msg="Введите телефон">                        <h4>Телефон</h4>                        <input name="tel" class="_input-phone" type="text" placeholder="+7">                        <div class="error-msg _error-msg"></div>                    </label>                </div>            </div>            <button class="btn yellow" type="submit">Перезвоните мне</button>        </form>    </div>    <picture><source srcset="img/callback-bg.webp" type="image/webp"><img src="img/callback-bg.jpg" class="callback__img"></picture></div>  <footer class="footer" id="footer">    <div class="container footer__wrapper">        <div class="footer__logo">            <a href="#header" onclick="grummer.goToBlock(this, event)"><picture><source srcset="img/logo.svg" type="image/webp"><img src="img/logo.svg"></picture></a>        </div>        <div class="footer__links">            <ul class="footer__links-on-bloks">                <li><a href="#about" onclick="grummer.goToBlock(this, event)">О нас</a></li>                <li><a href="#services" onclick="grummer.goToBlock(this, event)">Услуги</a></li>                <li><a href="#questions" onclick="grummer.goToBlock(this, event)">Ответы на вопросы</a></li>            </ul>            <ul class="footer__links-on-social">                <li>                    <a href="https://vk.com/" target="_blank">                        <picture><source srcset="img/social/vk.webp" type="image/webp"><img src="img/social/vk.png"></picture>                    </a>                </li>                <li>                    <a href="https://ok.ru/" target="_blank">                        <picture><source srcset="img/social/ok.webp" type="image/webp"><img src="img/social/ok.png"></picture>                    </a>                </li>                <li>                    <a href="https://www.instagram.com/" target="_blank">                        <picture><source srcset="img/social/insta.webp" type="image/webp"><img src="img/social/insta.png"></picture>                    </a>                </li>            </ul>        </div>        <div class="footer__contacts">            <h5>Контакты</h5>            <ul>                <li class="footer__contacts-map-m">                    <a href="yandexmaps://maps.yandex.ru/?ll=39.884862,59.220050&z=18">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Калужская 153                    </a>                </li>                <li class="footer__contacts-map-d">                    <a href="https://yandex.ru/maps/-/CCUQQ6A~~C" target="_blank">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Калужская 153                    </a>                </li>                <li>                    <a href="tel:8 900 000 00 00">                        <picture><source srcset="img/social/tel.webp" type="image/webp"><img src="img/social/tel.png"></picture>8 900 000 00 00                    </a>                </li>                <li>                    <a href="mailto:groomleta@mail.ru">                        <picture><source srcset="img/social/mail.webp" type="image/webp"><img src="img/social/mail.png"></picture>groomleta@mail.ru                    </a>                </li>            </ul>        </div>    </div></footer>  <div class="popup-main popup _popup-main" id="popup-main">    <div class="popup__body">        <div class="popup__content">            <div class="popup__close" onclick="grummer.popup.close('_popup-main')"></div>            <h1>Оставить заявку</h1>            <form                onsubmit="grummer.popupMain.submit(this, event)"                class="popup-main__form">                <h3>Услуга</h3>                <script id="popup-main__form-services" type="tuts/template">                    <li class="popup-main__form-service">                        <label>                            <input type="hidden" name="services" value="{{title}}">                        </label>                        <span>{{title}}</span>                        <div class="popup-main__form-service-actions">                            <span class="popup-main__form-service-price">{{price}}</span>                            <div                                onclick="grummer.popupMain.removeService('{{title}}')"                                class="popup-main__form-service-remove"></div>                        </div>                    </li>                </script>                <div class="popup-main__form-field popup-main__form-services one">                    <ul class="popup-main__form-services-ul">                        <!-- place serices -->                        <li                            class="popup-main__form-service popup-main__form-service-action mobile"                            onclick="grummer.popupServices.open()">                            <span>Добавить услугу</span>                            <div class="popup-main__form-service-action-btn"></div>                        </li>                    </ul>                    <div                        class="popup-main__form-service-action tablet"                        onclick="grummer.popupServices.open()">                        <span>Добавить услугу</span>                        <div class="popup-main__form-service-action-btn"></div>                    </div>                </div>                <div class="popup-main__form-wrapper">                    <div class="popup-main__form-field">                        <label class="field _field" data-call="empty" data-msg="Введите фамилию">                            <h3>Фамилия</h3>                            <input name="lastname" type="text" placeholder="Введите фамилию">                            <div class="error-msg _error-msg"></div>                        </label>                    </div>                    <div class="popup-main__form-field">                        <label class="field _field" data-call="empty" data-msg="Введите имя">                            <h3>Имя</h3>                            <input name="name" type="text" placeholder="Введите имя">                            <div class="error-msg _error-msg"></div>                        </label>                    </div>                </div>                <div class="popup-main__form-wrapper cols-3">                    <div class="popup-main__form-field">                        <label class="field _field" data-call="empty" data-msg="Введите телефон">                            <h3>Телефон</h3>                            <input name="tel" class="_input-phone" type="text" placeholder="+7">                            <div class="error-msg _error-msg"></div>                        </label>                    </div>                    <div class="popup-main__form-field _breed">                        <label class="field _field">                            <h3>Порода животного</h3>                            <div class="popup-main__form-breeds g-select _select">                                <input                                    name="breed"                                    type="hidden"                                    class="_select-input"/>                                <div class="g-select__header" onclick="grummer.gSelect.toggle(this)">                                    <span class="_selected-text">Любая</span>                                </div>                                <div class="g-select__body _options">                                    <ul class="g-select__items _breeds-items">                                        <script class="__breeds-temp" type="tuts/template">                                            <li                                                class="g-select__item _option"                                                data-value="{{value}}"                                                onclick="grummer.gSelect.selectItem(this)">                                                {{title}}                                            </li>                                        </script>                                    </ul>                                </div>                            </div>                        </label>                    </div>                    <div class="popup-main__form-field">                        <label class="field _field" data-call="empty" data-msg="Введите имя">                            <h3>Дата</h3>                            <div class="popup-main__datepicker">                                <input name="date" type="text" id="datepicker" readonly>                            </div>                            <div class="error-msg _error-msg"></div>                        </label>                    </div>                </div>                <div class="popup-main__form-field">                    <label class="field _field" data-call="" data-msg="">                        <h3>Комментарий</h3>                        <textarea name="comment" placeholder="Особые пожелания"></textarea>                    </label>                </div>                <div class="popup-main__form-price">                    <input name="price" type="hidden" id="_final-price">                    Итого: <span class="_final-price">1800</span>                </div>                <div class="popup-main__form-wrapper popup-main__form-wrapper-footer">                    <button class="btn yellow" type="submit">Отправить заявку</button>                    <div class="popup-main__form-info">                        *Оставьте заявку и мы перезвоним<br>в течение минуты                    </div>                </div>            </form>        </div>    </div></div>  <div class="popup-services popup _popup-services" id="popup-services">    <div class="popup__body">        <div class="popup__content">            <div class="popup__back" onclick="grummer.popup.back('_popup-services')">                <picture><source srcset="img/arrow.svg" type="image/webp"><img src="img/arrow.svg" alt=""></picture>            </div>            <div class="popup__close" onclick="grummer.popup.close('_popup-services')"></div>            <h1>Оставить заявку</h1>            <div class="popup-services__filter">                <div class="popup-services__filter-title">Категоря</div>                <div class="popup-services__categories g-select _select">                    <input                    type="hidden"                    class="_select-input"                    onchange="grummer.popupServices.filterServicesByCategory(this.value)"/>                    <div class="g-select__header" onclick="grummer.gSelect.toggle(this)">                        <span class="_selected-text">Любая</span>                    </div>                    <div class="g-select__body _options">                        <script class="popup-services__filter-last-temp" type="tuts/template">                            <li                                class="g-select__item _option"                                data-value=""                                onclick="grummer.gSelect.selectItem(this)">                                Любая                            </li>                        </script>                        <script class="popup-services__filter-temp" type="tuts/template">                            <li                                class="g-select__item _option"                                data-value="{{value}}"                                onclick="grummer.gSelect.selectItem(this)">                                <picture><source srcset="img/services/{{icon}}.svg" type="image/webp"><img src="img/services/{{icon}}.svg" /></picture>                                {{title}}                            </li>                        </script>                        <ul class="g-select__items"></ul>                    </div>                </div>            </div>            <div class="popup-services__sliders">                <script id="popup-services__slider-temp" type="tuts/template">                    <div class="services__slide">                        <div class="services__slide-wrapper">                            <div>                                <div class="services__slide-img">                                    <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                                </div>                            </div>                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-desc">                                    {{text}}                                </div>                                <div class="services__slide-price">{{price}}</div>                                <div class="services__slide-time">{{time}}</div>                                <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Записаться                                </button>                            </div>                        </div>                    </div>                </script>                <div class="popup-services__slider popup-services__slider-services"></div>                <h3>Дополнительные услуги</h3>                <script id="popup-services__slider-add-temp" type="tuts/template">                    <div class="services__slide">                        <div class="services__slide-wrapper">                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-price">{{price}}</div>                                <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Записаться                                </button>                            </div>                        </div>                    </div>                </script>                <div class="popup-services__slider popup-services__slider-add-services"></div>            </div>            <div class="popup-services__mobile-services">                <script id="popup-services__mobile-list-temp" type="tuts/template">                    <li                        class="popup-services__mobile-item"                        onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                        <div class="popup-services__mobile-item-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                        </div>                        <div class="popup-services__mobile-item-data">                            <div class="popup-services__mobile-item-title">{{title}}</div>                            <div class="popup-services__mobile-item-desc">                                {{text}}                            </div>                            <div class="popup-services__mobile-item-numbers">                                <div class="popup-services__mobile-item-time">{{time}}</div>                                <div class="popup-services__mobile-item-price">{{price}}</div>                            </div>                        </div>                    </li>                </script>                <ul class="popup-services__mobile-list">                </ul>                <button                    class="services__slide-btn btn gray"                    onclick="grummer.popupServices.addMore()">                    Загрузить ещё                </button>            </div>        </div>    </div></div>  <div class="popup-ok popup _popup-ok" id="popup-ok">    <div class="popup__body">        <div class="popup__content popup-ok__content">            <div                class="popup__close"                onclick="grummer.popup.close('_popup-ok')"></div>            <div class="popup-ok__data">                <div class="popup-ok__img">                    <picture><source srcset="img/ok.svg" type="image/webp"><img src="img/ok.svg" alt="ok"></picture>                </div>                <div class="popup-ok__title">Заявка принята</div>                <div class="popup-ok__text">Ожидайте звонка в течение минуты</div>            </div>            <button                class="btn yellow popup-ok__btn"                onclick="grummer.popupOk.gotoMain()">                Вернуться на главную            </button>        </div>    </div></div>  <script src="js/script.min.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Стрижка собак и кошек Вологда</title>
+    <meta name="description" content="Стрижка собак и кошек в Вологде.">
+    <meta name="keywords" content="вологда зоосалон стрижка кошек собак тримминг груминг">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.min.css">
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="header__bg"></div>
+        <nav class="header__mobile-menu">
+            <ul class="header__mobile-menu-links"> </ul>
+        </nav>
+        <div class="container header__container">
+            <nav class="header__nav"> <a href="#header" class="header__logo">                <picture><source srcset="img/logo.svg" type="image/webp"><img src="img/logo.svg" alt="logo"></picture>            </a>
+                <ul class="header__links">
+                    <script id="header__links" type="tuts/template"> <li>                        <a                            href="#{{value}}"                            onclick="grummer.goToBlock(this, event, {{isMobile}})">                            {{title}}                        </a>                    </li>                </script>
+                </ul>
+                <div class="nav-btn header__burger-btn" onclick="grummer.header.toggleMenu()">
+                    <div class="header__burger"></div>
+                </div>
+            </nav>
+            <div class="header__content">
+                <h1>Стрижка<br>домашних<br>животных</h1>
+                <p>Ваша благодарность питомцу<br>за его любовь без остатка</p> <a                class="btn header__call-btn yellow"                href="#callback"                onclick="grummer.goToBlock(this, event)">                Заказать звонок            </a>
+            </div>
+        </div>
+    </header>
+    <section class="about container" id="about">
+        <div class="about__wrapper">
+            <h1 class="text-center">О салоне</h1>
+            <p class="text-center">Добро пожаловать на сайт нашего салона. Мы молодой вологодский груминг салон, но даём гарантию на качественное обслуживание у профессионалов своего дела, предоставляем полный спектр услуг, дорожим нашими клиентами и любим ваших четвероногих друзей</p>
+            <p class="text-center">Воспользовавшись услугами нашего салона – ваши питомцы покидают его в неотразимой визуальной красоте,а вы в прекрасном расположении духа</p>
+        </div>
+    </section>
+    <section class="services container" id="services">
+        <h1>Услуги</h1>
+        <div class="services__nav">
+            <div class="services__nav-btn btn gray active" onclick="grummer.services.filterServicesByBreed(this)">Универсально</div>
+            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'dog')">Для собак</div>
+            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'cat')">Для кошек</div>
+        </div>
+        <div class="services__info-for-dogs">
+            <div class="services__note">Выберете породу вашего любимца и категорию услуг</div>
+            <div class="services__filters">
+                <div class="services__filter">
+                    <div class="services__filter-title">Порода</div>
+                    <div class="services__breeds g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.services.setBreed(this.value)" />
+                        <div class="g-select__header" onclick="grummer.gSelect.toggle(this)"> <span class="_selected-text">Любая</span> </div>
+                        <div class="g-select__body _options">
+                            <ul class="g-select__items _breeds-items">
+                                <script class="__breeds-temp" type="tuts/template"> <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.gSelect.selectItem(this)">                                    {{title}}                                </li>                            </script>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="services__filter">
+                    <div class="services__filter-title">Категоря</div>
+                    <div class="services__categories g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.services.filterServicesByCategory(this.value)" />
+                        <div class="g-select__header" onclick="grummer.gSelect.toggle(this)"> <span class="_selected-text">Любая</span> </div>
+                        <div class="g-select__body _options">
+                            <ul class="g-select__items">
+                                <script class="services__filter-temp" type="tuts/template"> <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.gSelect.selectItem(this)">                                    <picture><source srcset="img/services/{{icon}}.svg" type="image/webp"><img src="img/services/{{icon}}.svg" /></picture>                                    {{title}}                                </li>                            </script>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="services__filters-cleaner" onclick="grummer.services.cleanFilter()">
+                    <picture>
+                        <source srcset="img/clean.svg" type="image/webp"><img src="img/clean.svg" alt="clean">
+                    </picture>Сбросить
+                </div>
+            </div>
+        </div>
+        <div class="services__slider">
+            <script id="services__slider-temp" type="tuts/template"> <div class="services__slide">                <div class="services__slide-wrapper">                    <div>                        <div class="services__slide-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                        </div>                    </div>                    <div class="services__slide-data">                        <div class="services__slide-title">{{title}}</div>                        <div class="services__slide-desc">                            {{text}}                        </div>                        <div class="services__slide-price">{{price}}</div>                        <div class="services__slide-time">{{time}}</div>                        <!--<button class="services__slide-btn btn gray" onclick="grummer.popupMain.open('{{title}}')">-->                        <button class="services__slide-btn btn gray" onclick="grummer.services.openPopup('{{title}}')">                            Записаться                        </button>                    </div>                </div>            </div>        </script>
+        </div>
+    </section>
+    <section class="zootaxi">
+        <div class="container">
+            <div class="zootaxi__wrapper">
+                <div class="zootaxi__content">
+                    <div class="zootaxi__title">ЗооТакси</div>
+                    <div class="zootaxi__text"> Заберём,а потом привезём вашего<br>питомца к вам домой после процедуры </div>
+                </div>
+                <div class="zootaxi__img"></div>
+            </div>
+        </div>
+    </section>
+    <section class="ourworks" id="ourworks">
+        <div class="container">
+            <h1 class="text-center">Наши работы</h1>
+            <div class="ourworks__wrapper">
+                <div class="ourworks__slider">
+                    <script id="ourworks__slider-temp" type="tuts/template"> <div class="ourworks__slider-item">                        <picture><source srcset="img/ourworks/{{img}}" type="image/webp"><img src="img/ourworks/{{img}}"></picture>                    </div>                </script>
+                </div>
+                <div class="ourworks__info">
+                    <div class="ourworks__title"></div>
+                    <div class="ourworks__text"></div>
+                    <div class="ourworks__nav"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="questions" id="questions">
+        <h1 class="text-center">Ответы на ваши вопросы</h1>
+        <div class="questions__wrapper">
+            <div class="questions__spoiler">
+                <ul>
+                    <script id="questions__spoiler-temp" type="tuts/template"> <li class="questions__item">                        <div class="questions__item-icon"></div>                        <h4 onclick="grummer.questions.toggleText(this)">{{question}}</h4>                        <div class="questions__item-text">                            {{answer}}                        </div>                    </li>                </script>
+                    <li class="questions__item">
+                        <div class="questions__item-icon"></div>
+                        <h4 onclick="grummer.questions.toggleText(this)">Что такое эксперсс-линька?</h4>
+                        <div class="questions__item-text">
+                            <p> Линька у собак и кошек — это скорее проблема чистоты в доме, а не здоровья. Шерсть красивая на животном, но она гораздо менее привлекательна, когда прилипает к одежде или мебели. Во время сезона линьки ваш дом может стать похожим на парикмахерскую. Линька питомца зачастую является настоящим бичом для ее владельца. Решить проблему вездесущей шерсти поможет такая процедура как экспресс-линька. С помощью специального инструмента удаляется до 90% отмершей шерсти, оставляя шубку животного обновленной, блестящей и красивой. </p>
+                        </div>
+                    </li>
+                    <li class="questions__item">
+                        <div class="questions__item-icon"></div>
+                        <h4 onclick="grummer.questions.toggleText(this)"> Что нужно сделать перед походом к грумеру? </h4>
+                        <div class="questions__item-text">
+                            <p> Перед визитом в салон собачку необходимо выгулять; </p>
+                            <p> Не кормить за 2 часа до стрижки; </p>
+                            <p> До процедур необходимо сообщить Вашему мастеру о имеющихся болячках, бородавках, шрамах, образований на коже собачки, а так же о перенесённых операциях или других недомоганиях; </p>
+                            <p> Нельзя стричь больную или плохо чувствующую себя собаку (к примеру, с симптомами рвоты, поноса, кашля, насморка, свежими ранами и т.д.). Также рекомендуется отложить визит к грумеру если у собаки течка; </p>
+                            <p> Животное ОБЯЗАТЕЛЬНО должно быть привито и обработано от эктопаразитов! </p>
+                            <p> Постарайтесь ясно объяснить грумеру Ваши пожелания по стрижке или показать фото желаемой стрижки; </p>
+                            <p> Заранее предупредите грумера о характере собаки или кошки; </p>
+                            <p> Если по каким-то причинам Вы не можете приехать в оговоренное время или хотите перенести визит - будем очень признательны, если сообщите нам об этом как можно раньше (минимум за сутки). </p>
+                        </div>
+                    </li>
+                    <li class="questions__item">
+                        <div class="questions__item-icon"></div>
+                        <h4 onclick="grummer.questions.toggleText(this)"> Почему появляются колтуны? </h4>
+                        <div class="questions__item-text">
+                            <p> КОЛТУН – это патологическое состояние шерстного покрова животного, при котором волосы становятся сальными и спутываются в плотные комки. Исключение составляют некоторые породы собак (командор), для которых это норма. Процесс колтунения происходит постепенно, но неумолимо. Кожа под колтуном плохо вентилируется и начинает преть, активизируются сальные железы. Животное стремиться освободиться от колтуна и чешет его лапами, еще больше запутывая и нанося себе раны когтями. Изменяются показатели кожи, снижается иммунный барьер, могут развиваться бактериальные и грибковые инфекции. Попытки же владельцев помыть животное со свалявшейся шерстью приводят к тому,что их волосы окончательно склеиваются между собой в сплошной войлочный ком. В таких запущенных состояниях единственным способом помочь животному является стрижка машинкой. </p>
+                        </div>
+                    </li>
+                    <li class="questions__item">
+                        <div class="questions__item-icon"></div>
+                        <h4 onclick="grummer.questions.toggleText(this)"> Что такое грумминг? </h4>
+                        <div class="questions__item-text">
+                            <p> Груминг (от англ. groom — ухаживать, холить) — активное поведение животных, направленное на очистку поверхности тела, то есть умывание, вылизывание шерсти, купание и т.п.. Слово «груминг» означает форму поведения животных, которая выражается в уходе за мехом (умывание, вылизывание, купание) и показывает комфортность состояния животного. Грумер — это профессионал своего дела, который быстро и качественно выполнит такие обязанности, как расчесывание, сушка, мытье и стрижка, а ваш любимец останется непременно довольным. </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="promo" id="promo">
+        <div class="container">
+            <h1>Акции</h1>
+            <div class="promo__wrapper">
+                <div class="promo__title">Дарим скидку<br>500 рублей</div>
+                <div class="promo__text">в зависимости от породы</div>
+            </div>
+        </div>
+    </section>
+    <section class="feedbacks" id="feedbacks">
+        <div class="container">
+            <h1 class="text-center">Отзывы</h1>
+            <div class="feedbacks__wrapper">
+                <div class="feedbacks__slider">
+                    <script id="feedbacks__slider-temp" type="tuts/template"> <div class="feedbacks__item">                        <div class="feedbacks__item-quotes feedbacks__item-quotes-g">                            <picture><source srcset="img/quotes-g.svg" type="image/webp"><img src="img/quotes-g.svg" alt=""></picture>                        </div>                        <div class="feedbacks__item-quotes feedbacks__item-quotes-y">                            <picture><source srcset="img/quotes-y.svg" type="image/webp"><img src="img/quotes-y.svg" alt=""></picture>                        </div>                        <div class="feedbacks__item-img">                            <picture><source srcset="img/avatars/{{img}}" type="image/webp"><img src="img/avatars/{{img}}" alt=""></picture>                        </div>                        <div class="feedbacks__item-text">                            {{text}}                        </div>                    </div>                </script>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="callback" id="callback">
+        <div class="callback__wrapper">
+            <h1>Получить консультацию</h1>
+            <div class="callback__text">Оставьте свой номер телефона и мы вам перезвоним</div>
+            <form class="callback__form" onsubmit="grummer.callback.submit(this, event)">
+                <div class="callback__form-inputs">
+                    <div class="callback__form-field"> <label class="field _field" data-call="empty" data-msg="Введите имя">
+                            <h4>Имя</h4> <input name="name" type="text" placeholder="Введите имя">
+                            <div class="error-msg _error-msg"></div>
+                        </label> </div>
+                    <div class="callback__form-field"> <label class="field _field" data-call="empty phone" data-msg="Введите телефон">
+                            <h4>Телефон</h4> <input name="tel" class="_input-phone" type="text" placeholder="+7">
+                            <div class="error-msg _error-msg"></div>
+                        </label> </div>
+                </div> <button class="btn yellow" type="submit">Перезвоните мне</button>
+            </form>
+        </div>
+        <picture>
+            <source srcset="img/callback-bg.webp" type="image/webp"><img src="img/callback-bg.jpg" class="callback__img">
+        </picture>
+    </div>
+    <footer class="footer" id="footer">
+        <div class="container footer__wrapper">
+            <div class="footer__logo"> <a href="#header" onclick="grummer.goToBlock(this, event)"><picture><source srcset="img/logo.svg" type="image/webp"><img src="img/logo.svg"></picture></a> </div>
+            <div class="footer__links">
+                <ul class="footer__links-on-bloks">
+                    <li><a href="#about" onclick="grummer.goToBlock(this, event)">О нас</a></li>
+                    <li><a href="#services" onclick="grummer.goToBlock(this, event)">Услуги</a></li>
+                    <li><a href="#questions" onclick="grummer.goToBlock(this, event)">Ответы на вопросы</a></li>
+                </ul>
+                <ul class="footer__links-on-social">
+                    <li> <a href="https://vk.com/" target="_blank">                        <picture><source srcset="img/social/vk.webp" type="image/webp"><img src="img/social/vk.png"></picture>                    </a> </li>
+                    <li> <a href="https://ok.ru/" target="_blank">                        <picture><source srcset="img/social/ok.webp" type="image/webp"><img src="img/social/ok.png"></picture>                    </a> </li>
+                    <li> <a href="https://www.instagram.com/" target="_blank">                        <picture><source srcset="img/social/insta.webp" type="image/webp"><img src="img/social/insta.png"></picture>                    </a> </li>
+                </ul>
+            </div>
+            <div class="footer__contacts">
+                <h5>Контакты</h5>
+                <ul>
+                    <li class="footer__contacts-map-m"> <a href="yandexmaps://maps.yandex.ru/?ll=39.884862,59.220050&z=18">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Калужская 153                    </a> </li>
+                    <li class="footer__contacts-map-d"> <a href="https://yandex.ru/maps/-/CCUQQ6A~~C" target="_blank">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Калужская 153                    </a> </li>
+                    <li> <a href="tel:8 900 000 00 00">                        <picture><source srcset="img/social/tel.webp" type="image/webp"><img src="img/social/tel.png"></picture>8 900 000 00 00                    </a> </li>
+                    <li> <a href="mailto:groomleta@mail.ru">                        <picture><source srcset="img/social/mail.webp" type="image/webp"><img src="img/social/mail.png"></picture>groomleta@mail.ru                    </a> </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="popup-main popup _popup-main" id="popup-main">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup__close" onclick="grummer.popup.close('_popup-main')"></div>
+                <h1>Оставить заявку</h1>
+                <form onsubmit="grummer.popupMain.submit(this, event)" class="popup-main__form">
+                    <h3>Услуга</h3>
+                    <script id="popup-main__form-services" type="tuts/template"> <li class="popup-main__form-service">                        <label>                            <input type="hidden" name="services" value="{{title}}">                        </label>                        <span>{{title}}</span>                        <div class="popup-main__form-service-actions">                            <span class="popup-main__form-service-price">{{price}}</span>                            <div                                onclick="grummer.popupMain.removeService('{{title}}')"                                class="popup-main__form-service-remove"></div>                        </div>                    </li>                </script>
+                    <div class="popup-main__form-field popup-main__form-services one">
+                        <ul class="popup-main__form-services-ul">
+                            <!-- place serices -->
+                            <li class="popup-main__form-service popup-main__form-service-action mobile" onclick="grummer.popupServices.open()"> <span>Добавить услугу</span>
+                                <div class="popup-main__form-service-action-btn"></div>
+                            </li>
+                        </ul>
+                        <div class="popup-main__form-service-action tablet" onclick="grummer.popupServices.open()"> <span>Добавить услугу</span>
+                            <div class="popup-main__form-service-action-btn"></div>
+                        </div>
+                    </div>
+                    <div class="popup-main__form-wrapper">
+                        <div class="popup-main__form-field"> <label class="field _field" data-call="empty" data-msg="Введите фамилию">
+                                <h3>Фамилия</h3> <input name="lastname" type="text" placeholder="Введите фамилию">
+                                <div class="error-msg _error-msg"></div>
+                            </label> </div>
+                        <div class="popup-main__form-field"> <label class="field _field" data-call="empty" data-msg="Введите имя">
+                                <h3>Имя</h3> <input name="name" type="text" placeholder="Введите имя">
+                                <div class="error-msg _error-msg"></div>
+                            </label> </div>
+                    </div>
+                    <div class="popup-main__form-wrapper cols-3">
+                        <div class="popup-main__form-field"> <label class="field _field" data-call="empty" data-msg="Введите телефон">
+                                <h3>Телефон</h3> <input name="tel" class="_input-phone" type="text" placeholder="+7">
+                                <div class="error-msg _error-msg"></div>
+                            </label> </div>
+                        <div class="popup-main__form-field _breed"> <label class="field _field">
+                                <h3>Порода животного</h3>
+                                <div class="popup-main__form-breeds g-select _select"> <input name="breed" type="hidden" class="_select-input" />
+                                    <div class="g-select__header" onclick="grummer.gSelect.toggle(this)"> <span class="_selected-text">Любая</span> </div>
+                                    <div class="g-select__body _options">
+                                        <ul class="g-select__items _breeds-items">
+                                            <script class="__breeds-temp" type="tuts/template"> <li                                                class="g-select__item _option"                                                data-value="{{value}}"                                                onclick="grummer.gSelect.selectItem(this)">                                                {{title}}                                            </li>                                        </script>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </label> </div>
+                        <div class="popup-main__form-field"> <label class="field _field" data-call="empty" data-msg="Введите имя">
+                                <h3>Дата</h3>
+                                <div class="popup-main__datepicker"> <input name="date" type="text" id="datepicker" readonly> </div>
+                                <div class="error-msg _error-msg"></div>
+                            </label> </div>
+                    </div>
+                    <div class="popup-main__form-field"> <label class="field _field" data-call="" data-msg="">
+                            <h3>Комментарий</h3> <textarea name="comment" placeholder="Особые пожелания"></textarea>
+                        </label> </div>
+                    <div class="popup-main__form-price"> <input name="price" type="hidden" id="_final-price"> Итого: <span class="_final-price">1800</span> </div>
+                    <div class="popup-main__form-wrapper popup-main__form-wrapper-footer"> <button class="btn yellow" type="submit">Отправить заявку</button>
+                        <div class="popup-main__form-info"> *Оставьте заявку и мы перезвоним<br>в течение минуты </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="popup-services popup _popup-services" id="popup-services">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup__back" onclick="grummer.popup.back('_popup-services')">
+                    <picture>
+                        <source srcset="img/arrow.svg" type="image/webp"><img src="img/arrow.svg" alt="">
+                    </picture>
+                </div>
+                <div class="popup__close" onclick="grummer.popup.close('_popup-services')"></div>
+                <h1>Оставить заявку</h1>
+                <div class="popup-services__filter">
+                    <div class="popup-services__filter-title">Категоря</div>
+                    <div class="popup-services__categories g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.popupServices.filterServicesByCategory(this.value)" />
+                        <div class="g-select__header" onclick="grummer.gSelect.toggle(this)"> <span class="_selected-text">Любая</span> </div>
+                        <div class="g-select__body _options">
+                            <script class="popup-services__filter-last-temp" type="tuts/template"> <li                                class="g-select__item _option"                                data-value=""                                onclick="grummer.gSelect.selectItem(this)">                                Любая                            </li>                        </script>
+                            <script class="popup-services__filter-temp" type="tuts/template"> <li                                class="g-select__item _option"                                data-value="{{value}}"                                onclick="grummer.gSelect.selectItem(this)">                                <picture><source srcset="img/services/{{icon}}.svg" type="image/webp"><img src="img/services/{{icon}}.svg" /></picture>                                {{title}}                            </li>                        </script>
+                            <ul class="g-select__items"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-services__sliders">
+                    <script id="popup-services__slider-temp" type="tuts/template"> <div class="services__slide">                        <div class="services__slide-wrapper">                            <div>                                <div class="services__slide-img">                                    <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                                </div>                            </div>                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-desc">                                    {{text}}                                </div>                                <div class="services__slide-price">{{price}}</div>                                <div class="services__slide-time">{{time}}</div>                                <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Записаться                                </button>                            </div>                        </div>                    </div>                </script>
+                    <div class="popup-services__slider popup-services__slider-services"></div>
+                    <h3>Дополнительные услуги</h3>
+                    <script id="popup-services__slider-add-temp" type="tuts/template"> <div class="services__slide">                        <div class="services__slide-wrapper">                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-price">{{price}}</div>                                <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Записаться                                </button>                            </div>                        </div>                    </div>                </script>
+                    <div class="popup-services__slider popup-services__slider-add-services"></div>
+                </div>
+                <div class="popup-services__mobile-services">
+                    <script id="popup-services__mobile-list-temp" type="tuts/template"> <li                        class="popup-services__mobile-item"                        onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                        <div class="popup-services__mobile-item-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                        </div>                        <div class="popup-services__mobile-item-data">                            <div class="popup-services__mobile-item-title">{{title}}</div>                            <div class="popup-services__mobile-item-desc">                                {{text}}                            </div>                            <div class="popup-services__mobile-item-numbers">                                <div class="popup-services__mobile-item-time">{{time}}</div>                                <div class="popup-services__mobile-item-price">{{price}}</div>                            </div>                        </div>                    </li>                </script>
+                    <ul class="popup-services__mobile-list"> </ul> <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addMore()"> Загрузить ещё </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popup-ok popup _popup-ok" id="popup-ok">
+        <div class="popup__body">
+            <div class="popup__content popup-ok__content">
+                <div class="popup__close" onclick="grummer.popup.close('_popup-ok')"></div>
+                <div class="popup-ok__data">
+                    <div class="popup-ok__img">
+                        <picture>
+                            <source srcset="img/ok.svg" type="image/webp"><img src="img/ok.svg" alt="ok">
+                        </picture>
+                    </div>
+                    <div class="popup-ok__title">Заявка принята</div>
+                    <div class="popup-ok__text">Ожидайте звонка в течение минуты</div>
+                </div> <button class="btn yellow popup-ok__btn" onclick="grummer.popupOk.gotoMain()"> Вернуться на главную </button>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.min.js"></script>
+</body>
+
+</html>
