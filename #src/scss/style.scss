@@ -1,114 +1,132 @@
-@import 'settings/null';
-@import 'settings/variables';
-@import 'settings/mixins';
-@import 'settings/tipografy';
-@import 'settings/g-select';
-@import 'fragments';
-@import 'settings/air-datepicker';
-@import 'settings/datepicker';
+@import "settings/null";
+@import "settings/variables";
+@import "settings/mixins";
+@import "settings/tipografy";
+@import "settings/g-select";
+@import "fragments";
+@import "settings/air-datepicker";
+@import "settings/datepicker";
 
-@import 'fonts';
-@import 'header';
-@import 'about';
-@import 'services';
-@import 'zootaxi';
-@import 'ourworks';
-@import 'questions';
-@import 'promo';
-@import 'feedbacks';
-@import 'callback';
-@import 'footer';
-@import 'popup';
-@import 'popup-main';
-@import 'popup-services';
-@import 'popup-ok';
+@import "fonts";
+@import "header";
+@import "about";
+@import "services";
+@import "zootaxi";
+@import "ourworks";
+@import "questions";
+@import "promo";
+@import "feedbacks";
+@import "callback";
+@import "footer";
+@import "popup";
+@import "popup-main";
+@import "popup-services";
+@import "popup-ok";
 
-*
-{
-  font-family: 'Raleway', sans-serif;
+* {
+  font-family: "Raleway", sans-serif;
   @include fontSet(14, 16, 400);
   color: $textColor;
 }
 
-body.lock {overflow: hidden !important;}
+body.lock {
+  overflow: hidden !important;
+}
 
-.container
-{
-  max-width: ($lg+30)+px;
+.container {
+  max-width: ($lg + 30) + px;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
 }
 
-.row { display: flex; }
+.row {
+  display: flex;
+}
 
-.col {}
+.col {
+}
 
-.btn
-{
+.btn {
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 12px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.04), 0px 10px 16px rgba(0, 0, 0, 0.05);
-  @include fontSet(16, 17, 600, -.2);
+  @include fontSet(16, 17, 600, -0.2);
 }
 
-.yellow { background-color: $yellow; }
+.yellow {
+  background-color: $yellow;
+}
 
-.gray { background-color: $gray; }
+.gray {
+  background-color: $gray;
+}
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
-.form
-{
-  .field
-  {
-    &.error
-    {
-      .error-msg {display: block;}
+.form {
+  .field {
+    &.error {
+      .error-msg {
+        display: block;
+      }
     }
   }
-  .error-msg {display: none;}
+  .error-msg {
+    display: none;
+  }
 }
 
-// .header {
-//   margin-bottom: 20px;
-//   @media ($tablet) { margin-bottom: 50px; }
-// }
-
-.about
-{
+.about {
   margin-bottom: 50px;
-  @media ($tablet) { margin-bottom: 110px; }
+  @media ($tablet) {
+    margin-bottom: 110px;
+  }
 }
 
-.services
-{
+.services {
   margin-bottom: 110px;
-  @media ($tablet) { margin-bottom: 170px; }
+  @media ($tablet) {
+    margin-bottom: 170px;
+  }
 }
 
-.zootaxi
-{
+.zootaxi {
   margin-bottom: 55px;
-  @media ($tablet) { margin-bottom: 60px; }
+  @media ($tablet) {
+    margin-bottom: 60px;
+  }
 }
 
-.questions
-{
+.questions {
   margin-bottom: 55px;
-  @media ($tablet) { margin-bottom: 50px; }
+  @media ($tablet) {
+    margin-bottom: 50px;
+  }
 }
 
-.promo
-{
+.promo {
   margin-bottom: 55px;
-  @media ($tablet) { margin-bottom: 60px; }
+  @media ($tablet) {
+    margin-bottom: 60px;
+  }
 }
 
-.callback
-{
+.callback {
   margin-bottom: 50px;
-  @media ($tablet) { margin-bottom: 100px; }
+  @media ($tablet) {
+    margin-bottom: 100px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
 }

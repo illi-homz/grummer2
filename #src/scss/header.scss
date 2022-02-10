@@ -1,14 +1,15 @@
 .header {
   position: relative;
 
-  @media ($tablet)
-  {
+  @media ($tablet) {
   }
 
-  img
-  {
+  img {
     height: 40px;
-    @media ($tablet) {height: 79px;}
+
+    @media ($tablet) {
+      height: 79px;
+    }
   }
 
   &__bg {
@@ -21,16 +22,15 @@
     background: url(../img/main/1_dog.jpg) bottom / cover no-repeat;
   }
 
-  &__container
-  {
+  &__container {
     padding-top: 20px;
     position: relative;
     min-height: 405px;
     display: flex;
     flex-direction: column;
     justify-content: end;
-    @media ($tablet)
-    {
+
+    @media ($tablet) {
       padding-top: 40px;
       min-height: 100vh;
     }
@@ -70,7 +70,9 @@
     z-index: 2;
     cursor: pointer;
 
-    @media ($tablet) {display: none;}
+    @media ($tablet) {
+      display: none;
+    }
   }
   &__burger {
     height: 2px;
@@ -78,17 +80,17 @@
     background-color: $textColor;
     border-radius: 2px;
     position: relative;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
     &:before,
     &:after {
-      content: '';
+      content: "";
       height: 2px;
       width: 12px;
       border-radius: 2px;
       background-color: $textColor;
       position: absolute;
-      transition-duration: .3s;
+      transition-duration: 0.3s;
     }
     &:before {
       top: -4px;
@@ -135,16 +137,21 @@
       max-width: 654px;
       justify-content: space-between;
       padding-bottom: 3px;
+
       a {
         font-weight: bold;
-        letter-spacing: -.1px;
+        letter-spacing: -0.1px;
       }
-      li
-      {
+
+      li {
         text-align: center;
         display: flex;
         align-items: center;
         margin-right: 10px;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -155,10 +162,10 @@
     flex-direction: column;
     justify-content: end;
     h1 {
-      @include fontSet(34, 36, 800, -.5);
+      @include fontSet(34, 36, 800, -0.5);
     }
     p {
-      @include fontSet(16, 20, 500, -.2);
+      @include fontSet(16, 20, 500, -0.2);
       margin-top: 15px;
       margin-bottom: 30px;
     }
@@ -168,10 +175,10 @@
       padding-bottom: 50px;
       justify-content: start;
       h1 {
-        @include fontSet(80, 85, 700, -.5);
+        @include fontSet(80, 85, 700, -0.5);
       }
       p {
-        @include fontSet(18, 23, 600, -.2);
+        @include fontSet(18, 23, 600, -0.2);
         margin-top: 30px;
         margin-bottom: 40px;
       }
@@ -181,17 +188,15 @@
     max-width: none;
     height: 65px;
 
-    @media ($tablet) {max-width: 305px;}
+    @media ($tablet) {
+      max-width: 305px;
+    }
   }
 }
 
 @media (max-width: $sm+px) {
   .header {
-
-
-
     &__call-btn {
-
     }
   }
 }

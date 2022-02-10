@@ -1,16 +1,17 @@
-.ourworks
-{
+.ourworks {
     padding: 20px 0 35px;
-    @media ($tablet) { padding: 50px 0 80px; }
-
-    h1
-    {
-        margin-bottom: 40px;
-        @media ($tablet) { margin-bottom: 80px; }
+    @media ($tablet) {
+        padding: 50px 0 80px;
     }
 
-    &__wrapper
-    {
+    h1 {
+        margin-bottom: 40px;
+        @media ($tablet) {
+            margin-bottom: 80px;
+        }
+    }
+
+    &__wrapper {
         display: flex;
         flex-direction: column;
 
@@ -19,8 +20,7 @@
         }
     }
 
-    &__info
-        {
+    &__info {
         position: relative;
         flex: 1 0;
         padding-top: 15px;
@@ -33,8 +33,7 @@
             max-width: 430px;
         }
     }
-    &__nav
-    {
+    &__nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -48,19 +47,18 @@
             margin-top: 0;
         }
     }
-    &__title
-    {
+    &__title {
         @include fontSet(19, 20, 700);
         margin-bottom: 15px;
-        @media ($tablet) {margin-bottom: 25px;}
+        @media ($tablet) {
+            margin-bottom: 25px;
+        }
     }
-    &__text
-    {
+    &__text {
         @include fontSet(16, 20, 500);
     }
 
-    &__slider
-    {
+    &__slider {
         overflow: hidden;
         flex: 2 0;
         position: relative;
@@ -69,27 +67,22 @@
         @media ($tablet) {
             height: 565px;
         }
-        &-item
-        {
-            img
-            {
+        &-item {
+            img {
                 height: 100%;
                 width: 100%;
                 object-fit: cover;
             }
         }
-        .slick-list
-        {
+        .slick-list {
             height: inherit;
         }
-        .slick-track
-        {
+        .slick-track {
             display: flex;
             height: inherit;
         }
     }
-    .slick-arrow
-    {
+    .slick-arrow {
         @extend %arrows;
         visibility: hidden;
         height: 0;
@@ -99,12 +92,12 @@
             visibility: visible;
         }
     }
-    .prev-arrow
-    {
-        img { transform: rotate(180deg); }
+    .prev-arrow {
+        img {
+            transform: rotate(180deg);
+        }
     }
-    .slick-dots
-    {
+    .slick-dots {
         @extend %dots;
         position: absolute;
         left: 50%;

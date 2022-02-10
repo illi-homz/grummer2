@@ -1,60 +1,50 @@
-.popup-ok
-{
-  &__content
-  {
+.popup-ok {
+  &__content {
     display: flex;
     flex-direction: column;
     height: 95vh;
     padding: 40px 16px;
   }
-  &__data
-  {
+  &__data {
     flex: 1 0;
-    @media ($tablet)
-    {
+    @media ($tablet) {
       padding-top: 10vh;
     }
   }
-  &__img
-  {
+  &__img {
     text-align: center;
     height: 184px;
     margin-bottom: 15px;
 
-    img {height: 100%;}
+    img {
+      height: 100%;
+    }
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       height: 124px;
     }
   }
-  &__title
-  {
+  &__title {
     @include fontSet(40, 47, 800);
     text-align: center;
     margin-bottom: 14px;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       @include fontSet(70, 82, 800);
     }
   }
-  &__text
-  {
+  &__text {
     @include fontSet(16, 19, 500);
     text-align: center;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       @include fontSet(30, 35, 500);
     }
   }
-  &__btn
-  {
+  &__btn {
     height: 65px;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       width: 300px;
       margin: 0 auto;
     }

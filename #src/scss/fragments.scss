@@ -1,5 +1,4 @@
-%arrows
-{
+%arrows {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,21 +12,25 @@
     z-index: 5;
 }
 
-%dots
-{
+%dots {
     display: flex;
 
-    * {font-size: 0;}
+    * {
+        font-size: 0;
+    }
 
-    li
-    {
+    li {
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background-color: #CDD7DC;
+        background-color: #cdd7dc;
         cursor: pointer;
 
-        &:not(:last-child) {margin-right: 8px;}
-        &.slick-active {background-color: #FEC71A;}
+        &:not(:last-child) {
+            margin-right: 8px;
+        }
+        &.slick-active {
+            background-color: #fec71a;
+        }
     }
 }

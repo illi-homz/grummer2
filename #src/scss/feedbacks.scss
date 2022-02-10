@@ -1,68 +1,68 @@
-.feedbacks
-{
+.feedbacks {
     padding-top: 20px;
-    @media ($tablet) {padding-top: 50px;}
+    @media ($tablet) {
+        padding-top: 50px;
+    }
 
-    .container
-    {
+    .container {
         overflow: hidden;
         padding-bottom: 90px;
 
         @media ($mobile) {
-            max-width: $lg+px;
+            max-width: $lg + px;
             padding: 0;
             padding-bottom: 120px;
         }
     }
 
-    h1
-    {
+    h1 {
         margin-bottom: 85px;
-        @media ($tablet) {margin-bottom: 120px;}
+        @media ($tablet) {
+            margin-bottom: 120px;
+        }
     }
-    &__wrapper
-    {
+    &__wrapper {
         position: relative;
     }
-    &__slider
-    {
+    &__slider {
         width: 100%;
         margin: 0 auto;
 
-        @media ($mobile) {width: 66.666%;}
+        @media ($mobile) {
+            width: 66.666%;
+        }
 
         @media ($tablet) {
             width: 33.333%;
 
-            &:hover .slick-arrow
-            {
+            &:hover .slick-arrow {
                 visibility: visible;
                 opacity: 1;
             }
         }
 
-        .slick-track
-        {
+        .slick-track {
             display: flex;
         }
-        .slick-arrow
-        {
+        .slick-arrow {
             @extend %arrows;
             position: absolute;
             top: 50%;
             visibility: hidden;
             opacity: 0;
             transform: translateY(-50%);
-            transition: all .2s ease;
+            transition: all 0.2s ease;
         }
-        .next-arrow { right: 25px; }
-        .prev-arrow
-        {
+        .next-arrow {
+            right: 25px;
+        }
+        .prev-arrow {
             left: 25px;
-            img { transform: rotate(180deg); }
+            img {
+                transform: rotate(180deg);
+            }
         }
-        .slick-dots
-        {
+        .slick-dots {
             @extend %dots;
             position: absolute;
             left: 50%;
@@ -71,11 +71,9 @@
         }
     }
 
-
-    &__item
-    {
+    &__item {
         margin: 0 10px;
-        border: 1px solid #EBEBEB;
+        border: 1px solid #ebebeb;
         border-radius: 12px;
         padding-top: 20px;
         padding-bottom: 30px;
@@ -83,43 +81,48 @@
         opacity: 0;
         height: fit-content;
         min-height: 290px;
-        transition: opacity .3s ease;
+        transition: opacity 0.3s ease;
 
-
-        @media ($mobile) {opacity: 1;}
-        @media ($tablet) { min-height: 350px; }
+        @media ($mobile) {
+            opacity: 1;
+        }
+        @media ($tablet) {
+            min-height: 350px;
+        }
 
         &.slick-active {
             opacity: 1;
 
-            .feedbacks__item-quotes-g {opacity: 0;}
-            .feedbacks__item-quotes-y {opacity: 1;}
+            .feedbacks__item-quotes-g {
+                opacity: 0;
+            }
+            .feedbacks__item-quotes-y {
+                opacity: 1;
+            }
         }
 
-        &-quotes
-        {
+        &-quotes {
             position: absolute;
             width: 90px;
             height: 95px;
             top: -47px;
             left: 8px;
-            transition: opacity .6s ease;
+            transition: opacity 0.6s ease;
         }
-        &-quotes-y { opacity: 0; }
-        &-img
-        {
+        &-quotes-y {
+            opacity: 0;
+        }
+        &-img {
             display: flex;
             justify-content: center;
 
-            img
-            {
+            img {
                 border-radius: 50%;
                 height: 105px;
                 width: 105px;
             }
         }
-        &-text
-        {
+        &-text {
             margin-top: 25px;
             text-align: center;
             padding: 0 35px;

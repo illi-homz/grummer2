@@ -1,10 +1,12 @@
-.services
-{
+.services {
   padding-top: 20px;
-  @media ($tablet) {padding-top: 50px;}
-  h1 {margin-bottom: 40px;}
-  &__nav
-  {
+  @media ($tablet) {
+    padding-top: 50px;
+  }
+  h1 {
+    margin-bottom: 40px;
+  }
+  &__nav {
     display: flex;
     overflow: scroll;
     padding: 0 10px 10px;
@@ -16,8 +18,7 @@
     }
     scrollbar-width: none;
   }
-  &__nav-btn
-  {
+  &__nav-btn {
     height: 45px;
     min-width: 196px;
     display: flex;
@@ -25,35 +26,34 @@
     justify-content: center;
     cursor: pointer;
 
-    &:not(:last-child) {margin-right: 20px;}
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
 
-    &.active { background-color: $yellow; }
+    &.active {
+      background-color: $yellow;
+    }
   }
-  &__info-for-dogs
-  {
+  &__info-for-dogs {
     margin-top: 10px;
     display: none;
     width: 100%;
   }
-  &__note
-  {
+  &__note {
     margin-bottom: 20px;
-    @include fontSet(12, 19.2, 500, -.1);
+    @include fontSet(12, 19.2, 500, -0.1);
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       margin-bottom: 25px;
     }
   }
-  &__filters
-  {
+  &__filters {
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       flex-direction: row;
       align-items: center;
       width: 100%;
@@ -61,56 +61,54 @@
       padding-top: 0;
     }
   }
-  &__filters-cleaner
-  {
+  &__filters-cleaner {
     display: none;
     align-items: center;
-    color: #CDD7DC;
+    color: #cdd7dc;
     font-size: 18px;
     font-weight: 500;
 
     cursor: pointer;
 
-    img
-    {
+    img {
       margin-right: 13px;
     }
 
-    &.active { display: flex; }
+    &.active {
+      display: flex;
+    }
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       margin-top: 20px;
     }
   }
-  &__filter
-  {
+  &__filter {
     width: 100%;
     margin-bottom: 30px;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       width: 1px;
       min-width: 305px;
       margin-right: 20px;
       margin-bottom: 0;
     }
   }
-  &__filter-title
-  {
+  &__filter-title {
     margin-bottom: 10px;
     @include fontSet(16, 22.4, 500);
   }
-  &__categories
-  {
-    img
-    {
+  &__breeds-header-label {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  &__categories {
+    img {
       width: 16px;
       margin-right: 8px;
     }
   }
-  &__slider
-  {
+  &__slider {
     position: relative;
     height: 380px;
     margin-top: 20px;
@@ -120,54 +118,51 @@
       opacity: 1;
     }
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       height: 480px;
       margin-top: 40px;
     }
   }
-  .slick-arrow
-  {
+  .slick-arrow {
     @extend %arrows;
     position: absolute;
     visibility: hidden;
     opacity: 0;
     top: 40%;
-    transition: all .2s ease;
+    transition: all 0.2s ease;
 
     &:active:not(.slick-disabled) {
       transform: translateY(2px);
     }
   }
-  .prev-arrow
-  {
+  .prev-arrow {
     left: 15px;
-    img { transform: rotate(180deg); }
+    img {
+      transform: rotate(180deg);
+    }
   }
-  .next-arrow { right: 15px; }
-  .slick-list
-  {
+  .next-arrow {
+    right: 15px;
+  }
+  .slick-list {
     height: inherit;
     overflow: hidden;
     // padding: 0 5px;
     margin: 0 -10px;
   }
-  .slick-track
-  {
+  .slick-track {
     display: flex;
     height: inherit;
   }
 
-  &__slide
-  {
+  &__slide {
     margin: 10px 0 20px;
   }
-  &__slide-wrapper
-  {
+  &__slide-wrapper {
     height: 100%;
     box-shadow: 0px 4px 9px rgba(142, 142, 142, 0.2);
     background-color: #fff;
-    border: 1px solid #F5F5F5;
+    border: 1px solid #f5f5f5;
     border-radius: 12px;
     overflow: hidden;
     margin: 0 10px;
@@ -176,8 +171,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       padding-top: 30px;
     }
   }
@@ -186,69 +180,63 @@
     margin-bottom: 10px;
     text-align: center;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       height: 120px;
       margin-bottom: 0;
     }
   }
-  &__slide-data
-  {
+  &__slide-data {
     flex: 1 0;
     display: flex;
     flex-direction: column;
   }
-  &__slide-title
-  {
+  &__slide-title {
     text-align: center;
     @include fontSet(14, 20, 700);
     flex: 1 0;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       @include fontSet(16, 22, 700);
     }
   }
-  &__slide-desc
-  {
+  &__slide-desc {
     @include fontSet(10, 14, 400);
     height: 50px;
     margin-bottom: 3px;
     text-align: center;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       @include fontSet(11, 16, 400);
       height: 65px;
       margin-bottom: 10px;
     }
   }
-  &__slide-price
-  {
+  &__slide-price {
     text-align: center;
     @include fontSet(18, 25, 700);
     margin-bottom: 10px;
 
-    @media ($tablet)
-    {
+    @media ($tablet) {
       @include fontSet(25, 35, 700);
       margin-bottom: 12px;
     }
   }
-  &__slide-time
-  {
+  &__slide-time {
     text-align: center;
     @include fontSet(11, 15, 400);
-    color: #CDD7DC;
+    color: #cdd7dc;
     margin-bottom: 10px;
 
-    @media ($tablet) {margin-bottom: 20px;}
+    @media ($tablet) {
+      margin-bottom: 20px;
+    }
   }
-  &__slide-btn
-  {
+  &__slide-btn {
     width: 100%;
     height: 65px;
 
-    &:hover {background-color: #FEC71A;}
+    &:hover {
+      background-color: #fec71a;
+    }
   }
 }

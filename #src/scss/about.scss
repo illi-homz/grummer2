@@ -1,10 +1,10 @@
-.about
-{
-
+.about {
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  @media ($tablet) { padding-top: 50px; }
+  @media ($tablet) {
+    padding-top: 50px;
+  }
 
   h1 {
     padding-bottom: 40px;
@@ -15,20 +15,22 @@
       padding-bottom: 70px;
     }
   }
-  p
-  {
+  p {
     @include fontSet(16, 22, 600);
 
-    &:first-of-type {margin-bottom: 22px;}
+    &:first-of-type {
+      margin-bottom: 22px;
+    }
 
     @media ($tablet) {
-      @include fontSet(25, 30, 600, -.2);
-      &:first-of-type {margin-bottom: 25px;}
+      @include fontSet(25, 30, 600, -0.2);
+      &:first-of-type {
+        margin-bottom: 25px;
+      }
     }
   }
 
-  &__wrapper
-  {
+  &__wrapper {
     max-width: 730px;
   }
 }

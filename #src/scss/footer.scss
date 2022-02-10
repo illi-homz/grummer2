@@ -1,8 +1,6 @@
-.footer
-{
-    background-color: #ECECEC;
-    &__wrapper
-    {
+.footer {
+    background-color: #ececec;
+    &__wrapper {
         position: relative;
         padding: 125px 0 70px;
         @media ($tablet) {
@@ -15,24 +13,24 @@
             padding-right: 155px;
         }
     }
-    &__logo
-    {
+    &__logo {
         margin-bottom: 40px;
-        img
-        {
+        img {
             width: 100%;
-            @media ($mobile) {width: auto;}
+            @media ($mobile) {
+                width: auto;
+            }
         }
     }
-    &__links
-    {
+    &__links {
         flex: 1 0;
         max-width: 350px;
 
-        @media ($tablet) {margin-left: 20px;}
+        @media ($tablet) {
+            margin-left: 20px;
+        }
 
-        &-on-bloks
-        {
+        &-on-bloks {
             display: flex;
             flex-direction: column;
             margin-bottom: 56px;
@@ -47,26 +45,29 @@
             }
 
             @media ($desctop) {
-
                 flex-direction: row;
                 margin-bottom: 35px;
                 justify-content: space-between;
 
-                li:not(:last-child)
-                {
+                li:hover {
+                    text-decoration: underline;
+                }
+
+                li:not(:last-child) {
                     margin-bottom: 0;
                 }
             }
         }
-        &-on-social
-        {
+        &-on-social {
             display: flex;
             position: absolute;
             top: 40px;
             left: 50%;
             transform: translateX(-50%);
 
-            li:not(:last-child) {margin-right: 8px;}
+            li:not(:last-child) {
+                margin-right: 8px;
+            }
 
             @media ($tablet) {
                 position: static;
@@ -74,39 +75,48 @@
             }
         }
     }
-    &__contacts
-    {
-        @media ($tablet) {padding-top: 25px;}
-        h5
-        {
+    &__contacts {
+        @media ($tablet) {
+            padding-top: 25px;
+        }
+        h5 {
             @include fontSet(14, 16, 700);
             margin-bottom: 25px;
         }
-        &-map-m
-        {
-            @media ($tablet) {display: none;}
+        &-map-m {
+            @media ($tablet) {
+                display: none;
+            }
         }
-        &-map-d
-        {
+        &-map-d {
             display: none;
-            @media ($tablet) {display: block;}
+            @media ($tablet) {
+                display: block;
+            }
         }
-        li
-        {
+        li {
             &:not(:last-child) {
                 margin-bottom: 8px;
             }
         }
-        li a
-        {
+        li a {
             display: inline-flex;
             align-items: center;
 
-            img {margin-right: 10px;}
+            img {
+                margin-right: 10px;
+            }
 
-            @media ($tablet)
-            {
-                img {margin-right: 16px;}
+            @media ($tablet) {
+                img {
+                    margin-right: 16px;
+                }
+            }
+
+            @media ($desctop) {
+                &:hover {
+                    text-decoration: underline;
+                }
             }
         }
     }

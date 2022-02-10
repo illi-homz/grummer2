@@ -58,15 +58,29 @@
     z-index: 5;
     transition: border-radius .3s ease;
 
-    li
-    {
-      cursor: pointer;
-      min-height: 30px;
-      display: flex;
-      align-items: center;
-      white-space: normal;
-      padding: 0 23px;
-      &.active {background-color: #ECEFEF;}
+    // li
+    // {
+    //   cursor: pointer;
+    //   min-height: 30px;
+    //   display: flex;
+    //   align-items: center;
+    //   white-space: normal;
+    //   padding: 0 23px;
+    //   &.active {background-color: #ECEFEF;}
+    // }
+  }
+  &__item {
+    cursor: pointer;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    white-space: normal;
+    padding: 0 23px;
+
+    &.active {background-color: #ECEFEF;}
+
+    &:hover {
+      background-color: #DADADA;
     }
   }
   &.opened

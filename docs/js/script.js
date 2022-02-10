@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 /*! jQuery v3.5.1 | (c) JS Foundation and other contributors | jquery.org/license */
 
 !function (e, t) {
@@ -5959,21 +5959,28 @@ class Validator {
 const grummer = {
   currentServices: [],
   currentBreed: undefined,
+  breesTemplate: null,
 
   goToBlock(target, event, isMobile = false) {
     if (event) event.preventDefault();
     if (isMobile) this.header.toggleMenu();
-    $('html,body').animate({
-      scrollTop: typeof target === 'string' ? target : $(target.hash).offset().top
+    $("html,body").animate({
+      scrollTop: typeof target === "string" ? target : $(target.hash).offset().top
     });
   },
 
   setBreeds(arr) {
-    const list = $('._breeds-items');
-    const template = $.trim($('.__breeds-temp').html());
+    const list = $("._breeds-items");
+
+    if (!this.breesTemplate) {
+      const template = $.trim($(".__breeds-temp").html());
+      this.breesTemplate = template;
+    }
+
+    list.html("");
     let frag = arr.reduce((acc, item) => {
-      return acc += template.replace(/{{title}}/ig, item.title).replace(/{{value}}/ig, item.value);
-    }, '');
+      return acc += this.breesTemplate.replace(/{{title}}/gi, item.title).replace(/{{value}}/gi, item.value);
+    }, "");
     list.append(frag);
   }
 
@@ -6326,7 +6333,7 @@ grummer.popupOk = {
 
 grummer.store = {
   init() {
-    grummer.breeds = this.breeds;
+    grummer.breeds = this.breeds.sort((a, b) => a.title > b.title);
     grummer.categories = this.categories;
     grummer.servicesList = this.servicesList;
     grummer.ourWorks = this.ourWorks;
@@ -6335,7 +6342,7 @@ grummer.store = {
   },
 
   breeds: [{
-    title: "Йоркширский терьер",
+    title: "Йоркширский терьер, бивер-йорк",
     value: "york",
     type: "dog"
   }, {
@@ -6343,11 +6350,43 @@ grummer.store = {
     value: "shpits",
     type: "dog"
   }, {
+    title: "Шпиц малый",
+    value: "shpits-mall",
+    type: "dog"
+  }, {
+    title: "Шпиц японский",
+    value: "shpits-japan",
+    type: "dog"
+  }, {
+    title: "Шпиц карликовый (померанский)",
+    value: "shpits-king",
+    type: "dog"
+  }, {
     title: "Ши-Тцу",
     value: "shi-tsy",
     type: "dog"
   }, {
-    title: "Мальтийская балонка/Мальтезе",
+    title: "Норвич-терьер",
+    value: "norvich-terier",
+    type: "dog"
+  }, {
+    title: "Норфолк-терьер",
+    value: "norfolk-terier",
+    type: "dog"
+  }, {
+    title: "Миттельшнауцер",
+    value: "mittelshnatser",
+    type: "dog"
+  }, {
+    title: "Японский хин",
+    value: "japan-hin",
+    type: "dog"
+  }, {
+    title: "Русская цветная болонка",
+    value: "rus-color-balonka",
+    type: "dog"
+  }, {
+    title: "Мальтийская болонка (Мальтезе)",
     value: "malt-bolonka",
     type: "dog"
   }, {
@@ -6355,12 +6394,16 @@ grummer.store = {
     value: "bishon-frieze",
     type: "dog"
   }, {
-    title: "Афганская борзая /АФГАН",
+    title: "Афганская борзая (АФГАН)",
     value: "afgan-borzaya",
     type: "dog"
   }, {
     title: "Пекинес",
     value: "pekinez",
+    type: "dog"
+  }, {
+    title: "Русский охотничий спаниель",
+    value: "rus-spaniel",
     type: "dog"
   }, {
     title: "Американский Кокер-спаниель",
@@ -6391,6 +6434,10 @@ grummer.store = {
     value: "buldog-england",
     type: "dog"
   }, {
+    title: "Бульдог Французский",
+    value: "buldog-franch",
+    type: "dog"
+  }, {
     title: "Бедлингтон-терьер",
     value: "bedlington-terier",
     type: "dog"
@@ -6411,8 +6458,24 @@ grummer.store = {
     value: "bulterier",
     type: "dog"
   }, {
+    title: "Пудель КОРОЛЕВСКИЙ",
+    value: "pudel-king",
+    type: "dog"
+  }, {
+    title: "Пудель большой",
+    value: "pudel-big",
+    type: "dog"
+  }, {
+    title: "Русский той-терьер",
+    value: "rus-toi",
+    type: "dog"
+  }, {
     title: "Пудель (той и карликовый)",
     value: "pudel-toy-and-karlick",
+    type: "dog"
+  }, {
+    title: "Пудель (Малый. До 55см в холке)",
+    value: "litle-pudel",
     type: "dog"
   }, {
     title: "Метис/Дворняга",
@@ -6427,19 +6490,27 @@ grummer.store = {
     value: "papilion",
     type: "dog"
   }, {
-    title: "Золотистый ретривер/ голден",
+    title: "Фокстерьер жескошерстный",
+    value: "foxterier-hardhair",
+    type: "dog"
+  }, {
+    title: "Гриффон (брюсельский, бельгийский)",
+    value: "griffon",
+    type: "dog"
+  }, {
+    title: "Золотистый ретривер (голден)",
     value: "gold-retriver",
     type: "dog"
   }, {
-    title: "Алабай",
+    title: "Алабай (средне-азиатская овчарка)",
     value: "alabai",
     type: "dog"
   }, {
-    title: "Колли",
+    title: "Бордер колли",
     value: "killi",
     type: "dog"
   }, {
-    title: "Вест-Хайленд",
+    title: "Вест-хайленд-вайт-терьер",
     value: "vest-hilend",
     type: "dog"
   }, {
@@ -6451,11 +6522,7 @@ grummer.store = {
     value: "newfaunlend",
     type: "dog"
   }, {
-    title: "Пудель (Малый. До 55см в холке)",
-    value: "litle-pudel",
-    type: "dog"
-  }, {
-    title: "Сеттер",
+    title: "Сеттер (ирл, гордон, англ)",
     value: "setter",
     type: "dog"
   }, {
@@ -6463,20 +6530,64 @@ grummer.store = {
     value: "mops",
     type: "dog"
   }, {
+    title: "Сиба-ину",
+    value: "siba-inu",
+    type: "dog"
+  }, {
+    title: "Скотч-терьер",
+    value: "scotch-terier",
+    type: "dog"
+  }, {
+    title: "Силихем-терьер",
+    value: "silihem-terier",
+    type: "dog"
+  }, {
     title: "Грифон",
     value: "grifon",
+    type: "dog"
+  }, {
+    title: "Такса гладкошерстная",
+    value: "taksa",
+    type: "dog"
+  }, {
+    title: "Такса жесткошерстная",
+    value: "taksa-hard",
+    type: "dog"
+  }, {
+    title: "Такса длинношерстная",
+    value: "taksa-longhair",
     type: "dog"
   }, {
     title: "Цвергшнауцер",
     value: "shwergshnautser",
     type: "dog"
   }, {
+    title: "Ризеншнауцер",
+    value: "risenshnautser",
+    type: "dog"
+  }, {
     title: "Самоед",
     value: "samoed",
     type: "dog"
   }, {
+    title: "Хаски",
+    value: "haski",
+    type: "dog"
+  }, {
     title: "Ротвейлер",
     value: "rotveiler",
+    type: "dog"
+  }, {
+    title: "Чихуахуа",
+    value: "chihuahua",
+    type: "dog"
+  }, {
+    title: "Шарпей",
+    value: "sharpei",
+    type: "dog"
+  }, {
+    title: "Шелти",
+    value: "shelti",
     type: "dog"
   }, {
     title: "Мягкошерстный пшеничный терьер",
@@ -6491,10 +6602,6 @@ grummer.store = {
     value: "moskow-storogevaya",
     type: "dog"
   }, {
-    title: "Пудель КОРОЛЕВСКИЙ",
-    value: "pudel-king",
-    type: "dog"
-  }, {
     title: "Спрингер-спаниель",
     value: "springer-spaniel",
     type: "dog"
@@ -6507,7 +6614,15 @@ grummer.store = {
     value: "labrador",
     type: "dog"
   }, {
-    title: "Маламут",
+    title: "Лабрадудель",
+    value: "labradudel",
+    type: "dog"
+  }, {
+    title: "Мальтипу",
+    value: "maltipu",
+    type: "dog"
+  }, {
+    title: "Аляскинский маламут",
     value: "malamut",
     type: "dog"
   }, {
@@ -6519,12 +6634,24 @@ grummer.store = {
     value: "ireland-terier",
     type: "dog"
   }, {
+    title: "Ирландский мягкошерстный пшеничный терьер",
+    value: "ireland-terier-soft",
+    type: "dog"
+  }, {
     title: "Немецкая овчарка",
     value: "deutsch-ovcharka",
     type: "dog"
   }, {
+    title: "Пиренейская овчарка",
+    value: "pireneiskaya-ovcharka",
+    type: "dog"
+  }, {
     title: "Сенбернар",
     value: "senbernar",
+    type: "dog"
+  }, {
+    title: "Далматин",
+    value: "dalmatin",
     type: "dog"
   }, {
     title: "Кавалер Кинг Чарльз спаниель",
@@ -6761,15 +6888,16 @@ grummer.store = {
     category: "add-services",
     text: "Дополнительная услуга",
     img: "help-grummer.svg"
-  }, {
-    title: "Зоотакси",
-    animal: "",
-    price: "от 300",
-    time: "",
-    category: "add-services",
-    text: "заберем и привезем обратно после процедуры",
-    img: "zootaxi.svg"
-  }],
+  } // {
+  //   title: "Зоотакси",
+  //   animal: "",
+  //   price: "от 300",
+  //   time: "",
+  //   category: "add-services",
+  //   text: "заберем и привезем обратно после процедуры",
+  //   img: "zootaxi.svg",
+  // },
+  ],
   ourWorks: [{
     img: "slide-1.jpg",
     title: "Подготовка к выставке1",
@@ -6826,46 +6954,52 @@ grummer.store = {
   }]
 };
 ;
-'use strict';
+"use strict";
 
 grummer.gSelect = {
   open($select) {
-    $select.children('._options').first().slideDown(300);
-    $select.toggleClass('opened');
+    $select.children("._options").first().slideDown(300);
+    $select.toggleClass("opened");
   },
 
   close($select) {
-    $select.children('._options').first().slideUp(300);
-    $select.toggleClass('opened');
+    $select.children("._options").first().slideUp(300);
+    $select.toggleClass("opened");
   },
 
   toggle(instance) {
-    let $select = $(instance).parents('._select');
-    if (!$select.hasClass('opened')) this.open($select);else this.close($select);
+    let $select = $(instance).parents("._select");
+
+    if (!$select.hasClass("opened")) {
+      this.open($select);
+    } else {
+      this.close($select);
+    }
   },
 
   setName($select, name) {
-    $select.find('._selected-text').html(name);
+    $select.find("._selected-text").html(name);
   },
 
   setInputValue($select, value) {
-    $select.find('._select-input').val(value).trigger('change');
+    $select.find("._select-input").val(value).trigger("change");
   },
 
   selectItem(instance) {
     const $inst = $(instance);
-    const $select = $inst.parents('._select');
-    $select.removeClass('error');
-    $select.find('._option').removeClass('active');
-    $inst.addClass('active');
+    const $select = $inst.parents("._select");
+    $select.removeClass("error");
+    $select.find("._option").removeClass("active");
+    $inst.addClass("active");
     const name = $inst.text();
-    const selectedValue = $inst.data('value');
+    const selectedValue = $inst.data("value");
     this.setName($select, name);
     this.setInputValue($select, selectedValue);
     this.close($select);
   }
 
 };
+;
 'use strict';
 
 grummer.header = {
@@ -6942,30 +7076,30 @@ grummer.header = {
   }
 
 };
-'use strict';
+"use strict";
 
 grummer.services = {
   init() {
-    this.breed = '';
+    this.breed = "";
     this.setCategories(grummer.categories);
-    this.sliderList = $('.services__slider');
-    this.sliderTemplate = $.trim($('#services__slider-temp').html());
+    this.sliderList = $(".services__slider");
+    this.sliderTemplate = $.trim($("#services__slider-temp").html());
     this.setSlides(grummer.servicesList, this.sliderList, this.sliderTemplate);
     this.initSlider();
   },
 
   setCategories(arr) {
-    const list = $('.services__categories .g-select__items');
-    const template = $.trim($('.services__categories .services__filter-temp').html());
-    let frag = '';
+    const list = $(".services__categories .g-select__items");
+    const template = $.trim($(".services__categories .services__filter-temp").html());
+    let frag = "";
     arr.forEach(item => {
-      frag += template.replace(/{{title}}/ig, item.title).replace(/{{value}}/ig, item.value).replace(/{{icon}}/ig, item.icon);
+      frag += template.replace(/{{title}}/gi, item.title).replace(/{{value}}/gi, item.value).replace(/{{icon}}/gi, item.icon);
     });
     list.append(frag);
   },
 
   initSlider() {
-    $('.services__slider').slick({
+    $(".services__slider").slick({
       infinite: true,
       slidesToShow: 6,
       slidesToScroll: 6,
@@ -6996,10 +7130,10 @@ grummer.services = {
   },
 
   setSlides(slides, list, template) {
-    list.html('');
-    let frag = '';
+    list.html("");
+    let frag = "";
     slides.forEach(slide => {
-      frag += template.replace(/{{title}}/ig, slide.title).replace(/{{text}}/ig, slide.text).replace(/{{price}}/ig, slide.price).replace(/{{time}}/ig, slide.time).replace(/{{img}}/ig, slide.img);
+      frag += template.replace(/{{title}}/gi, slide.title).replace(/{{text}}/gi, slide.text).replace(/{{price}}/gi, slide.price).replace(/{{time}}/gi, slide.time).replace(/{{img}}/gi, slide.img);
     });
     list.append(frag);
   },
@@ -7010,7 +7144,7 @@ grummer.services = {
 
   filter(list) {
     this.setSlides(list, this.sliderList, this.sliderTemplate);
-    this.sliderList.removeClass('slick-initialized slick-slider');
+    this.sliderList.removeClass("slick-initialized slick-slider");
     this.initSlider();
   },
 
@@ -7022,34 +7156,34 @@ grummer.services = {
 
   filterServicesByBreed(el, animal = null) {
     const $el = $(el);
-    if ($el.hasClass('active')) return;
-    $el.parent().children('div').removeClass('active');
-    $el.addClass('active');
-    const dogsMenu = $('.services__info-for-dogs');
+    if ($el.hasClass("active")) return;
+    $el.parent().children("div").removeClass("active");
+    $el.addClass("active");
+    const dogsMenu = $(".services__info-for-dogs");
     grummer.animal = animal;
-    animal === 'dog' ? dogsMenu.slideDown(300) : dogsMenu.slideUp(300);
-    animal ? this.filter(this.filterServices(animal, 'animal')) : this.filter(grummer.servicesList);
+    animal === "dog" ? dogsMenu.slideDown(300) : dogsMenu.slideUp(300);
+    animal ? this.filter(this.filterServices(animal, "animal")) : this.filter(grummer.servicesList);
   },
 
   filterServicesByCategory(val) {
-    this.filter(this.filterServices(val, 'category'));
+    this.filter(this.filterServices(val, "category"));
     this.showCleaner();
   },
 
   cleanFilter() {
     this.filter(grummer.servicesList);
     this.removeCleaner();
-    const $categories = $('.services__categories');
-    $categories.find('._selected-text').html('Любая');
-    $categories.find('._option').removeClass('active');
+    const $categories = $(".services__categories");
+    $categories.find("._selected-text").html("Любая");
+    $categories.find("._option").removeClass("active");
   },
 
   showCleaner() {
-    $('.services__filters-cleaner').addClass('active');
+    $(".services__filters-cleaner").addClass("active");
   },
 
   removeCleaner() {
-    $('.services__filters-cleaner').removeClass('active');
+    $(".services__filters-cleaner").removeClass("active");
   },
 
   openPopup(title) {
@@ -7062,9 +7196,54 @@ grummer.services = {
     grummer.currentServices = [service];
     if (breed) grummer.currentBreed = breed.title;
     grummer.popupMain.open();
+  },
+
+  toggleDogsSelect(instance) {
+    const $title = $(instance);
+    let $select = $title.parents("._select");
+    const $input = $select.find("._dog-select");
+    const $label = $select.find("._selected-text");
+
+    if ($select.hasClass("opened")) {
+      $input.addClass("hide");
+      $input.val("");
+      $label.removeClass("hide");
+      grummer.setBreeds(grummer.breeds);
+      grummer.gSelect.close($select);
+    } else {
+      $input.removeClass("hide");
+      $input.focus();
+      $label.addClass("hide");
+      grummer.gSelect.open($select);
+    }
+  },
+
+  filterDogs(instance) {
+    const filteredDogs = grummer.breeds.filter(el => {
+      return el.title.toLowerCase().includes(instance.value.toLowerCase());
+    });
+    grummer.setBreeds(filteredDogs);
+  },
+
+  selectDog(instance) {
+    // grummer.gSelect.selectItem(instance);
+    const $inst = $(instance);
+    const $select = $inst.parents("._select"); // $select.removeClass("error");
+
+    $select.find("._option").removeClass("active");
+    $inst.addClass("active");
+    const name = $inst.text();
+    const selectedValue = $inst.data("value"); // this.setName($select, name);
+
+    $select.find("._selected-text").html(name); // this.setInputValue($select, selectedValue);
+
+    $select.find("._select-input").val(selectedValue).trigger("change"); // this.close($select);
+
+    this.toggleDogsSelect(instance);
   }
 
 };
+;
 grummer.ourworks = {
   init() {
     this.nav = $('.ourworks__nav');
