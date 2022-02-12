@@ -239,4 +239,13 @@
       background-color: #fec71a;
     }
   }
+
+  &__dog-select-header {
+    padding-right: 50px;
+  }
+
+  &__dog-select-input {
+    height: 100%;
+    flex: 1;
+  }
 }

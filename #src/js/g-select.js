@@ -4,10 +4,21 @@ grummer.gSelect = {
   open($select) {
     $select.children("._options").first().slideDown(300);
     $select.toggleClass("opened");
+
+    $(window).on('click', () => {
+      this.close($select)
+    })
+    $select.on('click', (e) => {
+      e.stopPropagation()
+      console.log('stopPropagation')
+    });
   },
   close($select) {
     $select.children("._options").first().slideUp(300);
     $select.toggleClass("opened");
+
+    $(window).off('click')
+    $select.off('click')
   },
   toggle(instance) {
     let $select = $(instance).parents("._select");

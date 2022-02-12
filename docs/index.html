@@ -52,7 +52,7 @@
                 <div class="services__filter">
                     <div class="services__filter-title">Порода</div>
                     <div class="services__breeds g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.services.setBreed(this.value)" />
-                        <div class="g-select__header pointer" onclick="grummer.services.toggleDogsSelect(this)"> <input type="text" class="_dog-select hide" oninput="grummer.services.filterDogs(this)" placeholder="Введите попроду"> <span class="services__breeds-header-label _selected-text">Любая</span> </div>
+                        <div class="g-select__header services__dog-select-header pointer" onclick="grummer.services.toggleDogsSelect(this)"> <input type="text" class="_dog-select hide services__dog-select-input" oninput="grummer.services.filterDogs(this)" placeholder="Введите попроду"> <span class="services__breeds-header-label _selected-text">Любая</span> </div>
                         <div class="g-select__body _options">
                             <ul class="g-select__items _breeds-items">
                                 <script class="__breeds-temp" type="tuts/template"> <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.services.selectDog(this)">                                    {{title}}                                </li>                            </script>

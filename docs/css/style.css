@@ -1658,6 +1658,17 @@ h1 {
   background-color: #fec71a;
 }
 
+.services__dog-select-header {
+  padding-right: 50px;
+}
+
+.services__dog-select-input {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
 .zootaxi__wrapper {
   height: 100vh;
   max-height: 340px;
