@@ -16,6 +16,24 @@
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
+            cursor: pointer;
+        }
+
+        .datepicker,
+        .datepicker--nav {
+            filter: drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06));
+            border-color: #CDD7DC;
+        }
+
+        .datepicker--nav-title,
+        .datepicker--cell,
+        .datepicker--day-name {
+            font-family: 'SFProDisplay-Regular', sans-serif;
+            color: #243138;
+        }
+
+        .datepicker--nav-title {
+            font-weight: 500;
         }
     }
     &__form {
@@ -283,7 +301,7 @@
         }
         &-info {
             @include fontSet(16, 23, 600);
-            text-align: center;
+            text-align: left;
             color: #cdd7dc;
         }
     }

@@ -1432,7 +1432,6 @@ h1 {
 
 .services__info-for-dogs {
   margin-top: 10px;
-  display: none;
   width: 100%;
 }
 
@@ -1623,7 +1622,9 @@ h1 {
   font-weight: 400;
   letter-spacing: 0.15px;
   font-style: "normal";
-  height: 50px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   margin-bottom: 3px;
   text-align: center;
 }
@@ -1656,6 +1657,17 @@ h1 {
 
 .services__slide-btn:hover {
   background-color: #fec71a;
+}
+
+.services__dog-select-header {
+  padding-right: 50px;
+}
+
+.services__dog-select-input {
+  height: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .zootaxi__wrapper {
@@ -1884,6 +1896,7 @@ h1 {
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .questions__item-icon::before,
@@ -2259,10 +2272,6 @@ h1 {
   margin-bottom: 25px;
 }
 
-.footer__contacts-map-d {
-  display: none;
-}
-
 .footer__contacts li:not(:last-child) {
   margin-bottom: 8px;
 }
@@ -2388,6 +2397,25 @@ h1 {
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: 10;
+  cursor: pointer;
+}
+
+.popup-main__datepicker .datepicker,
+.popup-main__datepicker .datepicker--nav {
+  -webkit-filter: drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06));
+          filter: drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06));
+  border-color: #CDD7DC;
+}
+
+.popup-main__datepicker .datepicker--nav-title,
+.popup-main__datepicker .datepicker--cell,
+.popup-main__datepicker .datepicker--day-name {
+  font-family: 'SFProDisplay-Regular', sans-serif;
+  color: #243138;
+}
+
+.popup-main__datepicker .datepicker--nav-title {
+  font-weight: 500;
 }
 
 .popup-main__form {
@@ -2642,7 +2670,7 @@ h1 {
   font-weight: 600;
   letter-spacing: 0.15px;
   font-style: "normal";
-  text-align: center;
+  text-align: left;
   color: #cdd7dc;
 }
 
@@ -3211,7 +3239,6 @@ body.lock {
     font-weight: 400;
     letter-spacing: 0.15px;
     font-style: "normal";
-    height: 65px;
     margin-bottom: 10px;
   }
 
@@ -3447,14 +3474,6 @@ body.lock {
     padding-top: 25px;
   }
 
-  .footer__contacts-map-m {
-    display: none;
-  }
-
-  .footer__contacts-map-d {
-    display: block;
-  }
-
   .footer__contacts li a img {
     margin-right: 16px;
   }
@@ -3619,10 +3638,6 @@ body.lock {
 
   .popup-services__categories .g-select__body {
     background: #f8f8f8;
-  }
-
-  .popup-services__categories .g-select__item:last-child {
-    display: none;
   }
 
   .popup-services__mobile-services {

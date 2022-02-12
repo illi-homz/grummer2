@@ -83,17 +83,17 @@
             @include fontSet(14, 16, 700);
             margin-bottom: 25px;
         }
-        &-map-m {
-            @media ($tablet) {
-                display: none;
-            }
-        }
-        &-map-d {
-            display: none;
-            @media ($tablet) {
-                display: block;
-            }
-        }
+        // &-map-m {
+        //     @media ($tablet) {
+        //         display: none;
+        //     }
+        // }
+        // &-map-d {
+        //     display: none;
+        //     @media ($tablet) {
+        //         display: block;
+        //     }
+        // }
         li {
             &:not(:last-child) {
                 margin-bottom: 8px;

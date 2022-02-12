@@ -19,16 +19,15 @@ grummer.popupMain = {
         dateFormat: 'd MM',
         position: 'bottom right',
         offset: 8,
-        autoClose: true,
+        // autoClose: true,
         prevHtml: svg('M7.04199 12.8713L1.04199 6.87134L7.04199 0.871338'),
         nextHtml:  svg('M1 12.8713L7 6.87134L1 0.871338'),
         navTitles: {
           days: 'MM yyyy',
         },
-        timepicker: true
+        // inline: true,
+        // timepicker: true
       })
-      .data('datepicker')
-      .selectDate(new Date())
   },
 
   open()
@@ -40,7 +39,7 @@ grummer.popupMain = {
     this.$servicesUl = this.$popupMain.find('.popup-main__form-services-ul')
     this.$lastLi = this.$servicesUl.find('li').last()[0]
 
-    const breed = grummer.currentBreed
+    // const breed = grummer.currentBreed
 
     const html = this.createServicesListHtml()
 
@@ -50,12 +49,12 @@ grummer.popupMain = {
       ? this.$services.removeClass('one')
       : this.$services.addClass('one')
 
-    if (breed)
-    {
-      const b = $('._breed')
-      b.find('input[name="breed"]').val(breed)
-      b.find('._selected-text').text(breed)
-    }
+    // if (breed)
+    // {
+    //   const b = $('._breed')
+    //   b.find('input[name="breed"]').val(breed)
+    //   b.find('._selected-text').text(breed)
+    // }
 
     this.setFinalPrice(this.calculateFinalPrice())
 
