@@ -6015,8 +6015,8 @@ grummer.tlg = {
 };
 grummer.popup = {
   init() {
-    this.body = $('body');
-    this.lockPadding = $('.lock-padding'); // for fixed elements
+    this.body = $("body");
+    this.lockPadding = $(".lock-padding"); // for fixed elements
 
     this.unlock = true;
     this.timeOut = 300;
@@ -6025,40 +6025,40 @@ grummer.popup = {
 
   open(popup) {
     if (!(popup && this.unlock)) return;
-    this.$popupActive = $('.popup.open'); // Close old popup
+    this.$popupActive = $(".popup.open"); // Close old popup
 
     !!this.$popupActive[0] ? this.close(this.$popupActive, false) : this.bodyLock();
     let $popup; // Open
 
-    typeof popup === 'string' ? $popup = $(`.${popup}`).addClass('open') : $popup = popup.addClass('open'); // Close on click outside
+    typeof popup === "string" ? $popup = $(`.${popup}`).addClass("open") : $popup = popup.addClass("open"); // Close on click outside
 
-    $popup.on('click', e => {
-      if (!$(e.target).closest('.popup__content')[0]) this.close($popup);
+    $popup.on("click", e => {
+      if (!$(e.target).closest(".popup__content")[0]) this.close($popup);
     });
   },
 
   close(popup, doUnlock = true) {
     if (this.unlock) {
-      typeof popup === 'string' ? $(`.${popup}`).removeClass('open') : popup.removeClass('open');
+      typeof popup === "string" ? $(`.${popup}`).removeClass("open") : popup.removeClass("open");
       if (doUnlock) this.bodyUnlock();
     }
 
     this.body.css({
-      overflow: 'auto'
+      overflow: "auto"
     });
   },
 
   back(popup) {
     this.close(popup, false);
-    if (this.$popupActive) this.$popupActive.addClass('open');
+    if (this.$popupActive) this.$popupActive.addClass("open");
   },
 
   bodyLock() {
-    const lockPaddingValue = window.innerWidth - this.body.innerWidth() + 'px';
+    const lockPaddingValue = window.innerWidth - this.body.innerWidth() + "px";
     this.body.css({
       paddingRight: lockPaddingValue
     });
-    this.body.addClass('lock');
+    this.body.addClass("lock");
 
     if (this.lockPadding.length) {
       this.lockPadding.each((i, el) => {
@@ -6079,15 +6079,15 @@ grummer.popup = {
       if (this.lockPadding.length) {
         this.lockPadding.each((i, el) => {
           $(el).css({
-            paddingRight: '0px'
+            paddingRight: "0px"
           });
         });
       }
 
       this.body.css({
-        paddingRight: '0px'
+        paddingRight: "0px"
       });
-      this.body.removeClass('lock');
+      this.body.removeClass("lock");
     }, this.timeOut);
     this.unlock = false;
     setTimeout(() => {
@@ -6096,12 +6096,13 @@ grummer.popup = {
   },
 
   closeOnEsc() {
-    $(':root').on('keydown', e => {
-      if (e.which === 27) this.close('popup.open');
+    $(":root").on("keydown", e => {
+      if (e.which === 27) this.close("popup.open");
     });
   }
 
 };
+;
 grummer.popupMain = {
   init() {
     const svg = path => `
@@ -6137,17 +6138,16 @@ grummer.popupMain = {
     this.$popupMain = $('._popup-main');
     this.$services = this.$popupMain.find('.popup-main__form-services');
     this.$servicesUl = this.$popupMain.find('.popup-main__form-services-ul');
-    this.$lastLi = this.$servicesUl.find('li').last()[0];
-    const breed = grummer.currentBreed;
+    this.$lastLi = this.$servicesUl.find('li').last()[0]; // const breed = grummer.currentBreed
+
     const html = this.createServicesListHtml();
     this.$servicesUl.html(html).append(this.$lastLi);
-    grummer.currentServices.length > 1 ? this.$services.removeClass('one') : this.$services.addClass('one');
-
-    if (breed) {
-      const b = $('._breed');
-      b.find('input[name="breed"]').val(breed);
-      b.find('._selected-text').text(breed);
-    }
+    grummer.currentServices.length > 1 ? this.$services.removeClass('one') : this.$services.addClass('one'); // if (breed)
+    // {
+    //   const b = $('._breed')
+    //   b.find('input[name="breed"]').val(breed)
+    //   b.find('._selected-text').text(breed)
+    // }
 
     this.setFinalPrice(this.calculateFinalPrice());
     grummer.popup.open(this.$popupMain);
@@ -6224,18 +6224,19 @@ grummer.popupMain = {
 };
 grummer.popupServices = {
   init() {
-    grummer.animal ? this.servicesList = grummer.servicesList.filter(el => {
-      return el.animal === grummer.animal || el.animal == '';
-    }) : this.servicesList = grummer.servicesList;
+    this.servicesList = grummer.animal ? grummer.servicesList[grummer.animal] : ['dogs', 'cats'].reduce((acc, key) => {
+      return [...acc, ...grummer.servicesList[key]];
+    }, []);
     this.setCategories(grummer.categories);
-    this.sliderList = $('.popup-services__slider-services').removeClass('slick-initialized slick-slider').html('');
-    this.sliderListAdd = $('.popup-services__slider-add-services').removeClass('slick-initialized slick-slider').html(''); // templates
+    this.sliderList = $(".popup-services__slider-services").removeClass("slick-initialized slick-slider").html("");
+    this.sliderListAdd = $(".popup-services__slider-add-services").removeClass("slick-initialized slick-slider").html(""); // templates
 
-    this.sliderTemplate = $.trim($('#popup-services__slider-temp').html());
-    this.sliderTemplateAdd = $.trim($('#popup-services__slider-add-temp').html());
-    this.mobileListTemplate = $.trim($('#popup-services__mobile-list-temp').html());
-    this.setSlides(this.servicesList.filter(el => el.category !== 'add-services'), this.sliderList, this.sliderTemplate);
-    this.setSlides(this.servicesList.filter(el => el.category === 'add-services'), this.sliderListAdd, this.sliderTemplateAdd);
+    this.sliderTemplate = $.trim($("#popup-services__slider-temp").html());
+    this.sliderTemplateAdd = $.trim($("#popup-services__slider-add-temp").html());
+    this.mobileListTemplate = $.trim($("#popup-services__mobile-list-temp").html());
+    this.setSlides(this.servicesList.filter(el => el.category !== "add-services"), this.sliderList, this.sliderTemplate);
+    this.setSlides( // this.servicesList.filter((el) => el.category === "add-services"),
+    grummer.servicesList.additional, this.sliderListAdd, this.sliderTemplateAdd);
     this.initSlider(this.sliderList);
     this.initSlider(this.sliderListAdd);
   },
@@ -6243,25 +6244,25 @@ grummer.popupServices = {
   open() {
     this.counter = 1;
     this.slidesOnPage = 6;
-    this.mobilefilter = '';
-    this.mobileList = $('.popup-services__mobile-list');
+    this.mobilefilter = "";
+    this.mobileList = $(".popup-services__mobile-list");
     this.init();
     this.setMobileSlides(this.slidesOnPage, this.servicesList, this.mobilefilter);
-    grummer.popup.open('_popup-services');
+    grummer.popup.open("_popup-services");
   },
 
   setCategories(arr) {
-    const list = $('.popup-services .g-select__items');
-    const template = $.trim($('.popup-services .popup-services__filter-temp').html());
-    const lastLi = $.trim($('.popup-services .popup-services__filter-last-temp').html());
+    const list = $(".popup-services .g-select__items");
+    const template = $.trim($(".popup-services .popup-services__filter-temp").html());
+    const lastLi = $.trim($(".popup-services .popup-services__filter-last-temp").html());
     list.html(lastLi + arr.reduce((acc, item) => {
-      return acc += template.replace(/{{title}}/ig, item.title).replace(/{{value}}/ig, item.value).replace(/{{icon}}/ig, item.icon);
-    }, ''));
+      return acc += template.replace(/{{title}}/gi, item.title).replace(/{{value}}/gi, item.value).replace(/{{icon}}/gi, item.icon);
+    }, ""));
   },
 
   filter(arr) {
     this.setSlides(arr, this.sliderList, this.sliderTemplate);
-    this.sliderList.removeClass('slick-initialized slick-slider');
+    this.sliderList.removeClass("slick-initialized slick-slider");
     this.initSlider(this.sliderList);
   },
 
@@ -6275,17 +6276,17 @@ grummer.popupServices = {
     this.mobilefilter = val;
     this.counter = 1;
     this.setMobileSlides(this.counter * this.slidesOnPage, this.servicesList, this.mobilefilter);
-    !val ? this.filter(this.servicesList.filter(el => el.category !== 'add-services')) : this.filter(this.filterServices(val, 'category'));
+    !val ? this.filter(this.servicesList.filter(el => el.category !== "add-services")) : this.filter(this.filterServices(val, "category"));
   },
 
   createHtmlList(arr, template) {
     return arr.reduce((acc, slide) => {
-      return acc += template.replace(/{{title}}/ig, slide.title).replace(/{{text}}/ig, slide.text).replace(/{{price}}/ig, slide.price).replace(/{{time}}/ig, slide.time).replace(/{{img}}/ig, slide.img);
-    }, '');
+      return acc += template.replace(/{{title}}/gi, slide.title).replace(/{{text}}/gi, slide.text).replace(/{{price}}/gi, slide.price).replace(/{{time}}/gi, slide.time).replace(/{{img}}/gi, slide.img);
+    }, "");
   },
 
   setSlides(slides, list, template) {
-    list.html('');
+    list.html("");
     list.append(this.createHtmlList(slides, template));
   },
 
@@ -6313,7 +6314,7 @@ grummer.popupServices = {
 
   setMobileSlides(slidesCounter, arr, filter) {
     this.setSlides(arr.filter(el => {
-      return el.category === filter || filter === '';
+      return el.category === filter || filter === "";
     }).slice(0, slidesCounter), this.mobileList, this.mobileListTemplate);
   },
 
@@ -6323,6 +6324,7 @@ grummer.popupServices = {
   }
 
 };
+;
 grummer.popupOk = {
   gotoMain() {
     grummer.popup.close('_popup-ok');
@@ -6979,7 +6981,7 @@ grummer.store = {
       title: "Чистка параанальных желез",
       price: "300",
       animal: "",
-      time: "0",
+      time: "1",
       img: "spa.svg",
       text: "",
       category: "additional"
@@ -7002,7 +7004,7 @@ grummer.store = {
     }, {
       title: "Сушка",
       price: "0",
-      animal: "cat",
+      animal: "",
       time: "0",
       img: "spa.svg",
       text: "",
@@ -7305,7 +7307,7 @@ grummer.services = {
     this.initSlider();
   },
 
-  filterServices(val, type = 'category') {
+  filterServices(val, type = "category") {
     return this.currentServicesList.filter(service => {
       return service[type] === val;
     });
@@ -7345,7 +7347,7 @@ grummer.services = {
   },
 
   openPopup(title) {
-    const service = grummer.servicesList.find(obj => {
+    const service = this.currentServicesList.find(obj => {
       return obj.title === title;
     });
     const breed = grummer.breeds.find(obj => {

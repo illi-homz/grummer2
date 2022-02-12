@@ -79,9 +79,12 @@ grummer.services = {
           ...grummer.servicesList.additional,
         ];
       } else {
-        this.currentServicesList = Object.keys(grummer.servicesList).reduce((acc, key) => {
-          return [...acc, ...grummer.servicesList[key]];
-        }, []);
+        this.currentServicesList = Object.keys(grummer.servicesList).reduce(
+          (acc, key) => {
+            return [...acc, ...grummer.servicesList[key]];
+          },
+          []
+        );
       }
 
       slides = this.currentServicesList;
@@ -90,7 +93,7 @@ grummer.services = {
     if (this.currentCategory) {
       slides = slides.filter((service) => {
         return service.category === this.currentCategory;
-      })
+      });
     }
 
     slides.forEach((slide) => {
@@ -115,7 +118,7 @@ grummer.services = {
     this.initSlider();
   },
 
-  filterServices(val, type = 'category') {
+  filterServices(val, type = "category") {
     return this.currentServicesList.filter((service) => {
       return service[type] === val;
     });
@@ -136,7 +139,10 @@ grummer.services = {
   filterServicesByCategory(category) {
     this.currentCategory = category;
     const filteredServicesByCategory = this.filterServices(category);
-    this.filter([...filteredServicesByCategory, ...grummer.servicesList.additional]);
+    this.filter([
+      ...filteredServicesByCategory,
+      ...grummer.servicesList.additional,
+    ]);
     this.showCleaner();
   },
 
@@ -159,7 +165,7 @@ grummer.services = {
   },
 
   openPopup(title) {
-    const service = grummer.servicesList.find((obj) => {
+    const service = this.currentServicesList.find((obj) => {
       return obj.title === title;
     });
     const breed = grummer.breeds.find((obj) => {

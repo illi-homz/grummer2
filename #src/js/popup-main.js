@@ -40,7 +40,7 @@ grummer.popupMain = {
     this.$servicesUl = this.$popupMain.find('.popup-main__form-services-ul')
     this.$lastLi = this.$servicesUl.find('li').last()[0]
 
-    const breed = grummer.currentBreed
+    // const breed = grummer.currentBreed
 
     const html = this.createServicesListHtml()
 
@@ -50,12 +50,12 @@ grummer.popupMain = {
       ? this.$services.removeClass('one')
       : this.$services.addClass('one')
 
-    if (breed)
-    {
-      const b = $('._breed')
-      b.find('input[name="breed"]').val(breed)
-      b.find('._selected-text').text(breed)
-    }
+    // if (breed)
+    // {
+    //   const b = $('._breed')
+    //   b.find('input[name="breed"]').val(breed)
+    //   b.find('._selected-text').text(breed)
+    // }
 
     this.setFinalPrice(this.calculateFinalPrice())
 

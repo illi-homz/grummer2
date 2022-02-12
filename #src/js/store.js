@@ -486,7 +486,7 @@ grummer.store = {
         title: "Чистка параанальных желез",
         price: "300",
         animal: "",
-        time: "0",
+        time: "1",
         img: "spa.svg",
         text: "",
         category: "additional",
@@ -513,7 +513,7 @@ grummer.store = {
       {
         title: "Сушка",
         price: "0",
-        animal: "cat",
+        animal: "",
         time: "0",
         img: "spa.svg",
         text: "",
