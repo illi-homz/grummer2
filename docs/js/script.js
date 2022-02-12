@@ -5957,6 +5957,7 @@ class Validator {
 }(window, jQuery);
 ;
 const grummer = {
+  animal: null,
   currentServices: [],
   currentBreed: undefined,
   breesTemplate: null,
@@ -6342,6 +6343,14 @@ grummer.store = {
   },
 
   breeds: [{
+    title: "Помски",
+    value: "pomski",
+    type: "dog"
+  }, {
+    title: "Эрдельтерьер",
+    value: "erdenterier",
+    type: "dog"
+  }, {
     title: "Йоркширский терьер, бивер-йорк",
     value: "york",
     type: "dog"
@@ -6351,27 +6360,27 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Шпиц малый",
-    value: "shpits-mall",
+    value: "shpits",
     type: "dog"
   }, {
     title: "Шпиц японский",
-    value: "shpits-japan",
+    value: "shpits",
     type: "dog"
   }, {
     title: "Шпиц карликовый (померанский)",
-    value: "shpits-king",
+    value: "shpits",
     type: "dog"
   }, {
     title: "Ши-Тцу",
-    value: "shi-tsy",
+    value: "shitsy",
     type: "dog"
   }, {
     title: "Норвич-терьер",
-    value: "norvich-terier",
+    value: "norvich_terier",
     type: "dog"
   }, {
     title: "Норфолк-терьер",
-    value: "norfolk-terier",
+    value: "norfolk_terier",
     type: "dog"
   }, {
     title: "Миттельшнауцер",
@@ -6379,23 +6388,23 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Японский хин",
-    value: "japan-hin",
+    value: "japan_hin",
     type: "dog"
   }, {
     title: "Русская цветная болонка",
-    value: "rus-color-balonka",
+    value: "rus_color_balonka",
     type: "dog"
   }, {
     title: "Мальтийская болонка (Мальтезе)",
-    value: "malt-bolonka",
+    value: "malt_bolonka",
     type: "dog"
   }, {
     title: "Бишон Фризе",
-    value: "bishon-frieze",
+    value: "bishon_frieze",
     type: "dog"
   }, {
     title: "Афганская борзая (АФГАН)",
-    value: "afgan-borzaya",
+    value: "afgan_borzaya",
     type: "dog"
   }, {
     title: "Пекинес",
@@ -6403,11 +6412,11 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Русский охотничий спаниель",
-    value: "rus-spaniel",
+    value: "rus_spaniel",
     type: "dog"
   }, {
     title: "Американский Кокер-спаниель",
-    value: "american-koker-spaniel",
+    value: "american_koker_spaniel",
     type: "dog"
   }, {
     title: "Аффенпинчер",
@@ -6415,11 +6424,11 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Бассет-Хаунд",
-    value: "basset-haund",
+    value: "basset_haund",
     type: "dog"
   }, {
     title: "Английский Кокер-спаниель",
-    value: "england-koker-spaniel",
+    value: "england_koker_spaniel",
     type: "dog"
   }, {
     title: "Бобтейл",
@@ -6427,27 +6436,27 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Акита-Ину",
-    value: "akita-inu",
+    value: "akita_inu",
     type: "dog"
   }, {
     title: "Бульдог Английский",
-    value: "buldog-england",
+    value: "buldog_england",
     type: "dog"
   }, {
     title: "Бульдог Французский",
-    value: "buldog-franch",
+    value: "buldog_franch",
     type: "dog"
   }, {
     title: "Бедлингтон-терьер",
-    value: "bedlington-terier",
+    value: "bedlington_terier",
     type: "dog"
   }, {
     title: "Вельш-Корги Пемброк",
-    value: "velsh-korgi",
+    value: "velsh_korgi",
     type: "dog"
   }, {
     title: "Китайская хохлатая",
-    value: "сhinese-hohlataya",
+    value: "сhinese_hohlataya",
     type: "dog"
   }, {
     title: "Вельштерьер",
@@ -6459,27 +6468,27 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Пудель КОРОЛЕВСКИЙ",
-    value: "pudel-king",
+    value: "pudel_king",
     type: "dog"
   }, {
     title: "Пудель большой",
-    value: "pudel-big",
+    value: "pudel_big",
     type: "dog"
   }, {
     title: "Русский той-терьер",
-    value: "rus-toi",
+    value: "rus_toi",
     type: "dog"
   }, {
     title: "Пудель (той и карликовый)",
-    value: "pudel-toy-and-karlick",
+    value: "pudel_toy_and_karlick",
     type: "dog"
   }, {
     title: "Пудель (Малый. До 55см в холке)",
-    value: "litle-pudel",
+    value: "pudel_litle",
     type: "dog"
   }, {
     title: "Метис/Дворняга",
-    value: "metis-dvor",
+    value: "metis_dvor",
     type: "dog"
   }, {
     title: "Бриар",
@@ -6491,7 +6500,7 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Фокстерьер жескошерстный",
-    value: "foxterier-hardhair",
+    value: "foxterier_hardhair",
     type: "dog"
   }, {
     title: "Гриффон (брюсельский, бельгийский)",
@@ -6499,7 +6508,7 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Золотистый ретривер (голден)",
-    value: "gold-retriver",
+    value: "gold_retriver",
     type: "dog"
   }, {
     title: "Алабай (средне-азиатская овчарка)",
@@ -6507,15 +6516,15 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Бордер колли",
-    value: "killi",
+    value: "kolli",
     type: "dog"
   }, {
     title: "Вест-хайленд-вайт-терьер",
-    value: "vest-hilend",
+    value: "vest_hailend",
     type: "dog"
   }, {
     title: "Чау-Чау",
-    value: "chau-chau",
+    value: "chau_chau",
     type: "dog"
   }, {
     title: "Ньюфаундленд",
@@ -6531,15 +6540,15 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Сиба-ину",
-    value: "siba-inu",
+    value: "siba_inu",
     type: "dog"
   }, {
     title: "Скотч-терьер",
-    value: "scotch-terier",
+    value: "scotch_terier",
     type: "dog"
   }, {
     title: "Силихем-терьер",
-    value: "silihem-terier",
+    value: "silihem_terier",
     type: "dog"
   }, {
     title: "Грифон",
@@ -6551,11 +6560,11 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Такса жесткошерстная",
-    value: "taksa-hard",
+    value: "taksa_hard",
     type: "dog"
   }, {
     title: "Такса длинношерстная",
-    value: "taksa-longhair",
+    value: "taksa_longhair",
     type: "dog"
   }, {
     title: "Цвергшнауцер",
@@ -6590,24 +6599,20 @@ grummer.store = {
     value: "shelti",
     type: "dog"
   }, {
-    title: "Мягкошерстный пшеничный терьер",
-    value: "soft-pshenich-terier",
-    type: "dog"
-  }, {
     title: "Бигль",
     value: "bigle",
     type: "dog"
   }, {
     title: "Московская сторожевая",
-    value: "moskow-storogevaya",
+    value: "moskow_storogevaya",
     type: "dog"
   }, {
     title: "Спрингер-спаниель",
-    value: "springer-spaniel",
+    value: "springer_spaniel",
     type: "dog"
   }, {
     title: "Джек-рассел-терьер",
-    value: "jack-rassel",
+    value: "jack_rassel",
     type: "dog"
   }, {
     title: "Лабрадор",
@@ -6627,23 +6632,23 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Черный русский терьер",
-    value: "black-rus-terier",
+    value: "black_rus_terier",
     type: "dog"
   }, {
     title: "Ирландский терьер",
-    value: "ireland-terier",
+    value: "ireland_terier",
     type: "dog"
   }, {
     title: "Ирландский мягкошерстный пшеничный терьер",
-    value: "ireland-terier-soft",
+    value: "ireland_terier_soft",
     type: "dog"
   }, {
     title: "Немецкая овчарка",
-    value: "deutsch-ovcharka",
+    value: "deutsch_ovcharka",
     type: "dog"
   }, {
     title: "Пиренейская овчарка",
-    value: "pireneiskaya-ovcharka",
+    value: "pireneiskaya_ovcharka",
     type: "dog"
   }, {
     title: "Сенбернар",
@@ -6655,11 +6660,11 @@ grummer.store = {
     type: "dog"
   }, {
     title: "Кавалер Кинг Чарльз спаниель",
-    value: "kavaler-king-spaniel",
+    value: "kavaler_king_spaniel",
     type: "dog"
   }, {
     title: "Бернский Зенненхунд",
-    value: "bern-zennenhund",
+    value: "bern_zennenhund",
     type: "dog"
   }, {
     title: "Боксер",
@@ -6684,220 +6689,337 @@ grummer.store = {
     icon: "tooth"
   }, {
     title: "Доп. услуги",
-    value: "add-services",
+    value: "additional",
     icon: "plus-box"
   }],
-  servicesList: [{
-    title: "SPA-комплекс",
-    animal: "dog",
-    price: "1350 - 2400",
-    time: "1.5 часа",
-    category: "hygiene",
-    text: "по восстановлению шерсти с маслом арганы",
-    img: "spa.svg"
-  }, {
-    title: "Озонотерапия",
-    animal: "dog",
-    price: "1700 - 2100",
-    time: "2.5 часа",
-    category: "hygiene",
-    text: "с маской",
-    img: "ozon-mask.svg"
-  }, {
-    title: "Озонотерапия",
-    animal: "dog",
-    price: "1000",
-    time: "1 час",
-    category: "hygiene",
-    text: "без маски",
-    img: "ozon-nomask.svg"
-  }, {
-    title: "Вычесывание",
-    animal: "dog",
-    price: "1000",
-    time: "1 час",
-    category: "wool",
-    text: "",
-    img: "comb-out.svg"
-  }, {
-    title: "Расчёсывание колтунов",
-    animal: "dog",
-    price: "1000",
-    time: "1 час",
-    category: "hygwooliene",
-    text: "Дополнительная услуга без релаксанта (2мм) (в присутствии хозяина)",
-    img: "comb-kolts.svg"
-  }, {
-    title: "Полный тримминг",
-    animal: "dog",
-    price: "2000",
-    time: "1 час",
-    category: "wool",
-    text: "ручная щипка",
-    img: "trim.svg"
-  }, {
-    title: "Сбривание колтунов",
-    animal: "dog",
-    price: "500",
-    time: "30 мин",
-    category: "wool",
-    text: "без релаксанта (2мм) (в присутствии хозяина)",
-    img: "trim-kolt.svg"
-  }, {
-    title: "Подпил ногтей",
-    animal: "dog",
-    price: "400 - 600",
-    time: "1 час",
-    category: "claw",
-    text: "",
-    img: "foot.svg"
-  }, {
-    title: "Ультразвуковая чистка зубов",
-    animal: "dog",
-    price: "2500 - 4500",
-    time: "1.5 часа",
-    category: "tooth",
-    text: "",
-    img: "tooth.svg"
-  }, {
-    title: "Снятие зубного камня и налета",
-    animal: "dog",
-    price: "1000 - 1500",
-    time: "30 мин",
-    category: "tooth",
-    text: "механически",
-    img: "tooth.svg"
-  }, {
-    title: "Чистка зубов пастой",
-    animal: "dog",
-    price: "350 - 550",
-    time: "30 мин",
-    category: "tooth",
-    text: "",
-    img: "toothpaste.svg"
-  }, {
-    title: "Полировка зубов пастой",
-    animal: "dog",
-    price: "1000",
-    time: "1 час",
-    category: "tooth",
-    text: "",
-    img: "toothpaste.svg"
-  }, {
-    title: "Антипаразитальный комплекс",
-    animal: "dog",
-    price: "400",
-    time: "30 мин",
-    category: "add-services",
-    text: "",
-    img: "antiparasite.svg"
-  }, {
-    title: "Обработка РЕК",
-    animal: "dog",
-    price: "200",
-    time: "30 мин",
-    category: "add-services",
-    text: "",
-    img: "rek.svg"
-  }, {
-    title: "Снятий клеща + обработка раны",
-    animal: "dog",
-    price: "100",
-    time: "15 мин",
-    category: "add-services",
-    text: "",
-    img: "tick.svg"
-  }, {
-    title: "Агрессивность животного",
-    animal: "dog",
-    price: "500 - 1000",
-    time: "",
-    category: "add-services",
-    text: "на усмотрение мастера",
-    img: "bad-animal.svg"
-  }, // cats
-  {
-    title: "Стрижка",
-    animal: "cat",
-    price: "от 850",
-    time: "1 час",
-    category: "wool",
-    text: "",
-    img: "barbershop.svg"
-  }, {
-    title: "Мытьё",
-    animal: "cat",
-    price: "250",
-    time: "30 мин",
-    category: "wool",
-    text: "",
-    img: "wash.svg"
-  }, {
-    title: "Экспресс линька",
-    animal: "cat",
-    price: "1300",
-    time: "1 час",
-    category: "wool",
-    text: "",
-    img: "express-linka.svg"
-  }, {
-    title: "Окрашивание шерсти",
-    animal: "cat",
-    price: "от 1500",
-    time: "",
-    category: "wool",
-    text: "Дополнительная услуга",
-    img: "color-wool.svg"
-  }, {
-    title: "Расчёсывание колтунов",
-    animal: "cat",
-    price: "600",
-    time: "",
-    category: "wool",
-    text: "В присутствии хозяина",
-    img: "comb-kolts.svg"
-  }, {
-    title: "Сбривание колтунов",
-    animal: "cat",
-    price: "200 - 500",
-    time: "",
-    category: "wool",
-    text: "В присутствии хозяина",
-    img: "trim-kolt.svg"
-  }, {
-    title: "Гигиена-комплекс",
-    animal: "cat",
-    price: "1500",
-    time: "",
-    category: "hygiene",
-    text: "Стрижка когтей,чистка ушей,ультразвуковая чистка зубов,чистка анальных желёз",
-    img: "wash-plus.svg"
-  }, {
-    title: "Выведение блох и удаление клещей",
-    animal: "",
-    price: "300",
-    time: "",
-    category: "add-services",
-    text: "Дополнительная услуга",
-    img: "tick.svg"
-  }, {
-    title: "Помощь второго грумера",
-    animal: "",
-    price: "600",
-    time: "",
-    category: "add-services",
-    text: "Дополнительная услуга",
-    img: "help-grummer.svg"
-  } // {
-  //   title: "Зоотакси",
-  //   animal: "",
-  //   price: "от 300",
-  //   time: "",
-  //   category: "add-services",
-  //   text: "заберем и привезем обратно после процедуры",
-  //   img: "zootaxi.svg",
-  // },
-  ],
+  servicesList: {
+    dogs: [{
+      title: "SPA-комплекс",
+      animal: "dog",
+      price: "1350 - 2400",
+      time: "1.5 часа",
+      category: "hygiene",
+      text: "по восстановлению шерсти с маслом арганы",
+      img: "spa.svg"
+    }, {
+      title: "Озонотерапия",
+      animal: "dog",
+      price: "1700 - 2100",
+      time: "2.5 часа",
+      category: "hygiene",
+      text: "с маской",
+      img: "ozon-mask.svg"
+    }, {
+      title: "Озонотерапия",
+      animal: "dog",
+      price: "1000",
+      time: "1 час",
+      category: "hygiene",
+      text: "без маски",
+      img: "ozon-nomask.svg"
+    }, {
+      title: "Вычесывание",
+      animal: "dog",
+      price: "1000",
+      time: "1 час",
+      category: "wool",
+      text: "",
+      img: "comb-out.svg"
+    }, {
+      title: "Расчёсывание колтунов",
+      animal: "dog",
+      price: "1000",
+      time: "1 час",
+      category: "hygwooliene",
+      text: "Дополнительная услуга без релаксанта (2мм) (в присутствии хозяина)",
+      img: "comb-kolts.svg"
+    }, {
+      title: "Стрижка под машику",
+      price: "0",
+      animal: "dog",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "wool"
+    }, {
+      title: "Подстригание когтей",
+      price: "0",
+      animal: "dog",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "claw"
+    }, {
+      title: "Чистка параанальных желез",
+      price: "300",
+      animal: "additional",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "hygiene"
+    }, {
+      title: "Модельная стрижка",
+      price: "300",
+      animal: "dog",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "wool"
+    }, {
+      title: "Полный тримминг",
+      animal: "dog",
+      price: "2000",
+      time: "1 час",
+      category: "wool",
+      text: "ручная щипка",
+      img: "trim.svg"
+    }, {
+      title: "Сбривание колтунов",
+      animal: "dog",
+      price: "500",
+      time: "30 мин",
+      category: "wool",
+      text: "без релаксанта (2мм) (в присутствии хозяина)",
+      img: "trim-kolt.svg"
+    }, {
+      title: "Подпил когтей",
+      animal: "dog",
+      price: "400 - 600",
+      time: "1 час",
+      category: "claw",
+      text: "",
+      img: "foot.svg"
+    }, {
+      title: "Ультразвуковая чистка зубов",
+      animal: "dog",
+      price: "2500 - 4500",
+      time: "1.5 часа",
+      category: "tooth",
+      text: "",
+      img: "tooth.svg"
+    }, {
+      title: "Снятие зубного камня и налета",
+      animal: "dog",
+      price: "1000 - 1500",
+      time: "30 мин",
+      category: "tooth",
+      text: "механически",
+      img: "tooth.svg"
+    }, {
+      title: "Чистка зубов пастой",
+      animal: "dog",
+      price: "350 - 550",
+      time: "30 мин",
+      category: "tooth",
+      text: "",
+      img: "toothpaste.svg"
+    }, {
+      title: "Полировка зубов пастой",
+      animal: "dog",
+      price: "1000",
+      time: "1 час",
+      category: "tooth",
+      text: "",
+      img: "toothpaste.svg"
+    }, {
+      title: "Антипаразитальный комплекс",
+      animal: "dog",
+      price: "400",
+      time: "30 мин",
+      category: "additional",
+      text: "",
+      img: "antiparasite.svg"
+    }, {
+      title: "Обработка РЕК",
+      animal: "dog",
+      price: "200",
+      time: "30 мин",
+      category: "additional",
+      text: "",
+      img: "rek.svg"
+    }, {
+      title: "Снятий клеща + обработка раны",
+      animal: "dog",
+      price: "100",
+      time: "15 мин",
+      category: "additional",
+      text: "",
+      img: "tick.svg"
+    }, {
+      title: "Агрессивность животного",
+      animal: "dog",
+      price: "500 - 1000",
+      time: "",
+      category: "additional",
+      text: "на усмотрение мастера",
+      img: "bad-animal.svg"
+    }],
+    cats: [{
+      title: "Стрижка",
+      animal: "cat",
+      price: "от 850",
+      time: "1 час",
+      category: "wool",
+      text: "",
+      img: "barbershop.svg"
+    }, {
+      title: "Экспресс линька",
+      animal: "cat",
+      price: "1300",
+      time: "1 час",
+      category: "wool",
+      text: "",
+      img: "express-linka.svg"
+    }, {
+      title: "Окрашивание шерсти",
+      animal: "cat",
+      price: "от 1500",
+      time: "",
+      category: "wool",
+      text: "Дополнительная услуга",
+      img: "color-wool.svg"
+    }, {
+      title: "Расчёсывание колтунов",
+      animal: "cat",
+      price: "600",
+      time: "",
+      category: "wool",
+      text: "В присутствии хозяина",
+      img: "comb-kolts.svg"
+    }, {
+      title: "Сбривание колтунов",
+      animal: "cat",
+      price: "200 - 500",
+      time: "",
+      category: "wool",
+      text: "В присутствии хозяина",
+      img: "trim-kolt.svg"
+    }, {
+      title: "Гигиена-комплекс",
+      animal: "cat",
+      price: "1500",
+      time: "",
+      category: "hygiene",
+      text: "Стрижка когтей,чистка ушей,ультразвуковая чистка зубов,чистка анальных желёз",
+      img: "wash-plus.svg"
+    }, {
+      title: "Мытьё",
+      animal: "cat",
+      price: "250",
+      time: "30 мин",
+      category: "hygiene",
+      text: "",
+      img: "wash.svg"
+    }, {
+      title: "Стрижка под машику",
+      price: "0",
+      animal: "cat",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "wool"
+    }, {
+      title: "Подстригание когтей",
+      price: "от 200",
+      animal: "cat",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "claw"
+    }, {
+      title: "Подпил когтей",
+      animal: "cat",
+      price: "400 - 600",
+      time: "1 час",
+      category: "claw",
+      text: "",
+      img: "foot.svg"
+    }, {
+      title: "Модельная стрижка",
+      price: "300",
+      animal: "cat",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "wool"
+    }, {
+      title: "Ультразвуковая чистка зубов",
+      animal: "cat",
+      price: "2500 - 4500",
+      time: "1.5 часа",
+      category: "tooth",
+      text: "",
+      img: "tooth.svg"
+    }, {
+      title: "Снятие зубного камня и налета",
+      animal: "cat",
+      price: "1000 - 1500",
+      time: "30 мин",
+      category: "tooth",
+      text: "механически",
+      img: "tooth.svg"
+    }, {
+      title: "Чистка зубов пастой",
+      animal: "cat",
+      price: "350 - 550",
+      time: "30 мин",
+      category: "tooth",
+      text: "",
+      img: "toothpaste.svg"
+    }, {
+      title: "Полировка зубов пастой",
+      animal: "cat",
+      price: "1000",
+      time: "1 час",
+      category: "tooth",
+      text: "",
+      img: "toothpaste.svg"
+    }],
+    additional: [{
+      title: "Чистка параанальных желез",
+      price: "300",
+      animal: "",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "additional"
+    }, {
+      title: "Выведение блох и удаление клещей",
+      animal: "",
+      price: "300",
+      time: "",
+      category: "additional",
+      text: "Дополнительная услуга",
+      img: "tick.svg"
+    }, {
+      title: "Помощь второго грумера",
+      animal: "",
+      price: "600",
+      time: "",
+      category: "additional",
+      text: "Дополнительная услуга",
+      img: "help-grummer.svg"
+    }, {
+      title: "Сушка",
+      price: "0",
+      animal: "cat",
+      time: "0",
+      img: "spa.svg",
+      text: "",
+      category: "additional"
+    } // {
+    //   title: "Зоотакси",
+    //   animal: "",
+    //   price: "от 300",
+    //   time: "",
+    //   category: "additional",
+    //   text: "заберем и привезем обратно после процедуры",
+    //   img: "zootaxi.svg",
+    // },
+    ]
+  },
+  // servicesList: [
+  // ],
   ourWorks: [{
     img: "slide-1.jpg",
     title: "Подготовка к выставке1",
@@ -6960,20 +7082,21 @@ grummer.gSelect = {
   open($select) {
     $select.children("._options").first().slideDown(300);
     $select.toggleClass("opened");
-    $(window).on('click', () => {
+    $(window).on("click", () => {
       this.close($select);
     });
-    $select.on('click', e => {
+    $select.on("click", e => {
       e.stopPropagation();
-      console.log('stopPropagation');
     });
   },
 
   close($select) {
     $select.children("._options").first().slideUp(300);
     $select.toggleClass("opened");
-    $(window).off('click');
-    $select.off('click');
+    $(window).off("click");
+    $select.off("click");
+    $select.find("._dog-select").addClass("hide");
+    $select.find("span._selected-text").removeClass("hide");
   },
 
   toggle(instance) {
@@ -7088,12 +7211,17 @@ grummer.header = {
 "use strict";
 
 grummer.services = {
+  sliderList: [],
+  sliderTemplate: null,
+  currentServicesList: [],
+  currentCategory: null,
+
   init() {
-    this.breed = "";
+    // this.breed = "";
     this.setCategories(grummer.categories);
     this.sliderList = $(".services__slider");
     this.sliderTemplate = $.trim($("#services__slider-temp").html());
-    this.setSlides(grummer.servicesList, this.sliderList, this.sliderTemplate);
+    this.setSlides(null, this.sliderList, this.sliderTemplate);
     this.initSlider();
   },
 
@@ -7138,9 +7266,29 @@ grummer.services = {
     });
   },
 
-  setSlides(slides, list, template) {
+  setSlides(arr, list, template) {
     list.html("");
     let frag = "";
+    let slides = arr ? arr : null;
+
+    if (!slides) {
+      if (grummer.animal) {
+        this.currentServicesList = [...grummer.servicesList[grummer.animal], ...grummer.servicesList.additional];
+      } else {
+        this.currentServicesList = Object.keys(grummer.servicesList).reduce((acc, key) => {
+          return [...acc, ...grummer.servicesList[key]];
+        }, []);
+      }
+
+      slides = this.currentServicesList;
+    }
+
+    if (this.currentCategory) {
+      slides = slides.filter(service => {
+        return service.category === this.currentCategory;
+      });
+    }
+
     slides.forEach(slide => {
       frag += template.replace(/{{title}}/gi, slide.title).replace(/{{text}}/gi, slide.text).replace(/{{price}}/gi, slide.price).replace(/{{time}}/gi, slide.time).replace(/{{img}}/gi, slide.img);
     });
@@ -7151,14 +7299,14 @@ grummer.services = {
     this.breed = val;
   },
 
-  filter(list) {
-    this.setSlides(list, this.sliderList, this.sliderTemplate);
+  filter(arr) {
+    this.setSlides(arr, this.sliderList, this.sliderTemplate);
     this.sliderList.removeClass("slick-initialized slick-slider");
     this.initSlider();
   },
 
-  filterServices(val, type) {
-    return grummer.servicesList.filter(service => {
+  filterServices(val, type = 'category') {
+    return this.currentServicesList.filter(service => {
       return service[type] === val;
     });
   },
@@ -7168,19 +7316,20 @@ grummer.services = {
     if ($el.hasClass("active")) return;
     $el.parent().children("div").removeClass("active");
     $el.addClass("active");
-    const dogsMenu = $(".services__info-for-dogs");
     grummer.animal = animal;
-    animal === "dog" ? dogsMenu.slideDown(300) : dogsMenu.slideUp(300);
-    animal ? this.filter(this.filterServices(animal, "animal")) : this.filter(grummer.servicesList);
+    this.filter();
   },
 
-  filterServicesByCategory(val) {
-    this.filter(this.filterServices(val, "category"));
+  filterServicesByCategory(category) {
+    this.currentCategory = category;
+    const filteredServicesByCategory = this.filterServices(category);
+    this.filter([...filteredServicesByCategory, ...grummer.servicesList.additional]);
     this.showCleaner();
   },
 
   cleanFilter() {
-    this.filter(grummer.servicesList);
+    this.currentCategory = null;
+    this.filter();
     this.removeCleaner();
     const $categories = $(".services__categories");
     $categories.find("._selected-text").html("Любая");
@@ -7205,50 +7354,6 @@ grummer.services = {
     grummer.currentServices = [service];
     if (breed) grummer.currentBreed = breed.title;
     grummer.popupMain.open();
-  },
-
-  toggleDogsSelect(instance) {
-    const $title = $(instance);
-    let $select = $title.parents("._select");
-    const $input = $select.find("._dog-select");
-    const $label = $select.find("._selected-text");
-
-    if ($select.hasClass("opened")) {
-      $input.addClass("hide");
-      $input.val("");
-      $label.removeClass("hide");
-      grummer.setBreeds(grummer.breeds);
-      grummer.gSelect.close($select);
-    } else {
-      $input.removeClass("hide");
-      $input.focus();
-      $label.addClass("hide");
-      grummer.gSelect.open($select);
-    }
-  },
-
-  filterDogs(instance) {
-    const filteredDogs = grummer.breeds.filter(el => {
-      return el.title.toLowerCase().includes(instance.value.toLowerCase());
-    });
-    grummer.setBreeds(filteredDogs);
-  },
-
-  selectDog(instance) {
-    // grummer.gSelect.selectItem(instance);
-    const $inst = $(instance);
-    const $select = $inst.parents("._select"); // $select.removeClass("error");
-
-    $select.find("._option").removeClass("active");
-    $inst.addClass("active");
-    const name = $inst.text();
-    const selectedValue = $inst.data("value"); // this.setName($select, name);
-
-    $select.find("._selected-text").html(name); // this.setInputValue($select, selectedValue);
-
-    $select.find("._select-input").val(selectedValue).trigger("change"); // this.close($select);
-
-    this.toggleDogsSelect(instance);
   }
 
 };

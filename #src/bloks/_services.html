@@ -1,42 +1,16 @@
 <section class="services container" id="services">
     <h1>Услуги</h1>
     <div class="services__nav">
-        <div class="services__nav-btn btn gray active" onclick="grummer.services.filterServicesByBreed(this)">
+        <div class="services__nav-btn btn gray active" onclick="grummer.services.filterServicesByBreed(this, null)">
             Универсально</div>
-        <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'dog')">Для собак
+        <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'dogs')">Для собак
         </div>
-        <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'cat')">Для кошек
+        <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'cats')">Для кошек
         </div>
     </div>
     <div class="services__info-for-dogs">
         <div class="services__note">Выберете породу вашего любимца и категорию услуг</div>
         <div class="services__filters">
-            <div class="services__filter">
-                <div class="services__filter-title">Порода</div>
-                <div class="services__breeds g-select _select">
-                    <input type="hidden" class="_select-input" onchange="grummer.services.setBreed(this.value)" />
-                    <div class="g-select__header services__dog-select-header pointer" onclick="grummer.services.toggleDogsSelect(this)">
-                        <input
-                            type="text"
-                            class="_dog-select hide services__dog-select-input"
-                            oninput="grummer.services.filterDogs(this)"
-                            placeholder="Введите попроду">
-                        <span class="services__breeds-header-label _selected-text">Любая</span>
-                    </div>
-                    <div class="g-select__body _options">
-                        <ul class="g-select__items _breeds-items">
-                            <script class="__breeds-temp" type="tuts/template">
-                                <li
-                                    class="g-select__item _option"
-                                    data-value="{{value}}"
-                                    onclick="grummer.services.selectDog(this)">
-                                    {{title}}
-                                </li>
-                            </script>
-                        </ul>
-                    </div>
-                </div>
-            </div>
             <div class="services__filter">
                 <div class="services__filter-title">Категоря</div>
                 <div class="services__categories g-select _select">

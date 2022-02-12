@@ -8,6 +8,7 @@
 @@include('lib/air-datepicker.js');
 
 const grummer = {
+  animal: null,
   currentServices: [],
   currentBreed: undefined,
   breesTemplate: null,

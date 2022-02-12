@@ -42,24 +42,13 @@
     <section class="services container" id="services">
         <h1>Услуги</h1>
         <div class="services__nav">
-            <div class="services__nav-btn btn gray active" onclick="grummer.services.filterServicesByBreed(this)"> Универсально</div>
-            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'dog')">Для собак </div>
-            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'cat')">Для кошек </div>
+            <div class="services__nav-btn btn gray active" onclick="grummer.services.filterServicesByBreed(this, null)"> Универсально</div>
+            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'dogs')">Для собак </div>
+            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'cats')">Для кошек </div>
         </div>
         <div class="services__info-for-dogs">
             <div class="services__note">Выберете породу вашего любимца и категорию услуг</div>
             <div class="services__filters">
-                <div class="services__filter">
-                    <div class="services__filter-title">Порода</div>
-                    <div class="services__breeds g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.services.setBreed(this.value)" />
-                        <div class="g-select__header services__dog-select-header pointer" onclick="grummer.services.toggleDogsSelect(this)"> <input type="text" class="_dog-select hide services__dog-select-input" oninput="grummer.services.filterDogs(this)" placeholder="Введите попроду"> <span class="services__breeds-header-label _selected-text">Любая</span> </div>
-                        <div class="g-select__body _options">
-                            <ul class="g-select__items _breeds-items">
-                                <script class="__breeds-temp" type="tuts/template"> <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.services.selectDog(this)">                                    {{title}}                                </li>                            </script>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <div class="services__filter">
                     <div class="services__filter-title">Категоря</div>
                     <div class="services__categories g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.services.filterServicesByCategory(this.value)" />
@@ -80,32 +69,6 @@
         </div>
         <div class="services__slider">
             <script id="services__slider-temp" type="tuts/template"> <div class="services__slide">                <div class="services__slide-wrapper">                    <div>                        <div class="services__slide-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                        </div>                    </div>                    <div class="services__slide-data">                        <div class="services__slide-title">{{title}}</div>                        <div class="services__slide-desc">                            {{text}}                        </div>                        <div class="services__slide-price">{{price}}</div>                        <div class="services__slide-time">{{time}}</div>                        <!--<button class="services__slide-btn btn gray" onclick="grummer.popupMain.open('{{title}}')">-->                        <button class="services__slide-btn btn gray" onclick="grummer.services.openPopup('{{title}}')">                            Записаться                        </button>                    </div>                </div>            </div>        </script>
-        </div>
-    </section>
-    <section class="zootaxi">
-        <div class="container">
-            <div class="zootaxi__wrapper">
-                <div class="zootaxi__content">
-                    <div class="zootaxi__title">ЗооТакси</div>
-                    <div class="zootaxi__text"> Заберём,а потом привезём вашего<br>питомца к вам домой после процедуры </div>
-                </div>
-                <div class="zootaxi__img"></div>
-            </div>
-        </div>
-    </section>
-    <section class="ourworks" id="ourworks">
-        <div class="container">
-            <h1 class="text-center">Наши работы</h1>
-            <div class="ourworks__wrapper">
-                <div class="ourworks__slider">
-                    <script id="ourworks__slider-temp" type="tuts/template"> <div class="ourworks__slider-item">                        <picture><source srcset="img/ourworks/{{img}}" type="image/webp"><img src="img/ourworks/{{img}}"></picture>                    </div>                </script>
-                </div>
-                <div class="ourworks__info">
-                    <div class="ourworks__title"></div>
-                    <div class="ourworks__text"></div>
-                    <div class="ourworks__nav"></div>
-                </div>
-            </div>
         </div>
     </section>
     <section class="questions" id="questions">
@@ -203,16 +166,15 @@
                     <li><a href="#questions" onclick="grummer.goToBlock(this, event)">Ответы на вопросы</a></li>
                 </ul>
                 <ul class="footer__links-on-social">
-                    <li> <a href="https://vk.com/" target="_blank">                        <picture><source srcset="img/social/vk.webp" type="image/webp"><img src="img/social/vk.png"></picture>                    </a> </li>
-                    <li> <a href="https://ok.ru/" target="_blank">                        <picture><source srcset="img/social/ok.webp" type="image/webp"><img src="img/social/ok.png"></picture>                    </a> </li>
+                    <li> <a href="https://vk.com/" target="_blank">                        <picture><source srcset="img/social/vk.webp" type="image/webp"><img src="img/social/vk.png"></picture>                    </a> </li> <!-- <li>                    <a href="https://ok.ru/" target="_blank">                        <picture><source srcset="img/social/ok.webp" type="image/webp"><img src="img/social/ok.png"></picture>                    </a>                </li> -->
                     <li> <a href="https://www.instagram.com/" target="_blank">                        <picture><source srcset="img/social/insta.webp" type="image/webp"><img src="img/social/insta.png"></picture>                    </a> </li>
                 </ul>
             </div>
             <div class="footer__contacts">
                 <h5>Контакты</h5>
                 <ul>
-                    <li class="footer__contacts-map-m"> <a href="yandexmaps://maps.yandex.ru/?ll=39.884862,59.220050&z=18">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Калужская 153                    </a> </li>
-                    <li class="footer__contacts-map-d"> <a href="https://yandex.ru/maps/-/CCUQQ6A~~C" target="_blank">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Калужская 153                    </a> </li>
+                    <li class="footer__contacts-map-m"> <a href="yandexmaps://maps.yandex.ru/?ll=39.904468,59.229162&z=18">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Некрасова 38                    </a> </li>
+                    <li class="footer__contacts-map-d"> <a href="https://yandex.ru/maps/-/CCUQQ6A~~C" target="_blank">                        <picture><source srcset="img/social/maps.webp" type="image/webp"><img src="img/social/maps.png"></picture>ул. Некрасова 38                    </a> </li>
                     <li> <a href="tel:8 900 000 00 00">                        <picture><source srcset="img/social/tel.webp" type="image/webp"><img src="img/social/tel.png"></picture>8 900 000 00 00                    </a> </li>
                     <li> <a href="mailto:groomleta@mail.ru">                        <picture><source srcset="img/social/mail.webp" type="image/webp"><img src="img/social/mail.png"></picture>groomleta@mail.ru                    </a> </li>
                 </ul>

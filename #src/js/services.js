@@ -1,14 +1,19 @@
 "use strict";
 
 grummer.services = {
+  sliderList: [],
+  sliderTemplate: null,
+  currentServicesList: [],
+  currentCategory: null,
+
   init() {
-    this.breed = "";
+    // this.breed = "";
     this.setCategories(grummer.categories);
 
     this.sliderList = $(".services__slider");
     this.sliderTemplate = $.trim($("#services__slider-temp").html());
 
-    this.setSlides(grummer.servicesList, this.sliderList, this.sliderTemplate);
+    this.setSlides(null, this.sliderList, this.sliderTemplate);
     this.initSlider();
   },
   setCategories(arr) {
@@ -61,9 +66,32 @@ grummer.services = {
       ],
     });
   },
-  setSlides(slides, list, template) {
+  setSlides(arr, list, template) {
     list.html("");
     let frag = "";
+
+    let slides = arr ? arr : null;
+
+    if (!slides) {
+      if (grummer.animal) {
+        this.currentServicesList = [
+          ...grummer.servicesList[grummer.animal],
+          ...grummer.servicesList.additional,
+        ];
+      } else {
+        this.currentServicesList = Object.keys(grummer.servicesList).reduce((acc, key) => {
+          return [...acc, ...grummer.servicesList[key]];
+        }, []);
+      }
+
+      slides = this.currentServicesList;
+    }
+
+    if (this.currentCategory) {
+      slides = slides.filter((service) => {
+        return service.category === this.currentCategory;
+      })
+    }
 
     slides.forEach((slide) => {
       frag += template
@@ -81,14 +109,14 @@ grummer.services = {
     this.breed = val;
   },
 
-  filter(list) {
-    this.setSlides(list, this.sliderList, this.sliderTemplate);
+  filter(arr) {
+    this.setSlides(arr, this.sliderList, this.sliderTemplate);
     this.sliderList.removeClass("slick-initialized slick-slider");
     this.initSlider();
   },
 
-  filterServices(val, type) {
-    return grummer.servicesList.filter((service) => {
+  filterServices(val, type = 'category') {
+    return this.currentServicesList.filter((service) => {
       return service[type] === val;
     });
   },
@@ -100,22 +128,21 @@ grummer.services = {
 
     $el.addClass("active");
 
-    const dogsMenu = $(".services__info-for-dogs");
-
     grummer.animal = animal;
 
-    animal === "dog" ? dogsMenu.slideDown(300) : dogsMenu.slideUp(300);
-
-    animal
-      ? this.filter(this.filterServices(animal, "animal"))
-      : this.filter(grummer.servicesList);
+    this.filter();
   },
-  filterServicesByCategory(val) {
-    this.filter(this.filterServices(val, "category"));
+
+  filterServicesByCategory(category) {
+    this.currentCategory = category;
+    const filteredServicesByCategory = this.filterServices(category);
+    this.filter([...filteredServicesByCategory, ...grummer.servicesList.additional]);
     this.showCleaner();
   },
+
   cleanFilter() {
-    this.filter(grummer.servicesList);
+    this.currentCategory = null;
+    this.filter();
     this.removeCleaner();
 
     const $categories = $(".services__categories");
@@ -143,57 +170,5 @@ grummer.services = {
     if (breed) grummer.currentBreed = breed.title;
 
     grummer.popupMain.open();
-  },
-
-  toggleDogsSelect(instance) {
-    const $title = $(instance);
-    let $select = $title.parents("._select");
-    const $input = $select.find("._dog-select");
-    const $label = $select.find("._selected-text");
-
-    if ($select.hasClass("opened")) {
-      $input.addClass("hide");
-      $input.val("");
-      $label.removeClass("hide");
-
-      grummer.setBreeds(grummer.breeds);
-
-      grummer.gSelect.close($select);
-    } else {
-      $input.removeClass("hide");
-      $input.focus();
-      $label.addClass("hide");
-
-      grummer.gSelect.open($select);
-    }
-  },
-
-  filterDogs(instance) {
-    const filteredDogs = grummer.breeds.filter((el) => {
-      return el.title.toLowerCase().includes(instance.value.toLowerCase());
-    });
-
-    grummer.setBreeds(filteredDogs);
-  },
-
-  selectDog(instance) {
-    // grummer.gSelect.selectItem(instance);
-
-    const $inst = $(instance);
-    const $select = $inst.parents("._select");
-    // $select.removeClass("error");
-    $select.find("._option").removeClass("active");
-
-    $inst.addClass("active");
-    const name = $inst.text();
-    const selectedValue = $inst.data("value");
-
-    // this.setName($select, name);
-    $select.find("._selected-text").html(name);
-    // this.setInputValue($select, selectedValue);
-    $select.find("._select-input").val(selectedValue).trigger("change");
-    // this.close($select);
-
-    this.toggleDogsSelect(instance);
   },
 };
