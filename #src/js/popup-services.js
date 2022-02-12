@@ -1,8 +1,11 @@
 grummer.popupServices = {
   init() {
     this.servicesList = grummer.animal
-      ? grummer.servicesList[grummer.animal]
-      : ['dogs', 'cats'].reduce((acc, key) => {
+      ? [
+        ...grummer.servicesList[grummer.animal],
+        ...grummer.servicesList.additional,
+      ]
+      : Object.keys(grummer.servicesList).reduce((acc, key) => {
           return [...acc, ...grummer.servicesList[key]];
         }, []);
 
@@ -28,13 +31,6 @@ grummer.popupServices = {
       this.servicesList.filter((el) => el.category !== "add-services"),
       this.sliderList,
       this.sliderTemplate
-    );
-
-    this.setSlides(
-      // this.servicesList.filter((el) => el.category === "add-services"),
-      grummer.servicesList.additional,
-      this.sliderListAdd,
-      this.sliderTemplateAdd
     );
 
     this.initSlider(this.sliderList);

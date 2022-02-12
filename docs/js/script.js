@@ -6123,14 +6123,15 @@ grummer.popupMain = {
       dateFormat: 'd MM',
       position: 'bottom right',
       offset: 8,
-      autoClose: true,
+      // autoClose: true,
       prevHtml: svg('M7.04199 12.8713L1.04199 6.87134L7.04199 0.871338'),
       nextHtml: svg('M1 12.8713L7 6.87134L1 0.871338'),
       navTitles: {
         days: 'MM yyyy'
-      },
-      timepicker: true
-    }).data('datepicker').selectDate(new Date());
+      } // inline: true,
+      // timepicker: true
+
+    });
   },
 
   open() {
@@ -6224,7 +6225,7 @@ grummer.popupMain = {
 };
 grummer.popupServices = {
   init() {
-    this.servicesList = grummer.animal ? grummer.servicesList[grummer.animal] : ['dogs', 'cats'].reduce((acc, key) => {
+    this.servicesList = grummer.animal ? [...grummer.servicesList[grummer.animal], ...grummer.servicesList.additional] : Object.keys(grummer.servicesList).reduce((acc, key) => {
       return [...acc, ...grummer.servicesList[key]];
     }, []);
     this.setCategories(grummer.categories);
@@ -6235,8 +6236,6 @@ grummer.popupServices = {
     this.sliderTemplateAdd = $.trim($("#popup-services__slider-add-temp").html());
     this.mobileListTemplate = $.trim($("#popup-services__mobile-list-temp").html());
     this.setSlides(this.servicesList.filter(el => el.category !== "add-services"), this.sliderList, this.sliderTemplate);
-    this.setSlides( // this.servicesList.filter((el) => el.category === "add-services"),
-    grummer.servicesList.additional, this.sliderListAdd, this.sliderTemplateAdd);
     this.initSlider(this.sliderList);
     this.initSlider(this.sliderListAdd);
   },
