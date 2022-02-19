@@ -1,65 +1,69 @@
-.datepicker
-{
+.air-datepicker {
     box-shadow: none;
+    filter: drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06));
 
-    * {font-family: 'SFPro', 'Raleway', sans-serif;}
+    * {
+        font-family: 'SFPro', 'Raleway', sans-serif;
+    }
 }
 
-.datepicker--pointer { display: none; }
+.air-datepicker--pointer {
+    display: none;
+}
 
-.datepicker--nav
-{
+.air-datepicker-nav {
     min-height: 45px;
     border-bottom-color: #CDD7DC;
+    filter: drop-shadow(0px 4px 8px rgba(50, 50, 71, 0.06));
 }
-.datepicker--nav-title
-{
+
+.air-datepicker-nav--title {
+    font-family: 'SFProDisplay-Regular', sans-serif;
+    color: #243138;
+    font-weight: 500;
     @include fontSet(15, 20, 600);
-    color: 243138;
 }
-.datepicker--nav-action svg
-{
+
+.air-datepicker-nav--action svg {
     width: 6px;
     height: 12px;
 }
-.datepicker--day-name
-{
+
+.air-datepicker-body--day-name {
     color: rgba(36, 49, 56, .5);
 }
 
-.datepicker--cell
-{
+.air-datepicker-cell {
     @include fontSet(13, 18, 400);
+    font-family: 'SFProDisplay-Regular', sans-serif;
+    color: #243138;
 
-    &.-other-month-
-    {
+    &.-other-month- {
         color: #CDD7DC;
     }
 
     &.-focus-,
     &.-selected-,
     &.-selected-.-current-,
-    &.-selected-.-focus-
-    {
-        background: none;
-        border-radius: 50%;
-        position: relative;
-
-        &::before
-        {
-            content: '';
-            position: absolute;
-            width: 21.5px;
-            height: 20px;
-            background-color: #FEC71A;
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
+    &.-selected-.-focus- {
+        background-color: #FEC71A;
+        color: white;
     }
-    &.-current- {color: #FEC71A;}
 
-    &.-focus-::before {background-color: #CDD7DC;}
+    &.-day-,
+    &.-selected-.-day- {
+        border-radius: 50%;
+    }
+
+    &.-current- {
+        color: #FEC71A;
+    }
+
+    &.-focus-::before {
+        background-color: #CDD7DC;
+    }
+}
+
+.air-datepicker-nav--title {
+    font-weight: 500;
 }

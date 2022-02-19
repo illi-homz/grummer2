@@ -7,6 +7,7 @@
 @@include('lib/maskedinput.min.js');
 @@include('lib/air-datepicker.js');
 
+
 const grummer = {
   animal: null,
   currentServices: [],
@@ -43,6 +44,7 @@ const grummer = {
   },
 };
 
+@@include('fragments.js');
 @@include('lib/tlg.js');
 @@include('popup.js');
 @@include('popup-main.js');

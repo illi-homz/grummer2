@@ -27,8 +27,10 @@ grummer.ourworks = {
       dots: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      prevArrow: '<div class="prev-arrow"><img src="img/arrow.svg"/></div>',
-      nextArrow: '<div class="next-arrow"><img src="img/arrow.svg"/></div>'
+      // prevArrow: '<div class="prev-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
+      // nextArrow: '<div class="next-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
+      prevArrow: `<div class="prev-arrow slider-arrow">${arrow}</div>`,
+      nextArrow: `<div class="next-arrow slider-arrow">${arrow}</div>`,
     }).on('afterChange', (slick, currentSlide) => {
       this.changeSlide(currentSlide.currentSlide)
     })

@@ -14,3 +14,21 @@
         font-weight: #{$weight};
     }
 }
+
+@mixin mobile {
+    @media ($mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media ($tablet) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media ($desctop) {
+        @content;
+    }
+}

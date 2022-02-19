@@ -1,22 +1,48 @@
 .services {
   padding-top: 20px;
-  @media ($tablet) {
+  @include tablet {
     padding-top: 50px;
   }
+
+  &.container {
+    padding-left: 0;
+    padding-right: 0;
+
+    @include tablet {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
   h1 {
     margin-bottom: 40px;
   }
   &__nav {
     display: flex;
-    overflow: scroll;
-    padding: 0 10px 10px;
-    padding-bottom: 20px;
-    margin-left: -10px;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+  &__nav-btns {
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    padding-left: 15px;
+    padding-right: 15px;
+    scrollbar-width: none;
 
     &::-webkit-scrollbar {
       display: none;
     }
-    scrollbar-width: none;
+
+    @include tablet {
+      padding-left: 0;
+      padding-right: 0;
+      overflow: visible;
+    }
   }
   &__nav-btn {
     height: 45px;
@@ -25,6 +51,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    user-select: none;
 
     &:not(:last-child) {
       margin-right: 20px;
@@ -34,30 +61,37 @@
       background-color: $yellow;
     }
   }
-  &__info-for-dogs {
-    margin-top: 10px;
-    width: 100%;
-  }
-  &__note {
-    margin-bottom: 20px;
-    @include fontSet(12, 19.2, 500, -0.1);
+  // &__info-for-dogs {
+  //   margin-top: 10px;
+  //   width: 100%;
+  // }
+  // &__note {
+  //   margin-bottom: 20px;
+  //   @include fontSet(12, 19.2, 500, -0.1);
 
-    @media ($tablet) {
-      margin-bottom: 25px;
-    }
-  }
+  //   @include tablet {
+  //     margin-bottom: 25px;
+  //     background-color: #f0f;
+  //   }
+  // }
   &__filters {
+    width: 100%;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    padding-left: 15px;
+    padding-right: 15px;
 
-    @media ($tablet) {
+    @include tablet {
+      width: auto;
       flex-direction: row;
       align-items: center;
-      width: 100%;
+      // width: 100%;
       margin-bottom: 0;
       padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
   &__filters-cleaner {
@@ -66,6 +100,7 @@
     color: #cdd7dc;
     font-size: 18px;
     font-weight: 500;
+    margin-bottom: 20px;
 
     cursor: pointer;
 
@@ -78,7 +113,9 @@
     }
 
     @media ($tablet) {
-      margin-top: 20px;
+      // margin-top: 20px;
+      margin-bottom: 0;
+      margin-right: 20px;
     }
   }
   &__filter {
@@ -111,13 +148,17 @@
     position: relative;
     height: 380px;
     margin-top: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 
     &:hover .slick-arrow {
       visibility: visible;
       opacity: 1;
     }
 
-    @media ($tablet) {
+    @include tablet {
+      padding-left: 0;
+      padding-right: 0;
       height: 480px;
       margin-top: 40px;
     }
@@ -127,16 +168,18 @@
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    top: 40%;
+    // top: 40%;
+    top: 50%;
     transition: all 0.2s ease;
+    transform: translateY(-50%);
 
-    &:active:not(.slick-disabled) {
-      transform: translateY(2px);
-    }
+    // &:active:not(.slick-disabled) {
+    //   transform: translateY(2px);
+    // }
   }
   .prev-arrow {
     left: 15px;
-    img {
+    svg {
       transform: rotate(180deg);
     }
   }

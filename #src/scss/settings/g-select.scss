@@ -48,7 +48,7 @@
     border-top: 1px solid #ECEFEF;
     max-height: 300px;
     width: calc(100% + 2px);
-    overflow-y: scroll;
+    // overflow-y: scroll;
     left: -1px;
     top: 100%;
     border: 1px solid #ECEFEF;
@@ -57,6 +57,10 @@
     position: absolute;
     z-index: 5;
     transition: border-radius .3s ease;
+
+    &.scroll {
+      overflow-y: scroll;
+    }
 
     // li
     // {

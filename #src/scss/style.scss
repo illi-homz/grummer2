@@ -3,7 +3,7 @@
 @import "settings/mixins";
 @import "settings/tipografy";
 @import "settings/g-select";
-@import "fragments";
+@import "settings/fragments";
 @import "settings/air-datepicker";
 @import "settings/datepicker";
 
@@ -53,7 +53,31 @@ body.lock {
   align-items: center;
   border-radius: 12px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.04), 0px 10px 16px rgba(0, 0, 0, 0.05);
+
   @include fontSet(16, 17, 600, -0.2);
+
+  &:hover {
+    background-color: $textColor;
+    color: white;
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.slider-arrow {
+  &:hover {
+    background-color: $textColor;
+
+    path {
+      stroke: white;
+    }
+  }
+
+  &:active {
+    transform: translateY(calc(-50% + 2px));
+  }
 }
 
 .yellow {

@@ -115,8 +115,10 @@ grummer.popupServices = {
       infinite: true,
       slidesToShow: 4,
       slidesToScroll: 4,
-      prevArrow: '<div class="prev-arrow"><img src="img/arrow.svg"/></div>',
-      nextArrow: '<div class="next-arrow"><img src="img/arrow.svg"/></div>',
+      // prevArrow: '<div class="prev-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
+      // nextArrow: '<div class="next-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
+      prevArrow: `<div class="prev-arrow slider-arrow">${arrow}</div>`,
+      nextArrow: `<div class="next-arrow slider-arrow">${arrow}</div>`,
     });
   },
   addService(title, text) {
