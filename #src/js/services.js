@@ -126,6 +126,7 @@ grummer.services = {
     });
   },
   filterServicesByBreed(el, animal = null) {
+    console.log('filterServicesByBreed')
     const $el = $(el);
     if ($el.hasClass("active")) return;
 
@@ -135,6 +136,12 @@ grummer.services = {
 
     grummer.animal = animal;
 
+    this.filter();
+  },
+  clearBreedFilter(el, e) {
+    e.stopPropagation();
+    $(el).parent().removeClass("active")
+    grummer.animal = null;
     this.filter();
   },
 

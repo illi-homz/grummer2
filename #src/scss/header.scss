@@ -2,6 +2,7 @@
   position: relative;
 
   @media ($tablet) {
+    min-height: 100vh;
   }
 
   img {
@@ -18,22 +19,8 @@
     left: 0;
     top: 0;
     position: absolute;
-    z-index: -1;
     background: url(../img/main/1_dog.jpg) bottom / cover no-repeat;
-  }
-
-  &__container {
-    padding-top: 20px;
-    position: relative;
-    min-height: 405px;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-
-    @media ($tablet) {
-      padding-top: 40px;
-      min-height: 100vh;
-    }
+    z-index: -1;
   }
 
   &__mobile-menu {
@@ -113,15 +100,20 @@
   }
 
   &__nav {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.6);
+    padding: 16px 0 16px;
+    backdrop-filter: blur(8px);
 
     @media ($tablet) {
       padding-right: 80px;
-      align-items: center;
+      padding: 20px 0 20px;
     }
+  }
+
+  &__nav-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__logo {
@@ -145,12 +137,12 @@
 
       li {
         text-align: center;
-        display: flex;
-        align-items: center;
         margin-right: 10px;
+        border-bottom: 2px solid transparent;
 
         &:hover {
-          text-decoration: underline;
+          // text-decoration: underline;\
+          border-bottom-color: #FEC71A;
         }
       }
     }
@@ -161,6 +153,10 @@
     display: flex;
     flex-direction: column;
     justify-content: end;
+
+    position: relative;
+    min-height: 405px;
+
     h1 {
       @include fontSet(34, 36, 800, -0.5);
     }

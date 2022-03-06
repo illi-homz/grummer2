@@ -66,6 +66,40 @@ body.lock {
   }
 }
 
+.btn-outlined {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  border: 2px solid $textColor;
+  background-color: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 18px;
+
+  &:hover {
+    background-color: $textColor;
+    color: #fff;
+  }
+}
+
+.btn-costom {
+  border: 1px solid $textColor;
+  border-radius: 6px;
+  padding: 4px 8px;
+
+  &:hover {
+    background-color: $textColor;
+    color: #fff;
+  }
+
+  &.active {
+    background-color: $yellow;
+    color: $textColor;
+    border-color: transparent;
+  }
+}
+
 .slider-arrow {
   &:hover {
     background-color: $textColor;

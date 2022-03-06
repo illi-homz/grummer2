@@ -8271,11 +8271,19 @@ grummer.services = {
   },
 
   filterServicesByBreed(el, animal = null) {
+    console.log('filterServicesByBreed');
     const $el = $(el);
     if ($el.hasClass("active")) return;
     $el.parent().children("div").removeClass("active");
     $el.addClass("active");
     grummer.animal = animal;
+    this.filter();
+  },
+
+  clearBreedFilter(el, e) {
+    e.stopPropagation();
+    $(el).parent().removeClass("active");
+    grummer.animal = null;
     this.filter();
   },
 

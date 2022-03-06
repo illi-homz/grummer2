@@ -1,11 +1,13 @@
 <header class="header" id="header">
     <div class="header__bg"></div>
+
     <nav class="header__mobile-menu">
         <ul class="header__mobile-menu-links">
         </ul>
     </nav>
-    <div class="container header__container">
-        <nav class="header__nav">
+
+    <nav class="header__nav">
+        <div class="container header__nav-wrapper">
             <a href="#header" class="header__logo">
                 <img src="img/logo.svg" alt="logo">
             </a>
@@ -23,17 +25,17 @@
             <div class="nav-btn header__burger-btn" onclick="grummer.header.toggleMenu()">
                 <div class="header__burger"></div>
             </div>
-        </nav>
-
-        <div class="header__content">
-            <h1>Стрижка<br>домашних<br>животных</h1>
-            <p>Ваша благодарность питомцу<br>за его любовь без остатка</p>
-            <a
-                class="btn header__call-btn yellow"
-                href="#callback"
-                onclick="grummer.goToBlock(this, event)">
-                Заказать звонок
-            </a>
         </div>
+    </nav>
+
+    <div class="header__content container">
+        <h1>Стрижка<br>домашних<br>животных</h1>
+        <p>Ваша благодарность питомцу<br>за его любовь без остатка</p>
+        <a
+            class="btn header__call-btn yellow"
+            href="#callback"
+            onclick="grummer.goToBlock(this, event)">
+            Заказать звонок
+        </a>
     </div>
 </header>

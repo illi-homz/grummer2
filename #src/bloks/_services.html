@@ -32,9 +32,23 @@
             </div>
         </div>
         <div class="services__nav-btns">
-            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'dogs')">Для собак
+            <div class="services__nav-btn btn-costom" onclick="grummer.services.filterServicesByBreed(this, 'dogs')">
+                @@include('../../#src/img/dog.svg')
+
+                <span>Для кошек</span>
+
+                <button onclick="grummer.services.clearBreedFilter(this, event)">
+                    @@include('../../#src/img/close-circle.svg')
+                </button>
             </div>
-            <div class="services__nav-btn btn gray" onclick="grummer.services.filterServicesByBreed(this, 'cats')">Для кошек
+            <div class="services__nav-btn btn-costom" onclick="grummer.services.filterServicesByBreed(this, 'cats')">
+                @@include('../../#src/img/dog.svg')
+
+                <span>Для собак</span>
+
+                <button onclick="grummer.services.clearBreedFilter(this, event)">
+                    @@include('../../#src/img/close-circle.svg')
+                </button>
             </div>
         </div>
     </div>
@@ -85,8 +99,8 @@
                         </div>
                         <div class="services__slide-price">{{price}}</div>
                         <div class="services__slide-time">{{time}}</div>
-                        <!--<button class="services__slide-btn btn gray" onclick="grummer.popupMain.open('{{title}}')">-->
-                        <button class="services__slide-btn btn gray" onclick="grummer.services.openPopup('{{title}}')">
+                        <!--<button class="services__slide-btn btn-outlined" onclick="grummer.popupMain.open('{{title}}')">-->
+                        <button class="services__slide-btn btn-outlined" onclick="grummer.services.openPopup('{{title}}')">
                             Записаться
                         </button>
                     </div>
