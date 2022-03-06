@@ -4,15 +4,15 @@
     padding-top: 50px;
   }
 
-  &.container {
-    padding-left: 0;
-    padding-right: 0;
+  // &.container {
+  //   padding-left: 0;
+  //   padding-right: 0;
 
-    @include tablet {
-      padding-left: 15px;
-      padding-right: 15px;
-    }
-  }
+  //   @include tablet {
+  //     padding-left: 15px;
+  //     padding-right: 15px;
+  //   }
+  // }
 
   h1 {
     margin: 0 15px 40px;
@@ -155,24 +155,60 @@
       width: 16px;
       margin-right: 8px;
     }
+
+    .g-select__header span {
+      color: rgba(36, 49, 56, 0.4);
+      user-select: none;
+    }
+
+    &.active .g-select__header span {
+      color: $textColor;
+    }
   }
   &__slider {
     position: relative;
     height: 380px;
-    margin-top: 20px;
     padding-left: 15px;
     padding-right: 15px;
+    overflow: hidden;
 
     &:hover .slick-arrow {
       visibility: visible;
       opacity: 1;
     }
 
+    &.container {
+      margin-top: 20px;
+    }
+
     @include tablet {
       padding-left: 0;
       padding-right: 0;
       height: 480px;
-      margin-top: 40px;
+
+      &.container {
+        margin-top: 40px;
+      }
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 180px;
+        z-index: 1;
+        top: 0;
+      }
+
+      &::before {
+        left: 0;
+        background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+      }
+
+      &::after {
+        right: 0;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 100%);
+      }
     }
   }
   .slick-arrow {
@@ -180,14 +216,9 @@
     position: absolute;
     visibility: hidden;
     opacity: 0;
-    // top: 40%;
     top: 50%;
     transition: all 0.2s ease;
     transform: translateY(-50%);
-
-    // &:active:not(.slick-disabled) {
-    //   transform: translateY(2px);
-    // }
   }
   .prev-arrow {
     left: 15px;
@@ -200,7 +231,7 @@
   }
   .slick-list {
     height: inherit;
-    overflow: hidden;
+    // overflow: hidden;
     // padding: 0 5px;
     margin: 0 -10px;
   }
@@ -209,9 +240,21 @@
     height: inherit;
   }
 
+  .slick-slide {
+    // height: 100%;
+    & > div {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
   &__slide {
+    // height: 100%;
+    flex: 1;
     margin: 10px 0 20px;
   }
+
   &__slide-wrapper {
     height: 100%;
     box-shadow: 0px 4px 9px rgba(142, 142, 142, 0.2);

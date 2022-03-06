@@ -150,6 +150,7 @@ grummer.store = {
     { title: "Боксер", value: "boxer", type: "dog" },
   ],
   categories: [
+    { title: "Все", value: "", icon: "" },
     { title: "Гигиена", value: "hygiene", icon: "wash" },
     { title: "Шерсть", value: "wool", icon: "barbershop" },
     { title: "Когти", value: "claw", icon: "foot" },
@@ -533,41 +534,13 @@ grummer.store = {
   // servicesList: [
   // ],
   ourWorks: [
-    {
-      img: "slide-1.jpg",
-      title: "Подготовка к выставке1",
-      text: "До 30 см в холке1",
-    },
-    {
-      img: "slide-2.jpg",
-      title: "Подготовка к выставке2",
-      text: "До 30 см в холке2",
-    },
-    {
-      img: "slide-3.jpg",
-      title: "Подготовка к выставке3",
-      text: "До 30 см в холке3",
-    },
-    {
-      img: "slide-4.jpg",
-      title: "Подготовка к выставке4",
-      text: "До 30 см в холке4",
-    },
-    {
-      img: "slide-5.jpg",
-      title: "Подготовка к выставке5",
-      text: "До 30 см в холке5",
-    },
-    {
-      img: "slide-6.jpg",
-      title: "Подготовка к выставке6",
-      text: "До 30 см в холке6",
-    },
-    {
-      img: "slide-7.jpg",
-      title: "Подготовка к выставке7",
-      text: "До 30 см в холке7",
-    },
+    "slide_1.jpg",
+    "slide_2.jpg",
+    "slide_3.jpg",
+    "slide_4.jpg",
+    "slide_5.jpg",
+    "slide_6.jpg",
+    "slide_7.jpg",
   ],
   feedbacks: [
     {

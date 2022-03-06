@@ -26,8 +26,8 @@ grummer.services = {
     arr.forEach((item) => {
       frag += template
         .replace(/{{title}}/gi, item.title)
-        .replace(/{{value}}/gi, item.value)
-        .replace(/{{icon}}/gi, item.icon);
+        .replace(/{{value}}/gi, item.value);
+      // .replace(/{{icon}}/gi, item.icon);
     });
 
     list.append(frag);
@@ -121,12 +121,13 @@ grummer.services = {
   },
 
   filterServices(val, type = "category") {
-    return this.currentServicesList.filter((service) => {
-      return service[type] === val;
-    });
+    if (!val) {
+      return this.currentServicesList;
+    }
+
+    return this.currentServicesList.filter((service) => service[type] === val);
   },
   filterServicesByBreed(el, animal = null) {
-    console.log('filterServicesByBreed')
     const $el = $(el);
     if ($el.hasClass("active")) return;
 
@@ -140,7 +141,7 @@ grummer.services = {
   },
   clearBreedFilter(el, e) {
     e.stopPropagation();
-    $(el).parent().removeClass("active")
+    $(el).parent().removeClass("active");
     grummer.animal = null;
     this.filter();
   },
@@ -148,30 +149,38 @@ grummer.services = {
   filterServicesByCategory(category) {
     this.currentCategory = category;
     const filteredServicesByCategory = this.filterServices(category);
+
+    if (filteredServicesByCategory.length === this.currentServicesList.length) {
+      this.cleanFilter()
+    } else {
+      // this.showCleaner();
+      $('.services__categories._select').addClass('active');
+    }
+
     this.filter([
       ...filteredServicesByCategory,
       ...grummer.servicesList.additional,
     ]);
-    this.showCleaner();
   },
 
   cleanFilter() {
     this.currentCategory = null;
     this.filter();
-    this.removeCleaner();
+    // this.hideCleaner();
 
     const $categories = $(".services__categories");
-    $categories.find("._selected-text").html("Любая");
+    $categories.find("._selected-text").html("Выберите категорию");
 
     $categories.find("._option").removeClass("active");
+    $('.services__categories._select').removeClass('active')
   },
 
-  showCleaner() {
-    $(".services__filters-cleaner").addClass("active");
-  },
-  removeCleaner() {
-    $(".services__filters-cleaner").removeClass("active");
-  },
+  // showCleaner() {
+  //   $(".services__filters-cleaner").addClass("active");
+  // },
+  // hideCleaner() {
+  //   $(".services__filters-cleaner").removeClass("active");
+  // },
 
   openPopup(title) {
     const service = this.currentServicesList.find((obj) => {

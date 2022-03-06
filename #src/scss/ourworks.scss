@@ -1,12 +1,13 @@
 .ourworks {
     padding: 20px 0 35px;
-    @media ($tablet) {
+
+    @include tablet {
         padding: 50px 0 80px;
     }
 
     h1 {
         margin-bottom: 40px;
-        @media ($tablet) {
+        @include tablet {
             margin-bottom: 80px;
         }
     }
@@ -15,92 +16,98 @@
         display: flex;
         flex-direction: column;
 
-        @media ($tablet) {
+        @include tablet {
             flex-direction: row;
         }
     }
 
-    &__info {
-        position: relative;
-        flex: 1 0;
-        padding-top: 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        @media ($tablet) {
-            padding: 0 0 0 15px;
-            max-width: 430px;
-        }
-    }
-    &__nav {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: relative;
-        margin-top: 25px;
-
-        @media ($tablet) {
-            position: absolute;
-            bottom: 0;
-            width: calc(100% - 15px);
-            margin-top: 0;
-        }
-    }
-    &__title {
-        @include fontSet(19, 20, 700);
-        margin-bottom: 15px;
-        @media ($tablet) {
-            margin-bottom: 25px;
-        }
-    }
-    &__text {
-        @include fontSet(16, 20, 500);
-    }
-
     &__slider {
-        overflow: hidden;
-        flex: 2 0;
+        // flex: 2 0;
         position: relative;
-        height: 250px;
+        height: 234px;
+        width: 100%;
 
-        @media ($tablet) {
-            height: 565px;
+        &:hover {
+            .slick-arrow {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        @include tablet {
+            height: 535px;
         }
         &-item {
             img {
                 height: 100%;
-                width: 100%;
+                // width: 100%;
                 object-fit: cover;
             }
         }
         .slick-list {
-            height: inherit;
+            height: 100%;
+            padding: 0 !important;
+            overflow: hidden;
+            // width: 300px;
+            margin: 0 auto;
+            transition: all ease .3s;
+            // overflow: hidden;
         }
         .slick-track {
             display: flex;
-            height: inherit;
+            height: 100%;
+        }
+        .slick-slide {
+            height: 100%;
+
+            & > div {height: 100%;}
+
+            @include tablet {
+                padding: 0 50px;
+            }
         }
     }
+
+    &__slider-item {
+        height: 100%;
+        overflow: hidden;
+        text-align: center;
+
+        img {
+            height: 100%;
+            object-fit: cover;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
     .slick-arrow {
         @extend %arrows;
-        visibility: hidden;
-        height: 0;
+        transform: translateY(-50%);
+        transition: all ease .3s;
+        position: absolute;
+        top: 50%;
 
-        @media ($tablet) {
-            height: 65px;
-            visibility: visible;
+        @include desktop {
+            visibility: hidden;
+            opacity: 0;
         }
     }
     .prev-arrow {
+        left: 12px;
+
         svg {
             transform: rotate(180deg);
         }
+    }
+    .next-arrow {
+        right: 12px;
     }
     .slick-dots {
         @extend %dots;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translateX(-50%) translateY(100%);
+        bottom: -12;
     }
 }

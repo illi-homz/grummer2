@@ -7,43 +7,60 @@ grummer.ourworks = {
 
     this.initSlides()
     this.initSlider()
-    this.changeSlide(0)
-    this.initNavs()
+    // this.changeSlide(0)
+    // this.initNavs()
   },
   initSlides()
   {
     const template = $.trim( $('#ourworks__slider-temp').html() )
 
-    const html = grummer.ourWorks.reduce((acc, item) => {
-      return acc += template.replace(/{{img}}/ig, item.img)
+    const html = grummer.ourWorks.reduce((acc, img) => {
+      return acc += template.replace(/{{img}}/ig, img)
     }, '')
     $('.ourworks__slider').html(html)
   },
   initSlider()
   {
-    $('.ourworks__slider').slick({
+    this.slider = $('.ourworks__slider')
+
+    this.slider.on('init', this.moveArrows)
+
+    this.slider.slick({
       mobileFirst: true,
       infinite: true,
       dots: true,
+      centerMode: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      // prevArrow: '<div class="prev-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
-      // nextArrow: '<div class="next-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
       prevArrow: `<div class="prev-arrow slider-arrow">${arrow}</div>`,
       nextArrow: `<div class="next-arrow slider-arrow">${arrow}</div>`,
-    }).on('afterChange', (slick, currentSlide) => {
-      this.changeSlide(currentSlide.currentSlide)
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            variableWidth: true,
+          }
+        }
+      ]
     })
+
+    this.slider.on('afterChange', this.moveArrows)
+    this.slider.on('setPosition', this.moveArrows)
   },
-  initNavs()
-  {
-    $('.ourworks .prev-arrow').appendTo(this.nav)
-    $('.ourworks .slick-dots').appendTo(this.nav)
-    $('.ourworks .next-arrow').appendTo(this.nav)
-  },
-  changeSlide(i)
-  {
-    this.title.text(grummer.ourWorks[i].title)
-    this.text.text(grummer.ourWorks[i].text)
+  moveArrows() {
+    if (window.innerWidth < 1024) {
+      $('.ourworks .prev-arrow').css('left', 12)
+      $('.ourworks .next-arrow').css('right', 12)
+      return
+    }
+
+    setTimeout(() => {
+      const CurrentSlide = $('.ourworks .slick-active.slick-center').get(0)
+      console.log('CurrentSlide', CurrentSlide)
+      const slideData = CurrentSlide.getBoundingClientRect();
+
+      $('.ourworks .prev-arrow').css('left', slideData.left - 25)
+      $('.ourworks .next-arrow').css('right', slideData.right - slideData.width - 25)
+    }, 0)
   }
 }

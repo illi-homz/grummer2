@@ -34,10 +34,15 @@ body.lock {
 }
 
 .container {
-  max-width: ($lg + 30) + px;
+  max-width: $lg + px;
   margin: 0 auto;
   padding-left: 15px;
   padding-right: 15px;
+
+  @include tablet {
+    padding-left: 80px;
+    padding-right: 80px;
+  }
 }
 
 .row {
@@ -102,7 +107,7 @@ body.lock {
 
 .slider-arrow {
   &:hover {
-    background-color: $textColor;
+    background-color: $yellow;
 
     path {
       stroke: white;
