@@ -59,6 +59,7 @@ const grummer = {
 @@include('questions.js');
 @@include('feedbacks.js');
 @@include('callback.js');
+@@include('promo.js');
 
 grummer.init = function () {
   this.store.init();
@@ -75,6 +76,7 @@ grummer.init = function () {
   this.ourworks.init();
   this.questions.init();
   this.feedbacks.init();
+  this.promo.init();
   // grummer.popupMain.init()
 };
 

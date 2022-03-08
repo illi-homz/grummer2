@@ -2184,27 +2184,48 @@ h1 {
   text-align: center;
 }
 
-.promo__wrapper {
-  height: 265px;
-  background: url("../img/promo-bg-m.jpg") center/cover no-repeat;
-  padding: 35px;
+.promo__slider {
+  position: relative;
+  width: 100%;
 }
 
-.promo__title {
-  font-size: 30px;
-  line-height: 35px;
-  font-weight: 800;
-  letter-spacing: 0.15px;
-  font-style: "normal";
-  margin-bottom: 15px;
+.promo__slider-item {
+  width: 100%;
 }
 
-.promo__text {
-  font-size: 16px;
-  line-height: 19px;
-  font-weight: 500;
-  letter-spacing: 0.15px;
-  font-style: "normal";
+.promo__slider-item img {
+  content: var(--m-image);
+  width: 100%;
+  height: auto;
+}
+
+.promo__slider .slick-list {
+  height: 100%;
+  padding: 0 !important;
+  overflow: hidden;
+  margin: 0 auto;
+  -webkit-transition: all ease .3s;
+  -o-transition: all ease .3s;
+  transition: all ease .3s;
+}
+
+.promo__slider .slick-track {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+}
+
+.promo__slider .slick-slide {
+  height: 100%;
+}
+
+.promo__slider .slick-slide > div {
+  height: 100%;
+}
+
+.promo__slider .slick-arrow {
+  display: none !important;
 }
 
 .feedbacks {
@@ -3305,22 +3326,6 @@ body.lock {
 }
 
 @media (min-width: 479.98px) {
-  .promo__title {
-    font-size: 40px;
-    line-height: 49px;
-    font-weight: 800;
-    letter-spacing: 0.15px;
-    font-style: "normal";
-  }
-
-  .promo__text {
-    font-size: 23px;
-    line-height: 27px;
-    font-weight: 500;
-    letter-spacing: 0.15px;
-    font-style: "normal";
-  }
-
   .feedbacks .container {
     max-width: 1440px;
     padding: 0;
@@ -3644,27 +3649,8 @@ body.lock {
     text-align: left;
   }
 
-  .promo__wrapper {
-    height: 495px;
-    background-position: center;
-    background: url("../img/promo-bg.jpg") center/cover no-repeat;
-    padding: 55px;
-  }
-
-  .promo__title {
-    font-size: 50px;
-    line-height: 59px;
-    font-weight: 800;
-    letter-spacing: 0.15px;
-    font-style: "normal";
-  }
-
-  .promo__text {
-    font-size: 23px;
-    line-height: 27px;
-    font-weight: 500;
-    letter-spacing: 0.15px;
-    font-style: "normal";
+  .promo__slider-item img {
+    content: var(--t-image);
   }
 
   .feedbacks {
@@ -4017,10 +4003,6 @@ body.lock {
     opacity: 0;
   }
 
-  .promo__wrapper {
-    padding: 95px;
-  }
-
   .footer__wrapper {
     padding-right: 155px;
   }
@@ -4100,7 +4082,6 @@ body.lock {
 @supports (-webkit-appearance:none){
 .header__bg{background:url(../img/main/1_dog.webp) bottom/cover no-repeat}
 .zootaxi__img{background:url("../img/zootaxi.webp") center/cover no-repeat}
-.promo__wrapper{background:url("../img/promo-bg-m.webp") center/cover no-repeat}
 .popup-main__datepicker::after{background-image:url(../img/calendar.svg)}
 }
 
@@ -4116,7 +4097,6 @@ body.lock {
 
 @supports (-webkit-appearance:none){
 .questions{background:url("../img/answers-bg.webp") center/100% 100% no-repeat}
-.promo__wrapper{background:url("../img/promo-bg.webp") center/cover no-repeat}
 }
 
 }

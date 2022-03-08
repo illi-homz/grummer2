@@ -19,37 +19,44 @@
             text-align: left;
         }
     }
-    &__wrapper {
-        height: 265px;
-        background: url("../img/promo-bg-m.jpg") center / cover no-repeat;
-        padding: 35px;
-        @media ($tablet) {
-            height: 495px;
-            background-position: center;
-            background: url("../img/promo-bg.jpg") center / cover no-repeat;
-            padding: 55px;
+
+    &__slider {
+        position: relative;
+        width: 100%;
+
+        &-item {
+            width: 100%;
+
+            img {
+                content: var(--m-image);
+                width: 100%;
+                height: auto;
+
+                @include tablet {
+                    content: var(--t-image);
+                }
+            }
+
+
         }
-        @media ($desctop) {
-            padding: 95px;
+        .slick-list {
+            height: 100%;
+            padding: 0 !important;
+            overflow: hidden;
+            margin: 0 auto;
+            transition: all ease .3s;
         }
-    }
-    &__title {
-        @include fontSet(30, 35, 800);
-        margin-bottom: 15px;
-        @media ($mobile) {
-            @include fontSet(40, 49, 800);
+        .slick-track {
+            display: flex;
+            height: 100%;
         }
-        @media ($tablet) {
-            @include fontSet(50, 59, 800);
+        .slick-slide {
+            height: 100%;
+
+            & > div {height: 100%;}
         }
-    }
-    &__text {
-        @include fontSet(16, 19, 500);
-        @media ($mobile) {
-            @include fontSet(23, 27, 500);
-        }
-        @media ($tablet) {
-            @include fontSet(23, 27, 500);
+        .slick-arrow {
+            display: none !important;
         }
     }
 }
