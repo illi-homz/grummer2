@@ -147,11 +147,8 @@
     </section>
     <section class="promo" id="promo">
         <div class="container">
-            <h1>Акции</h1> <!-- <div class="promo__wrapper">            <div class="promo__title">Дарим скидку<br>500 рублей</div>            <div class="promo__text">в зависимости от породы</div>        </div> -->
-            <div class="promo__slider _promo__slider">
-                <!-- <script id="promo__slider-temp" type="tuts/template">                <div class="promo__slider-item">                </div>            </script> -->
-                <!-- <picture><source srcset="img/promo/{{img}}" type="image/webp"><img data-src="img/promo/{{img}}"></picture> -->
-            </div>
+            <h1>Акции</h1>
+            <div class="promo__slider _promo__slider"> </div>
         </div>
     </section>
     <section class="feedbacks" id="feedbacks">
@@ -215,7 +212,7 @@
             <div class="popup__content">
                 <div class="popup__close" onclick="grummer.popup.close('_popup-main')"></div>
                 <h1>Оставить заявку</h1>
-                <form onsubmit="grummer.popupMain.submit(this, event)" class="popup-main__form">
+                <form onsubmit="grummer.popupMain.submit(this, event)" enctype="multipart/form-data" class="popup-main__form">
                     <h3>Услуга</h3>
                     <script id="popup-main__form-services" type="tuts/template"> <li class="popup-main__form-service">                        <label>                            <input type="hidden" name="services" value="{{title}}">                        </label>                        <span>{{title}}</span>                        <div class="popup-main__form-service-actions">                            <span class="popup-main__form-service-price">{{price}}</span>                            <div                                onclick="grummer.popupMain.removeService('{{title}}')"                                class="popup-main__form-service-remove"></div>                        </div>                    </li>                </script>
                     <div class="popup-main__form-field popup-main__form-services one">
@@ -249,6 +246,25 @@
                                 <div class="popup-main__datepicker"> <input name="date" type="text" id="datepicker" readonly> </div>
                                 <div class="error-msg _error-msg"></div>
                             </label> </div>
+                    </div>
+                    <div class="popup-main__form-field">
+                        <div class="popup-main__form-img-loader _popup-main__form-img-loader"> <input type="file" id="form-animals-imgs" name="images" multiple accept=".jpg,.png" hidden onchange="grummer.popupMain.onUploadImages(this)" onclick="grummer.popupMain.onInputClick(this, event)">
+                            <div class="popup-main__form-imgs _popup-main__form-imgs">
+                                <div class="popup-main__form-imgs-add _popup-main__form-imgs-add" onclick="grummer.popupMain.loadImages()">
+                                    <picture>
+                                        <source srcset="/img/img-icon-add.svg" type="image/webp"><img src="/img/img-icon-add.svg" alt="">
+                                    </picture>
+                                </div>
+                            </div>
+                            <div class="popup-main__form-add-img _popup-main__form-add-img" onclick="grummer.popupMain.loadImages()">
+                                <div class="popup-main__form-add-img-title"> <span>Прикрепить фото</span>
+                                    <picture>
+                                        <source srcset="/img/img-icon.svg" type="image/webp"><img src="/img/img-icon.svg" alt="">
+                                    </picture>
+                                </div>
+                                <div class="popup-main__form-add-img-info"> (макс. 4, до 10Мб., JPEG, PNG) </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="popup-main__form-field"> <label class="field _field" data-call="" data-msg="">
                             <h3>Комментарий</h3> <textarea name="comment" placeholder="Особые пожелания"></textarea>

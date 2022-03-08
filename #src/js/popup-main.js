@@ -1,4 +1,6 @@
 grummer.popupMain = {
+  images: [],
+
   init() {
     const svg = (path) => `
       <svg
@@ -105,43 +107,129 @@ grummer.popupMain = {
   async submit(form, event) {
     event.preventDefault();
 
-    const validator = new Validator(form);
-    const v = validator.validate();
-    if (!v) return;
+    // const validator = new Validator(form);
+    // const v = validator.validate();
+    // if (!v) return;
 
-    let services;
+    // let services;
 
-    form.services instanceof RadioNodeList
-      ? (services = this.createServicesStr(form.services))
-      : (services = form.services.value);
+    // form.services instanceof RadioNodeList
+    //   ? (services = this.createServicesStr(form.services))
+    //   : (services = form.services.value);
 
-    let breed = grummer.breeds.find((el) => el.value === form.breed.value);
+    // // let breed = grummer.breeds.find((el) => el.value === form.breed.value);
 
-    const data = {
-      Услуги: services,
-      Клиент: `${form.name.value} ${form.lastname.value}`,
-      Тел: form.tel.value,
-      Порода: breed ? breed.title : "",
-      Дата: form.date.value,
-      Комментарий: form.comment.value,
-      "Мин цена": form.price.value,
+    // const data = {
+    //   Услуги: services,
+    //   Клиент: `${form.name.value} ${form.lastname.value}`,
+    //   Тел: form.tel.value,
+    //   Дата: form.date.value,
+    //   Комментарий: form.comment.value,
+    //   "Мин цена": form.price.value,
+    // };
+
+    // let msg = "*Запись*\n\n";
+
+    // for (let key in data) {
+    //   msg += `#${key}: ${data[key]}\n`;
+    // }
+
+    // const res = await grummer.tlg.sendMessage(msg);
+
+    const files = Array.from(form.images.files)
+
+    // if (files.length) {
+    //   for (let i = 0; i < files.length; i++) {
+    //     await grummer.tlg.sendImg(files[i]);
+    //   }
+    // }
+    await grummer.tlg.sendImgs(files);
+    // this.removeAllRenderedImages()
+
+    // if (res)
+    //   setTimeout(() => {
+    //     // console.log(res);
+    //     form.reset();
+
+    //     grummer.popup.open("_popup-ok");
+    //   }, 300);
+  },
+
+
+  loadImages() {
+    $('#form-animals-imgs').focus().trigger("click");
+  },
+  onInputClick(el, event) {
+    event.stopPropagation();
+  },
+  onUploadImages(el) {
+    const imgs = Array
+      .from(el.files)
+      .slice(0, 4 - this.images.length)
+      .filter(img => {
+        for (let i = 0; i < this.images.length; i++) {
+          if (img.name === this.images[i].name) {
+            return false
+          }
+        }
+
+        return true
+      })
+
+    if (!imgs.length) return;
+
+    this.images = [...this.images, ...imgs]
+
+    const dt = new DataTransfer();
+    imgs.forEach(img => dt.items.add(img))
+    el.files = dt.files;
+
+    this.renderImages(imgs);
+  },
+  renderImages(files) {
+    files.forEach(this.renderImage);
+  },
+  renderImage(img, idx) {
+    const reader = new FileReader();
+    const imgNode = document.createElement("img");
+    reader.onloadend = () => {
+      imgNode.src = reader.result;
     };
+    reader.readAsDataURL(img);
 
-    let msg = "*Запись*\n\n";
+    const $imageWrapper = $('<div"></div>')
+      .addClass('popup-main__form-image-wrapper')
+      .addClass('_popup-main__form-image-wrapper')
+      .attr('id', "image-" + idx)
+    const $imageRemove = $('<div></div>')
+      .addClass('popup-main__form-image-remove')
+    $imageRemove.click((e) => grummer.popupMain.removeImage(e, img.name));
 
-    for (let key in data) {
-      msg += `#${key}: ${data[key]}\n`;
+    $imageWrapper.append(imgNode);
+    $imageWrapper.append($imageRemove);
+
+    $("._popup-main__form-imgs-add").before($imageWrapper);
+
+    $('._popup-main__form-img-loader').addClass('active')
+  },
+  removeImage(event, name) {
+    event.stopPropagation();
+    const $input = $("#form-animals-imgs");
+
+    const dt = new DataTransfer();
+
+    this.images = this.images.filter(img => img.name !== name)
+    this.images.forEach(img => dt.items.add(img))
+
+    $input[0].files = dt.files;
+
+    if (!this.images.length) {
+      $('._popup-main__form-img-loader').removeClass('active');
     }
 
-    const res = await grummer.tlg.sendMessage(msg);
-    // console.log(res);
-
-    if (res)
-      setTimeout(() => {
-        console.log(res);
-        form.reset();
-
-        grummer.popup.open("_popup-ok");
-      }, 300);
+    $(event.target).parent("._popup-main__form-image-wrapper").remove();
   },
+  removeAllRenderedImages() {
+    $('._popup-main__form-image-wrapper').remove();
+  }
 };
