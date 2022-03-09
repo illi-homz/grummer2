@@ -153,11 +153,14 @@
     </section>
     <section class="feedbacks" id="feedbacks">
         <div class="container">
-            <h1 class="text-center">Отзывы</h1>
-            <div class="feedbacks__wrapper">
-                <div class="feedbacks__slider">
-                    <script id="feedbacks__slider-temp" type="tuts/template"> <div class="feedbacks__item">                        <div class="feedbacks__item-quotes feedbacks__item-quotes-g">                            <picture><source srcset="img/quotes-g.svg" type="image/webp"><img src="img/quotes-g.svg" alt=""></picture>                        </div>                        <div class="feedbacks__item-quotes feedbacks__item-quotes-y">                            <picture><source srcset="img/quotes-y.svg" type="image/webp"><img src="img/quotes-y.svg" alt=""></picture>                        </div>                        <div class="feedbacks__item-img">                            <picture><source srcset="img/avatars/{{img}}" type="image/webp"><img src="img/avatars/{{img}}" alt=""></picture>                        </div>                        <div class="feedbacks__item-text">                            {{text}}                        </div>                    </div>                </script>
+            <div class="feedbacks__container">
+                <h1 class="text-center">Отзывы</h1>
+                <div class="feedbacks__wrapper">
+                    <div class="feedbacks__slider">
+                        <script id="feedbacks__slider-temp" type="tuts/template"> <div class="feedbacks__item">                            <div class="feedbacks__item-quotes feedbacks__item-quotes-g">                                <picture><source srcset="img/quotes-g.svg" type="image/webp"><img src="img/quotes-g.svg" alt=""></picture>                            </div>                            <div class="feedbacks__item-quotes feedbacks__item-quotes-y">                                <picture><source srcset="img/quotes-y.svg" type="image/webp"><img src="img/quotes-y.svg" alt=""></picture>                            </div>                            <div class="feedbacks__item-img">                                <picture><source srcset="img/avatars/{{img}}" type="image/webp"><img src="img/avatars/{{img}}" alt=""></picture>                            </div>                            <div class="feedbacks__item-text">                                {{text}}                            </div>                        </div>                    </script>
+                    </div>
                 </div>
+                <div class="feedbacks__open-popup btn-outlined" onclick="grummer.popupFeedback.open()"> Написать отзыв </div>
             </div>
         </div>
     </section>
@@ -322,6 +325,15 @@
                     <div class="popup-ok__title">Заявка принята</div>
                     <div class="popup-ok__text">Ожидайте звонка в течение минуты</div>
                 </div> <button class="btn yellow popup-ok__btn" onclick="grummer.popupOk.gotoMain()"> Вернуться на главную </button>
+            </div>
+        </div>
+    </div>
+    <div class="popup-feedback popup _popup-feedback">
+        <div class="popup__body">
+            <div class="popup__content">
+                <div class="popup__close" onclick="grummer.popup.close('_popup-feedback')"></div>
+                <h1>Оставить заявку</h1>
+                <form onsubmit="grummer.popFeedback.submit(this, event)" class="popup-feedback__form"> </form>
             </div>
         </div>
     </div>

@@ -22,6 +22,7 @@
 @import "popup-main";
 @import "popup-services";
 @import "popup-ok";
+@import "popup-feedback";
 
 * {
   font-family: "Raleway", sans-serif;
@@ -81,6 +82,8 @@ body.lock {
   font-weight: 600;
   font-size: 16px;
   line-height: 18px;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     background-color: $textColor;

@@ -5,14 +5,18 @@
     }
 
     .container {
-        overflow: hidden;
-        padding-bottom: 90px;
+        padding-bottom: 120px;
+        max-width: $lg + px;
 
-        @media ($mobile) {
-            max-width: $lg + px;
+        @include tablet {
+            padding-bottom: 90px;
+            overflow: hidden;
             padding: 0;
-            padding-bottom: 120px;
         }
+    }
+
+    &__container {
+        position: relative;
     }
 
     h1 {
@@ -64,10 +68,13 @@
         }
         .slick-dots {
             @extend %dots;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
             bottom: -30px;
+
+            @include tablet {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
     }
 
@@ -131,6 +138,17 @@
             @media ($tablet) {
                 @include fontSet(18, 25, 500);
             }
+        }
+    }
+
+    & &__open-popup {
+        line-height: 56px;
+        padding: 0 44px;
+
+        @include tablet {
+            position: absolute;
+            right: 0;
+            top: 0;
         }
     }
 }

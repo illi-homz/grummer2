@@ -1,24 +1,32 @@
 <section class="feedbacks" id="feedbacks">
     <div class="container">
-        <h1 class="text-center">Отзывы</h1>
-        <div class="feedbacks__wrapper">
-            <div class="feedbacks__slider">
-                <script id="feedbacks__slider-temp" type="tuts/template">
-                    <div class="feedbacks__item">
-                        <div class="feedbacks__item-quotes feedbacks__item-quotes-g">
-                            <img src="img/quotes-g.svg" alt="">
+        <div class="feedbacks__container">
+            <h1 class="text-center">Отзывы</h1>
+            <div class="feedbacks__wrapper">
+                <div class="feedbacks__slider">
+                    <script id="feedbacks__slider-temp" type="tuts/template">
+                        <div class="feedbacks__item">
+                            <div class="feedbacks__item-quotes feedbacks__item-quotes-g">
+                                <img src="img/quotes-g.svg" alt="">
+                            </div>
+                            <div class="feedbacks__item-quotes feedbacks__item-quotes-y">
+                                <img src="img/quotes-y.svg" alt="">
+                            </div>
+                            <div class="feedbacks__item-img">
+                                <img src="img/avatars/{{img}}" alt="">
+                            </div>
+                            <div class="feedbacks__item-text">
+                                {{text}}
+                            </div>
                         </div>
-                        <div class="feedbacks__item-quotes feedbacks__item-quotes-y">
-                            <img src="img/quotes-y.svg" alt="">
-                        </div>
-                        <div class="feedbacks__item-img">
-                            <img src="img/avatars/{{img}}" alt="">
-                        </div>
-                        <div class="feedbacks__item-text">
-                            {{text}}
-                        </div>
-                    </div>
-                </script>
+                    </script>
+                </div>
+            </div>
+            <div
+                class="feedbacks__open-popup btn-outlined"
+                onclick="grummer.popupFeedback.open()"
+            >
+                Написать отзыв
             </div>
         </div>
     </div>

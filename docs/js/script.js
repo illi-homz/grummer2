@@ -7406,8 +7406,16 @@ grummer.popupServices = {
 ;
 grummer.popupOk = {
   gotoMain() {
-    grummer.popup.close('_popup-ok');
-    grummer.goToBlock('#header');
+    grummer.popup.close("_popup-ok");
+    grummer.goToBlock("#header");
+  }
+
+};
+;
+grummer.popupFeedback = {
+  open() {
+    this.$popupMain = $("._popup-feedback");
+    grummer.popup.open(this.$popupMain);
   }
 
 };

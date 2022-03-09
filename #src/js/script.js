@@ -50,6 +50,7 @@ const grummer = {
 @@include('popup-main.js');
 @@include('popup-services.js');
 @@include('popup-ok.js');
+@@include('popup-feedback.js');
 
 @@include('store.js');
 @@include('g-select.js');
