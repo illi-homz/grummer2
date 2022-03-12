@@ -14,18 +14,8 @@ grummer.popupServices = {
     this.sliderList = $(".popup-services__slider-services")
       .removeClass("slick-initialized slick-slider")
       .html("");
-    this.sliderListAdd = $(".popup-services__slider-add-services")
-      .removeClass("slick-initialized slick-slider")
-      .html("");
 
-    // templates
     this.sliderTemplate = $.trim($("#popup-services__slider-temp").html());
-    this.sliderTemplateAdd = $.trim(
-      $("#popup-services__slider-add-temp").html()
-    );
-    this.mobileListTemplate = $.trim(
-      $("#popup-services__mobile-list-temp").html()
-    );
 
     this.setSlides(
       this.servicesList.filter((el) => el.category !== "add-services"),
@@ -34,7 +24,7 @@ grummer.popupServices = {
     );
 
     this.initSlider(this.sliderList);
-    this.initSlider(this.sliderListAdd);
+    // this.initSlider(this.sliderListAdd);
   },
   open() {
     this.counter = 1;
@@ -44,12 +34,6 @@ grummer.popupServices = {
 
     this.init();
 
-    this.setMobileSlides(
-      this.slidesOnPage,
-      this.servicesList,
-      this.mobilefilter
-    );
-
     grummer.popup.open("_popup-services");
   },
   setCategories(arr) {
@@ -57,18 +41,15 @@ grummer.popupServices = {
     const template = $.trim(
       $(".popup-services .popup-services__filter-temp").html()
     );
-    const lastLi = $.trim(
-      $(".popup-services .popup-services__filter-last-temp").html()
-    );
 
     list.html(
-      lastLi +
-        arr.reduce((acc, item) => {
-          return (acc += template
-            .replace(/{{title}}/gi, item.title)
-            .replace(/{{value}}/gi, item.value)
-            .replace(/{{icon}}/gi, item.icon));
-        }, "")
+      arr.reduce((acc, item) => {
+        return (acc += template
+          .replace(/{{title}}/gi, item.title)
+          .replace(/{{value}}/gi, item.value)
+          // .replace(/{{icon}}/gi, item.icon)
+          );
+      }, "")
     );
   },
   filter(arr) {
@@ -84,11 +65,6 @@ grummer.popupServices = {
   filterServicesByCategory(val) {
     this.mobilefilter = val;
     this.counter = 1;
-    this.setMobileSlides(
-      this.counter * this.slidesOnPage,
-      this.servicesList,
-      this.mobilefilter
-    );
 
     !val
       ? this.filter(
@@ -98,7 +74,10 @@ grummer.popupServices = {
   },
   createHtmlList(arr, template) {
     return arr.reduce((acc, slide) => {
+      const isSelected = !!grummer.currentServices.find(el => el.id === slide.id)
+
       return (acc += template
+        .replace(/{{is-selected}}/gi, isSelected ? 'is-selected' : '')
         .replace(/{{title}}/gi, slide.title)
         .replace(/{{text}}/gi, slide.text)
         .replace(/{{price}}/gi, slide.price)
@@ -113,12 +92,29 @@ grummer.popupServices = {
   initSlider($el) {
     $el.slick({
       infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      // prevArrow: '<div class="prev-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
-      // nextArrow: '<div class="next-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
-      prevArrow: `<div class="prev-arrow slider-arrow">${arrow}</div>`,
+      mobileFirst: true,
+      slidesToShow: 2,
+      slidesToScroll: 2,
+      prevArrow: `<div class="prev-arrow slider-arrow">${arrow}</div>`, // from fragments
       nextArrow: `<div class="next-arrow slider-arrow">${arrow}</div>`,
+      responsive: [
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            // infinite: true
+          }
+        },
+        {
+          breakpoint: 900,
+          settings: {
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            // infinite: true
+          }
+        }
+      ]
     });
   },
   addService(title, text) {
@@ -131,24 +127,5 @@ grummer.popupServices = {
     }
 
     grummer.popupMain.open();
-  },
-  setMobileSlides(slidesCounter, arr, filter) {
-    this.setSlides(
-      arr
-        .filter((el) => {
-          return el.category === filter || filter === "";
-        })
-        .slice(0, slidesCounter),
-      this.mobileList,
-      this.mobileListTemplate
-    );
-  },
-  addMore() {
-    this.counter += 1;
-    this.setMobileSlides(
-      this.counter * this.slidesOnPage,
-      this.servicesList,
-      this.mobilefilter
-    );
   },
 };

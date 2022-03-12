@@ -6,6 +6,7 @@
 @import "settings/fragments";
 @import "settings/air-datepicker";
 @import "settings/datepicker";
+@import "settings/form";
 
 @import "fonts";
 @import "header";
@@ -65,6 +66,10 @@ body.lock {
   &:hover {
     background-color: $textColor;
     color: white;
+
+    path {
+      stroke: white;
+    }
   }
 
   &:active {
@@ -88,6 +93,10 @@ body.lock {
   &:hover {
     background-color: $textColor;
     color: #fff;
+
+    path {
+      stroke: white;
+    }
   }
 }
 
@@ -113,7 +122,7 @@ body.lock {
     background-color: $yellow;
 
     path {
-      stroke: white;
+      stroke: $textColor;
     }
   }
 
@@ -132,19 +141,6 @@ body.lock {
 
 .text-center {
   text-align: center;
-}
-
-.form {
-  .field {
-    &.error {
-      .error-msg {
-        display: block;
-      }
-    }
-  }
-  .error-msg {
-    display: none;
-  }
 }
 
 .about {

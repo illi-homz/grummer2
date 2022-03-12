@@ -4592,7 +4592,12 @@ class Validator {
       phone($field) {
         let $input = $field.find("input");
         const regex = /^((\+7|7|8)+\([0-9]{3}\)[0-9]{3}\-[0-9]{2}\-[0-9]{2})$/;
-        if (regex.test($input.val())) return true;
+
+        if (regex.test($input.val())) {
+          $field.find("._error-msg").slideUp();
+          return true;
+        }
+
         this.setMessage($field);
         return false;
       },
@@ -4606,6 +4611,7 @@ class Validator {
           return false;
         }
 
+        $field.find("._error-msg").slideUp();
         return true;
       },
 
@@ -4617,6 +4623,7 @@ class Validator {
           return false;
         }
 
+        $field.find("._error-msg").slideUp();
         return true;
       },
 
@@ -4626,7 +4633,12 @@ class Validator {
         $input.each(function () {
           if ($(this).prop("checked")) checker = true;
         });
-        if (checker) return true;
+
+        if (checker) {
+          $field.find("._error-msg").slideUp();
+          return true;
+        }
+
         this.setMessage($field);
         return false;
       }
@@ -6957,10 +6969,9 @@ const grummer = {
 
 };
 const arrow = `
-  <svg width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1.5 8H15.6667" stroke="#243138" stroke-width="2" stroke-linecap="round"/>
-  <path d="M9.83337 1.33337L16.5 8.00004L9.83337 14.6667" stroke="#243138" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-  </svg>
+<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 7H13M13 7L7 1M13 7L7 13" stroke="#243138" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 `;
 grummer.tlg = {
   init() {
@@ -7121,20 +7132,14 @@ grummer.popupMain = {
     `;
 
     new AirDatepicker("#datepicker", {
-      dateFormat(date) {
-        return date.toLocaleString("ru", {
-          year: "numeric",
-          day: "2-digit",
-          month: "long"
-        });
-      },
-
+      dateFormat: date => date.toLocaleDateString(),
       position: "bottom right",
       prevHtml: svg("M7.04199 12.8713L1.04199 6.87134L7.04199 0.871338"),
       nextHtml: svg("M1 12.8713L7 6.87134L1 0.871338"),
       navTitles: {
         days: "MMMM yyyy"
-      }
+      },
+      minDate: new Date()
     });
   },
 
@@ -7142,11 +7147,11 @@ grummer.popupMain = {
     this.init();
     this.$popupMain = $("._popup-main");
     this.$services = this.$popupMain.find(".popup-main__form-services");
-    this.$servicesUl = this.$popupMain.find(".popup-main__form-services-ul");
-    this.$lastLi = this.$servicesUl.find("li").last()[0]; // const breed = grummer.currentBreed
+    this.$servicesUl = this.$popupMain.find(".popup-main__form-services-ul"); // this.$lastLi = this.$servicesUl.find("li").last()[0];
+    // const breed = grummer.currentBreed
 
     const html = this.createServicesListHtml();
-    this.$servicesUl.html(html).append(this.$lastLi);
+    this.$servicesUl.html(html);
     grummer.currentServices.length > 1 ? this.$services.removeClass("one") : this.$services.addClass("one"); // if (breed)
     // {
     //   const b = $('._breed')
@@ -7161,7 +7166,7 @@ grummer.popupMain = {
   createServicesListHtml() {
     const template = $.trim($("#popup-main__form-services").html());
     return grummer.currentServices.reduce((acc, service) => {
-      return acc += template.replace(/{{title}}/gi, service.title).replace(/{{price}}/gi, service.price);
+      return acc += template.replace(/{{id}}/gi, service.id).replace(/{{img}}/gi, service.img).replace(/{{title}}/gi, service.title).replace(/{{price}}/gi, service.price);
     }, "");
   },
 
@@ -7176,14 +7181,15 @@ grummer.popupMain = {
     this.$popupMain.find("input#_final-price").val(price);
   },
 
-  removeService(title) {
+  removeService(id) {
     // because popup click outside....
     setTimeout(() => {
       grummer.currentServices = grummer.currentServices.filter(el => {
-        return el.title !== title;
+        console.log('el.id !== id;', el.id, id, el.id !== id);
+        return el.id !== id;
       });
       if (grummer.currentServices.length === 1) this.$services.addClass("one");
-      this.$servicesUl.html(this.createServicesListHtml()).append(this.$lastLi);
+      this.$servicesUl.html(this.createServicesListHtml());
       this.setFinalPrice(this.calculateFinalPrice());
     }, 0);
   },
@@ -7195,41 +7201,41 @@ grummer.popupMain = {
   },
 
   async submit(form, event) {
-    event.preventDefault(); // const validator = new Validator(form);
-    // const v = validator.validate();
-    // if (!v) return;
-    // let services;
-    // form.services instanceof RadioNodeList
-    //   ? (services = this.createServicesStr(form.services))
-    //   : (services = form.services.value);
-    // // let breed = grummer.breeds.find((el) => el.value === form.breed.value);
-    // const data = {
-    //   Услуги: services,
-    //   Клиент: `${form.name.value} ${form.lastname.value}`,
-    //   Тел: form.tel.value,
-    //   Дата: form.date.value,
-    //   Комментарий: form.comment.value,
-    //   "Мин цена": form.price.value,
-    // };
-    // let msg = "*Запись*\n\n";
-    // for (let key in data) {
-    //   msg += `#${key}: ${data[key]}\n`;
-    // }
-    // const res = await grummer.tlg.sendMessage(msg);
+    event.preventDefault();
+    const validator = new Validator(form);
+    const v = validator.validate();
+    if (!v) return;
+    let services;
+    form.services instanceof RadioNodeList ? services = this.createServicesStr(form.services) : services = form.services.value; // let breed = grummer.breeds.find((el) => el.value === form.breed.value);
 
+    const data = {
+      Услуги: services,
+      Клиент: `${form.name.value} ${form.lastname.value}`,
+      Тел: form.tel.value,
+      Дата: form.date.value,
+      Комментарий: form.comment.value,
+      "Мин цена": form.price.value
+    };
+    let msg = "*Запись*\n\n";
+
+    for (let key in data) {
+      msg += `#${key}: ${data[key]}\n`;
+    }
+
+    const res = await grummer.tlg.sendMessage(msg);
     const files = Array.from(form.images.files); // if (files.length) {
     //   for (let i = 0; i < files.length; i++) {
     //     await grummer.tlg.sendImg(files[i]);
     //   }
     // }
+    // await grummer.tlg.sendImgs(files);
 
-    await grummer.tlg.sendImgs(files); // this.removeAllRenderedImages()
-    // if (res)
-    //   setTimeout(() => {
-    //     // console.log(res);
-    //     form.reset();
-    //     grummer.popup.open("_popup-ok");
-    //   }, 300);
+    this.removeAllRenderedImages();
+    if (res) setTimeout(() => {
+      // console.log(res);
+      form.reset();
+      grummer.popup.open("_popup-ok");
+    }, 300);
   },
 
   loadImages() {
@@ -7297,6 +7303,11 @@ grummer.popupMain = {
 
   removeAllRenderedImages() {
     $('._popup-main__form-image-wrapper').remove();
+  },
+
+  changeCounter(fieldInput) {
+    const textLength = fieldInput.value.length;
+    $(fieldInput).parent('._field').siblings('._popup-main__form-field-counter').find('span').html(textLength);
   }
 
 };
@@ -7308,14 +7319,9 @@ grummer.popupServices = {
     }, []);
     this.setCategories(grummer.categories);
     this.sliderList = $(".popup-services__slider-services").removeClass("slick-initialized slick-slider").html("");
-    this.sliderListAdd = $(".popup-services__slider-add-services").removeClass("slick-initialized slick-slider").html(""); // templates
-
     this.sliderTemplate = $.trim($("#popup-services__slider-temp").html());
-    this.sliderTemplateAdd = $.trim($("#popup-services__slider-add-temp").html());
-    this.mobileListTemplate = $.trim($("#popup-services__mobile-list-temp").html());
     this.setSlides(this.servicesList.filter(el => el.category !== "add-services"), this.sliderList, this.sliderTemplate);
-    this.initSlider(this.sliderList);
-    this.initSlider(this.sliderListAdd);
+    this.initSlider(this.sliderList); // this.initSlider(this.sliderListAdd);
   },
 
   open() {
@@ -7324,16 +7330,15 @@ grummer.popupServices = {
     this.mobilefilter = "";
     this.mobileList = $(".popup-services__mobile-list");
     this.init();
-    this.setMobileSlides(this.slidesOnPage, this.servicesList, this.mobilefilter);
     grummer.popup.open("_popup-services");
   },
 
   setCategories(arr) {
     const list = $(".popup-services .g-select__items");
     const template = $.trim($(".popup-services .popup-services__filter-temp").html());
-    const lastLi = $.trim($(".popup-services .popup-services__filter-last-temp").html());
-    list.html(lastLi + arr.reduce((acc, item) => {
-      return acc += template.replace(/{{title}}/gi, item.title).replace(/{{value}}/gi, item.value).replace(/{{icon}}/gi, item.icon);
+    list.html(arr.reduce((acc, item) => {
+      return acc += template.replace(/{{title}}/gi, item.title).replace(/{{value}}/gi, item.value) // .replace(/{{icon}}/gi, item.icon)
+      ;
     }, ""));
   },
 
@@ -7352,13 +7357,13 @@ grummer.popupServices = {
   filterServicesByCategory(val) {
     this.mobilefilter = val;
     this.counter = 1;
-    this.setMobileSlides(this.counter * this.slidesOnPage, this.servicesList, this.mobilefilter);
     !val ? this.filter(this.servicesList.filter(el => el.category !== "add-services")) : this.filter(this.filterServices(val, "category"));
   },
 
   createHtmlList(arr, template) {
     return arr.reduce((acc, slide) => {
-      return acc += template.replace(/{{title}}/gi, slide.title).replace(/{{text}}/gi, slide.text).replace(/{{price}}/gi, slide.price).replace(/{{time}}/gi, slide.time).replace(/{{img}}/gi, slide.img);
+      const isSelected = !!grummer.currentServices.find(el => el.id === slide.id);
+      return acc += template.replace(/{{is-selected}}/gi, isSelected ? 'is-selected' : '').replace(/{{title}}/gi, slide.title).replace(/{{text}}/gi, slide.text).replace(/{{price}}/gi, slide.price).replace(/{{time}}/gi, slide.time).replace(/{{img}}/gi, slide.img);
     }, "");
   },
 
@@ -7370,12 +7375,27 @@ grummer.popupServices = {
   initSlider($el) {
     $el.slick({
       infinite: true,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      // prevArrow: '<div class="prev-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
-      // nextArrow: '<div class="next-arrow slider-arrow"><img src="img/arrow.svg"/></div>',
+      mobileFirst: true,
+      slidesToShow: 2,
+      slidesToScroll: 2,
       prevArrow: `<div class="prev-arrow slider-arrow">${arrow}</div>`,
-      nextArrow: `<div class="next-arrow slider-arrow">${arrow}</div>`
+      // from fragments
+      nextArrow: `<div class="next-arrow slider-arrow">${arrow}</div>`,
+      responsive: [{
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3 // infinite: true
+
+        }
+      }, {
+        breakpoint: 900,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4 // infinite: true
+
+        }
+      }]
     });
   },
 
@@ -7389,17 +7409,6 @@ grummer.popupServices = {
     }
 
     grummer.popupMain.open();
-  },
-
-  setMobileSlides(slidesCounter, arr, filter) {
-    this.setSlides(arr.filter(el => {
-      return el.category === filter || filter === "";
-    }).slice(0, slidesCounter), this.mobileList, this.mobileListTemplate);
-  },
-
-  addMore() {
-    this.counter += 1;
-    this.setMobileSlides(this.counter * this.slidesOnPage, this.servicesList, this.mobilefilter);
   }
 
 };
@@ -7787,6 +7796,7 @@ grummer.store = {
   }],
   servicesList: {
     dogs: [{
+      id: 0,
       title: "SPA-комплекс",
       animal: "dog",
       price: "1350 - 2400",
@@ -7795,6 +7805,7 @@ grummer.store = {
       text: "по восстановлению шерсти с маслом арганы",
       img: "spa.svg"
     }, {
+      id: 1,
       title: "Озонотерапия",
       animal: "dog",
       price: "1700 - 2100",
@@ -7803,6 +7814,7 @@ grummer.store = {
       text: "с маской",
       img: "ozon-mask.svg"
     }, {
+      id: 2,
       title: "Озонотерапия",
       animal: "dog",
       price: "1000",
@@ -7811,6 +7823,7 @@ grummer.store = {
       text: "без маски",
       img: "ozon-nomask.svg"
     }, {
+      id: 3,
       title: "Вычесывание",
       animal: "dog",
       price: "1000",
@@ -7819,6 +7832,7 @@ grummer.store = {
       text: "",
       img: "comb-out.svg"
     }, {
+      id: 4,
       title: "Расчёсывание колтунов",
       animal: "dog",
       price: "1000",
@@ -7827,6 +7841,7 @@ grummer.store = {
       text: "Дополнительная услуга без релаксанта (2мм) (в присутствии хозяина)",
       img: "comb-kolts.svg"
     }, {
+      id: 5,
       title: "Стрижка под машику",
       price: "0",
       animal: "dog",
@@ -7835,6 +7850,7 @@ grummer.store = {
       text: "",
       category: "wool"
     }, {
+      id: 6,
       title: "Подстригание когтей",
       price: "0",
       animal: "dog",
@@ -7843,6 +7859,7 @@ grummer.store = {
       text: "",
       category: "claw"
     }, {
+      id: 7,
       title: "Чистка параанальных желез",
       price: "300",
       animal: "additional",
@@ -7851,6 +7868,7 @@ grummer.store = {
       text: "",
       category: "hygiene"
     }, {
+      id: 8,
       title: "Модельная стрижка",
       price: "300",
       animal: "dog",
@@ -7859,6 +7877,7 @@ grummer.store = {
       text: "",
       category: "wool"
     }, {
+      id: 9,
       title: "Полный тримминг",
       animal: "dog",
       price: "2000",
@@ -7867,6 +7886,7 @@ grummer.store = {
       text: "ручная щипка",
       img: "trim.svg"
     }, {
+      id: 10,
       title: "Сбривание колтунов",
       animal: "dog",
       price: "500",
@@ -7875,6 +7895,7 @@ grummer.store = {
       text: "без релаксанта (2мм) (в присутствии хозяина)",
       img: "trim-kolt.svg"
     }, {
+      id: 11,
       title: "Подпил когтей",
       animal: "dog",
       price: "400 - 600",
@@ -7883,6 +7904,7 @@ grummer.store = {
       text: "",
       img: "foot.svg"
     }, {
+      id: 12,
       title: "Ультразвуковая чистка зубов",
       animal: "dog",
       price: "2500 - 4500",
@@ -7891,6 +7913,7 @@ grummer.store = {
       text: "",
       img: "tooth.svg"
     }, {
+      id: 13,
       title: "Снятие зубного камня и налета",
       animal: "dog",
       price: "1000 - 1500",
@@ -7899,6 +7922,7 @@ grummer.store = {
       text: "механически",
       img: "tooth.svg"
     }, {
+      id: 14,
       title: "Чистка зубов пастой",
       animal: "dog",
       price: "350 - 550",
@@ -7907,6 +7931,7 @@ grummer.store = {
       text: "",
       img: "toothpaste.svg"
     }, {
+      id: 15,
       title: "Полировка зубов пастой",
       animal: "dog",
       price: "1000",
@@ -7915,6 +7940,7 @@ grummer.store = {
       text: "",
       img: "toothpaste.svg"
     }, {
+      id: 16,
       title: "Антипаразитальный комплекс",
       animal: "dog",
       price: "400",
@@ -7923,6 +7949,7 @@ grummer.store = {
       text: "",
       img: "antiparasite.svg"
     }, {
+      id: 17,
       title: "Обработка РЕК",
       animal: "dog",
       price: "200",
@@ -7931,6 +7958,7 @@ grummer.store = {
       text: "",
       img: "rek.svg"
     }, {
+      id: 18,
       title: "Снятий клеща + обработка раны",
       animal: "dog",
       price: "100",
@@ -7939,6 +7967,7 @@ grummer.store = {
       text: "",
       img: "tick.svg"
     }, {
+      id: 19,
       title: "Агрессивность животного",
       animal: "dog",
       price: "500 - 1000",
@@ -7948,6 +7977,7 @@ grummer.store = {
       img: "bad-animal.svg"
     }],
     cats: [{
+      id: 20,
       title: "Стрижка",
       animal: "cat",
       price: "от 850",
@@ -7956,6 +7986,7 @@ grummer.store = {
       text: "",
       img: "barbershop.svg"
     }, {
+      id: 21,
       title: "Экспресс линька",
       animal: "cat",
       price: "1300",
@@ -7964,6 +7995,7 @@ grummer.store = {
       text: "",
       img: "express-linka.svg"
     }, {
+      id: 22,
       title: "Окрашивание шерсти",
       animal: "cat",
       price: "от 1500",
@@ -7972,6 +8004,7 @@ grummer.store = {
       text: "Дополнительная услуга",
       img: "color-wool.svg"
     }, {
+      id: 23,
       title: "Расчёсывание колтунов",
       animal: "cat",
       price: "600",
@@ -7980,6 +8013,7 @@ grummer.store = {
       text: "В присутствии хозяина",
       img: "comb-kolts.svg"
     }, {
+      id: 24,
       title: "Сбривание колтунов",
       animal: "cat",
       price: "200 - 500",
@@ -7988,6 +8022,7 @@ grummer.store = {
       text: "В присутствии хозяина",
       img: "trim-kolt.svg"
     }, {
+      id: 25,
       title: "Гигиена-комплекс",
       animal: "cat",
       price: "1500",
@@ -7996,6 +8031,7 @@ grummer.store = {
       text: "Стрижка когтей,чистка ушей,ультразвуковая чистка зубов,чистка анальных желёз",
       img: "wash-plus.svg"
     }, {
+      id: 26,
       title: "Мытьё",
       animal: "cat",
       price: "250",
@@ -8004,6 +8040,7 @@ grummer.store = {
       text: "",
       img: "wash.svg"
     }, {
+      id: 27,
       title: "Стрижка под машику",
       price: "0",
       animal: "cat",
@@ -8012,6 +8049,7 @@ grummer.store = {
       text: "",
       category: "wool"
     }, {
+      id: 28,
       title: "Подстригание когтей",
       price: "от 200",
       animal: "cat",
@@ -8020,6 +8058,7 @@ grummer.store = {
       text: "",
       category: "claw"
     }, {
+      id: 29,
       title: "Подпил когтей",
       animal: "cat",
       price: "400 - 600",
@@ -8028,6 +8067,7 @@ grummer.store = {
       text: "",
       img: "foot.svg"
     }, {
+      id: 30,
       title: "Модельная стрижка",
       price: "300",
       animal: "cat",
@@ -8036,6 +8076,7 @@ grummer.store = {
       text: "",
       category: "wool"
     }, {
+      id: 31,
       title: "Ультразвуковая чистка зубов",
       animal: "cat",
       price: "2500 - 4500",
@@ -8044,6 +8085,7 @@ grummer.store = {
       text: "",
       img: "tooth.svg"
     }, {
+      id: 32,
       title: "Снятие зубного камня и налета",
       animal: "cat",
       price: "1000 - 1500",
@@ -8052,6 +8094,7 @@ grummer.store = {
       text: "механически",
       img: "tooth.svg"
     }, {
+      id: 33,
       title: "Чистка зубов пастой",
       animal: "cat",
       price: "350 - 550",
@@ -8060,6 +8103,7 @@ grummer.store = {
       text: "",
       img: "toothpaste.svg"
     }, {
+      id: 34,
       title: "Полировка зубов пастой",
       animal: "cat",
       price: "1000",
@@ -8069,6 +8113,7 @@ grummer.store = {
       img: "toothpaste.svg"
     }],
     additional: [{
+      id: 35,
       title: "Чистка параанальных желез",
       price: "300",
       animal: "",
@@ -8077,6 +8122,7 @@ grummer.store = {
       text: "",
       category: "additional"
     }, {
+      id: 36,
       title: "Выведение блох и удаление клещей",
       animal: "",
       price: "300",
@@ -8085,6 +8131,7 @@ grummer.store = {
       text: "Дополнительная услуга",
       img: "tick.svg"
     }, {
+      id: 37,
       title: "Помощь второго грумера",
       animal: "",
       price: "600",
@@ -8093,6 +8140,7 @@ grummer.store = {
       text: "Дополнительная услуга",
       img: "help-grummer.svg"
     }, {
+      id: 38,
       title: "Сушка",
       price: "0",
       animal: "",
@@ -8627,7 +8675,8 @@ grummer.promo = {
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 4000,
-      focusOnSelect: true
+      focusOnSelect: true,
+      fade: true
     };
     this.slider.slick(slickParams);
   },

@@ -42,6 +42,7 @@ grummer.promo = {
       autoplay: true,
       autoplaySpeed: 4000,
       focusOnSelect: true,
+      fade: true
     };
 
     this.slider.slick(slickParams);

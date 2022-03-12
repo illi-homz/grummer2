@@ -16,19 +16,14 @@ grummer.popupMain = {
       </svg>
     `;
     new AirDatepicker("#datepicker", {
-      dateFormat(date) {
-        return date.toLocaleString("ru", {
-          year: "numeric",
-          day: "2-digit",
-          month: "long",
-        });
-      },
+      dateFormat: (date) => date.toLocaleDateString(),
       position: "bottom right",
       prevHtml: svg("M7.04199 12.8713L1.04199 6.87134L7.04199 0.871338"),
       nextHtml: svg("M1 12.8713L7 6.87134L1 0.871338"),
       navTitles: {
         days: "MMMM yyyy",
       },
+      minDate: new Date()
     });
   },
 
@@ -38,13 +33,13 @@ grummer.popupMain = {
     this.$popupMain = $("._popup-main");
     this.$services = this.$popupMain.find(".popup-main__form-services");
     this.$servicesUl = this.$popupMain.find(".popup-main__form-services-ul");
-    this.$lastLi = this.$servicesUl.find("li").last()[0];
+    // this.$lastLi = this.$servicesUl.find("li").last()[0];
 
     // const breed = grummer.currentBreed
 
     const html = this.createServicesListHtml();
 
-    this.$servicesUl.html(html).append(this.$lastLi);
+    this.$servicesUl.html(html);
 
     grummer.currentServices.length > 1
       ? this.$services.removeClass("one")
@@ -66,6 +61,8 @@ grummer.popupMain = {
 
     return grummer.currentServices.reduce((acc, service) => {
       return (acc += template
+        .replace(/{{id}}/gi, service.id)
+        .replace(/{{img}}/gi, service.img)
         .replace(/{{title}}/gi, service.title)
         .replace(/{{price}}/gi, service.price));
     }, "");
@@ -83,16 +80,17 @@ grummer.popupMain = {
     this.$popupMain.find("._final-price").html(price);
     this.$popupMain.find("input#_final-price").val(price);
   },
-  removeService(title) {
+  removeService(id) {
     // because popup click outside....
     setTimeout(() => {
       grummer.currentServices = grummer.currentServices.filter((el) => {
-        return el.title !== title;
+        console.log('el.id !== id;', el.id, id, el.id !== id)
+        return el.id !== id;
       });
 
       if (grummer.currentServices.length === 1) this.$services.addClass("one");
 
-      this.$servicesUl.html(this.createServicesListHtml()).append(this.$lastLi);
+      this.$servicesUl.html(this.createServicesListHtml());
 
       this.setFinalPrice(this.calculateFinalPrice());
     }, 0);
@@ -107,34 +105,34 @@ grummer.popupMain = {
   async submit(form, event) {
     event.preventDefault();
 
-    // const validator = new Validator(form);
-    // const v = validator.validate();
-    // if (!v) return;
+    const validator = new Validator(form);
+    const v = validator.validate();
+    if (!v) return;
 
-    // let services;
+    let services;
 
-    // form.services instanceof RadioNodeList
-    //   ? (services = this.createServicesStr(form.services))
-    //   : (services = form.services.value);
+    form.services instanceof RadioNodeList
+      ? (services = this.createServicesStr(form.services))
+      : (services = form.services.value);
 
-    // // let breed = grummer.breeds.find((el) => el.value === form.breed.value);
+    // let breed = grummer.breeds.find((el) => el.value === form.breed.value);
 
-    // const data = {
-    //   Услуги: services,
-    //   Клиент: `${form.name.value} ${form.lastname.value}`,
-    //   Тел: form.tel.value,
-    //   Дата: form.date.value,
-    //   Комментарий: form.comment.value,
-    //   "Мин цена": form.price.value,
-    // };
+    const data = {
+      Услуги: services,
+      Клиент: `${form.name.value} ${form.lastname.value}`,
+      Тел: form.tel.value,
+      Дата: form.date.value,
+      Комментарий: form.comment.value,
+      "Мин цена": form.price.value,
+    };
 
-    // let msg = "*Запись*\n\n";
+    let msg = "*Запись*\n\n";
 
-    // for (let key in data) {
-    //   msg += `#${key}: ${data[key]}\n`;
-    // }
+    for (let key in data) {
+      msg += `#${key}: ${data[key]}\n`;
+    }
 
-    // const res = await grummer.tlg.sendMessage(msg);
+    const res = await grummer.tlg.sendMessage(msg);
 
     const files = Array.from(form.images.files)
 
@@ -143,16 +141,16 @@ grummer.popupMain = {
     //     await grummer.tlg.sendImg(files[i]);
     //   }
     // }
-    await grummer.tlg.sendImgs(files);
-    // this.removeAllRenderedImages()
+    // await grummer.tlg.sendImgs(files);
+    this.removeAllRenderedImages()
 
-    // if (res)
-    //   setTimeout(() => {
-    //     // console.log(res);
-    //     form.reset();
+    if (res)
+      setTimeout(() => {
+        // console.log(res);
+        form.reset();
 
-    //     grummer.popup.open("_popup-ok");
-    //   }, 300);
+        grummer.popup.open("_popup-ok");
+      }, 300);
   },
 
 
@@ -231,5 +229,10 @@ grummer.popupMain = {
   },
   removeAllRenderedImages() {
     $('._popup-main__form-image-wrapper').remove();
+  },
+
+  changeCounter(fieldInput) {
+    const textLength = fieldInput.value.length
+    $(fieldInput).parent('._field').siblings('._popup-main__form-field-counter').find('span').html(textLength)
   }
 };

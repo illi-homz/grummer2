@@ -23,6 +23,7 @@ class Validator {
         }
       });
     });
+
     return !hasErrors;
   }
 
@@ -34,7 +35,10 @@ class Validator {
       phone($field) {
         let $input = $field.find("input");
         const regex = /^((\+7|7|8)+\([0-9]{3}\)[0-9]{3}\-[0-9]{2}\-[0-9]{2})$/;
-        if (regex.test($input.val())) return true;
+        if (regex.test($input.val())) {
+          $field.find("._error-msg").slideUp();
+          return true;
+        }
         this.setMessage($field);
         return false;
       },
@@ -46,6 +50,7 @@ class Validator {
           this.setMessage($field);
           return false;
         }
+        $field.find("._error-msg").slideUp();
         return true;
       },
       selected($field) {
@@ -54,6 +59,7 @@ class Validator {
           this.setMessage($field);
           return false;
         }
+        $field.find("._error-msg").slideUp();
         return true;
       },
       checked($field) {
@@ -62,7 +68,10 @@ class Validator {
         $input.each(function () {
           if ($(this).prop("checked")) checker = true;
         });
-        if (checker) return true;
+        if (checker) {
+          $field.find("._error-msg").slideUp();
+          return true;
+        }
         this.setMessage($field);
         return false;
       },

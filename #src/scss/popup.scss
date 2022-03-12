@@ -26,7 +26,8 @@
     }
 
     &__content {
-        background-color: #f8f8f8;
+        background-color: #fff;
+        // background-color: #f8f8f8;
         padding: 25px 15px;
         border-radius: 12px;
         width: 100%;
@@ -68,7 +69,7 @@
         left: 16px;
         width: 38px;
         height: 38px;
-        border-radius: 6px;
+        border-radius: 12px;
 
         @media ($tablet) {
             left: 20px;

@@ -215,20 +215,15 @@
             <div class="popup__content">
                 <div class="popup__close" onclick="grummer.popup.close('_popup-main')"></div>
                 <h1>Оставить заявку</h1>
-                <form onsubmit="grummer.popupMain.submit(this, event)" enctype="multipart/form-data" class="popup-main__form">
-                    <h3>Услуга</h3>
-                    <script id="popup-main__form-services" type="tuts/template"> <li class="popup-main__form-service">                        <label>                            <input type="hidden" name="services" value="{{title}}">                        </label>                        <span>{{title}}</span>                        <div class="popup-main__form-service-actions">                            <span class="popup-main__form-service-price">{{price}}</span>                            <div                                onclick="grummer.popupMain.removeService('{{title}}')"                                class="popup-main__form-service-remove"></div>                        </div>                    </li>                </script>
+                <form onsubmit="grummer.popupMain.submit(this, event)" enctype="multipart/form-data" class="form popup-main__form">
+                    <script id="popup-main__form-services" type="tuts/template"> <li class="popup-main__form-service">                        <div                            onclick="grummer.popupMain.removeService({{id}})"                            class="popup-main__form-service-remove"></div>                        <div class="popup-main__form-service-img">                            <picture><source srcset="../img/services/{{img}}" type="image/webp"><img src="../img/services/{{img}}" alt="Услуга"></picture>                        </div>                        <div class="popup-main__form-service-data">                            <label>                                <input type="hidden" name="services" value="{{title}}">                            </label>                            <div class="popup-main__form-service-title">{{title}}</div>                            <div class="popup-main__form-service-price">{{price}}</div>                        </div>                    </li>                </script>
                     <div class="popup-main__form-field popup-main__form-services one">
-                        <ul class="popup-main__form-services-ul">
-                            <!-- place serices -->
-                            <li class="popup-main__form-service popup-main__form-service-action mobile" onclick="grummer.popupServices.open()"> <span>Добавить услугу</span>
-                                <div class="popup-main__form-service-action-btn"></div>
-                            </li>
-                        </ul>
-                        <div class="popup-main__form-service-action tablet" onclick="grummer.popupServices.open()"> <span>Добавить услугу</span>
-                            <div class="popup-main__form-service-action-btn"></div>
+                        <ul class="popup-main__form-services-ul"></ul>
+                        <div class="popup-main__form-add-service" onclick="grummer.popupServices.open()"> <span>Добавить услугу</span>
+                            <div class="popup-main__form-add-service-btn"></div>
                         </div>
                     </div>
+                    <div class="popup-main__form-price"> <input name="price" type="hidden" id="_final-price"> Итого: <span class="_final-price">1800</span> </div>
                     <div class="popup-main__form-wrapper">
                         <div class="popup-main__form-field"> <label class="field _field" data-call="empty" data-msg="Введите фамилию">
                                 <h3>Фамилия</h3> <input name="lastname" type="text" placeholder="Введите фамилию">
@@ -246,7 +241,7 @@
                             </label> </div>
                         <div class="popup-main__form-field"> <label class="field _field" data-call="empty" data-msg="Выберите дату">
                                 <h3>Дата</h3>
-                                <div class="popup-main__datepicker"> <input name="date" type="text" id="datepicker" readonly> </div>
+                                <div class="popup-main__datepicker"> <input name="date" type="text" id="datepicker" readonly placeholder="Выберите дату"> </div>
                                 <div class="error-msg _error-msg"></div>
                             </label> </div>
                     </div>
@@ -270,9 +265,10 @@
                         </div>
                     </div>
                     <div class="popup-main__form-field"> <label class="field _field" data-call="" data-msg="">
-                            <h3>Комментарий</h3> <textarea name="comment" placeholder="Особые пожелания"></textarea>
-                        </label> </div>
-                    <div class="popup-main__form-price"> <input name="price" type="hidden" id="_final-price"> Итого: <span class="_final-price">1800</span> </div>
+                            <h3>Комментарий</h3> <textarea name="comment" oninput="grummer.popupMain.changeCounter(this)" maxlength="100" placeholder="Особые пожелания, что нам следует учесть при работе с вашим питомцем"></textarea>
+                        </label>
+                        <div class="popup-main__form-field-counter _popup-main__form-field-counter"> <span>0</span> / 100 </div>
+                    </div>
                     <div class="popup-main__form-wrapper popup-main__form-wrapper-footer"> <button class="btn yellow" type="submit">Отправить заявку</button>
                         <div class="popup-main__form-info"> *Оставьте заявку и мы перезвоним<br>в течение минуты </div>
                     </div>
@@ -283,31 +279,30 @@
     <div class="popup-services popup _popup-services" id="popup-services">
         <div class="popup__body">
             <div class="popup__content">
-                <div class="popup__back" onclick="grummer.popup.back('_popup-services')">
-                    <picture>
-                        <source srcset="img/arrow.svg" type="image/webp"><img src="img/arrow.svg" alt="">
-                    </picture>
-                </div>
-                <div class="popup__close" onclick="grummer.popup.close('_popup-services')"></div>
-                <h1>Оставить заявку</h1>
-                <div class="popup-services__filter">
-                    <div class="popup-services__filter-title">Категоря</div>
-                    <div class="popup-services__categories g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.popupServices.filterServicesByCategory(this.value)" />
-                        <div class="g-select__header" onclick="grummer.gSelect.toggle(this)"> <span class="_selected-text">Любая</span> </div>
-                        <div class="g-select__body _options">
-                            <script class="popup-services__filter-last-temp" type="tuts/template"> <li                                class="g-select__item _option"                                data-value=""                                onclick="grummer.gSelect.selectItem(this)">                                Любая                            </li>                        </script>
-                            <script class="popup-services__filter-temp" type="tuts/template"> <li                                class="g-select__item _option"                                data-value="{{value}}"                                onclick="grummer.gSelect.selectItem(this)">                                <picture><source srcset="img/services/{{icon}}.svg" type="image/webp"><img src="img/services/{{icon}}.svg" /></picture>                                {{title}}                            </li>                        </script>
-                            <ul class="g-select__items"></ul>
+                <div class="popup-services__wrapper">
+                    <div class="popup__back slider-arrow" onclick="grummer.popup.back('_popup-services')">
+                        <!-- <picture><source srcset="img/arrow.svg" type="image/webp"><img src="img/arrow.svg" alt=""></picture> --> <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 7H1M1 7L7 13M1 7L7 1" stroke="#243138" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                    <div class="popup__close" onclick="grummer.popup.close('_popup-services')"></div>
+                    <h1>Добавить услугу</h1>
+                    <div class="popup-services__filter">
+                        <div class="popup-services__filter-title">Категоря</div>
+                        <div class="popup-services__categories g-select _select"> <input type="hidden" class="_select-input" onchange="grummer.popupServices.filterServicesByCategory(this.value)" />
+                            <div class="g-select__header" onclick="grummer.gSelect.toggle(this)"> <span class="_selected-text">Любая</span> </div>
+                            <div class="g-select__body _options">
+                                <script class="popup-services__filter-temp" type="tuts/template"> <li                                    class="g-select__item _option"                                    data-value="{{value}}"                                    onclick="grummer.gSelect.selectItem(this)">                                    {{title}}                                </li>                            </script>
+                                <ul class="g-select__items"></ul>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="popup-services__sliders">
-                    <script id="popup-services__slider-temp" type="tuts/template"> <div class="services__slide">                        <div class="services__slide-wrapper">                            <div>                                <div class="services__slide-img">                                    <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                                </div>                            </div>                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-desc">                                    {{text}}                                </div>                                <div class="services__slide-price">{{price}}</div>                                <div class="services__slide-time">{{time}}</div>                                <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Добавить                                </button>                            </div>                        </div>                    </div>                </script>
-                    <div class="popup-services__slider popup-services__slider-services"></div> <!-- <h3>Дополнительные услуги</h3>                <script id="popup-services__slider-add-temp" type="tuts/template">                    <div class="services__slide">                        <div class="services__slide-wrapper">                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-price">{{price}}</div>                                <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Записаться                                </button>                            </div>                        </div>                    </div>                </script>                <div class="popup-services__slider popup-services__slider-add-services"></div> -->
-                </div>
-                <div class="popup-services__mobile-services">
-                    <script id="popup-services__mobile-list-temp" type="tuts/template"> <li                        class="popup-services__mobile-item"                        onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                        <div class="popup-services__mobile-item-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                        </div>                        <div class="popup-services__mobile-item-data">                            <div class="popup-services__mobile-item-title">{{title}}</div>                            <div class="popup-services__mobile-item-desc">                                {{text}}                            </div>                            <div class="popup-services__mobile-item-numbers">                                <div class="popup-services__mobile-item-time">{{time}}</div>                                <div class="popup-services__mobile-item-price">{{price}}</div>                            </div>                        </div>                    </li>                </script>
-                    <ul class="popup-services__mobile-list"> </ul> <button class="services__slide-btn btn gray" onclick="grummer.popupServices.addMore()"> Загрузить ещё </button>
+                    <script id="popup-services__slider-temp" type="tuts/template"> <div class="services__slide {{is-selected}}">                        <div class="services__slide-wrapper">                            <div>                                <div class="services__slide-img">                                    <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt=""></picture>                                </div>                            </div>                            <div class="services__slide-data">                                <div class="services__slide-title">{{title}}</div>                                <div class="services__slide-desc">                                    {{text}}                                </div>                                <div class="services__slide-price">{{price}}</div>                                <div class="services__slide-time">{{time}}</div>                                <button class="services__slide-btn btn-outlined" onclick="grummer.popupServices.addService('{{title}}', '{{text}}')">                                    Добавить                                </button>                                <div class="is-selected">                                    Добавлено                                    <picture><source srcset="img/ok.svg" type="image/webp"><img src="img/ok.svg" alt=""></picture>                                </div>                            </div>                        </div>                    </div>                </script>
+                    <div class="popup-services__slider-wrapper">
+                        <div class="popup-services__slider popup-services__slider-services"></div>
+                    </div>
                 </div>
             </div>
         </div>
