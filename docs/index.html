@@ -216,7 +216,7 @@
                 <div class="popup__close" onclick="grummer.popup.close('_popup-main')"></div>
                 <h1>Оставить заявку</h1>
                 <form onsubmit="grummer.popupMain.submit(this, event)" enctype="multipart/form-data" class="form popup-main__form">
-                    <script id="popup-main__form-services" type="tuts/template"> <li class="popup-main__form-service">                        <div                            onclick="grummer.popupMain.removeService({{id}})"                            class="popup-main__form-service-remove"></div>                        <div class="popup-main__form-service-img">                            <picture><source srcset="../img/services/{{img}}" type="image/webp"><img src="../img/services/{{img}}" alt="Услуга"></picture>                        </div>                        <div class="popup-main__form-service-data">                            <label>                                <input type="hidden" name="services" value="{{title}}">                            </label>                            <div class="popup-main__form-service-title">{{title}}</div>                            <div class="popup-main__form-service-price">{{price}}</div>                        </div>                    </li>                </script>
+                    <script id="popup-main__form-services" type="tuts/template"> <li class="popup-main__form-service">                        <div                            onclick="grummer.popupMain.removeService({{id}})"                            class="popup-main__form-service-remove"></div>                        <div class="popup-main__form-service-img">                            <picture><source srcset="img/services/{{img}}" type="image/webp"><img src="img/services/{{img}}" alt="Услуга"></picture>                        </div>                        <div class="popup-main__form-service-data">                            <label>                                <input type="hidden" name="services" value="{{title}}">                            </label>                            <div class="popup-main__form-service-title">{{title}}</div>                            <div class="popup-main__form-service-price">{{price}}</div>                        </div>                    </li>                </script>
                     <div class="popup-main__form-field popup-main__form-services one">
                         <ul class="popup-main__form-services-ul"></ul>
                         <div class="popup-main__form-add-service" onclick="grummer.popupServices.open()"> <span>Добавить услугу</span>
@@ -250,14 +250,14 @@
                             <div class="popup-main__form-imgs _popup-main__form-imgs">
                                 <div class="popup-main__form-imgs-add _popup-main__form-imgs-add" onclick="grummer.popupMain.loadImages()">
                                     <picture>
-                                        <source srcset="/img/img-icon-add.svg" type="image/webp"><img src="/img/img-icon-add.svg" alt="">
+                                        <source srcset="img/img-icon-add.svg" type="image/webp"><img src="img/img-icon-add.svg" alt="">
                                     </picture>
                                 </div>
                             </div>
                             <div class="popup-main__form-add-img _popup-main__form-add-img" onclick="grummer.popupMain.loadImages()">
                                 <div class="popup-main__form-add-img-title"> <span>Прикрепить фото</span>
                                     <picture>
-                                        <source srcset="/img/img-icon.svg" type="image/webp"><img src="/img/img-icon.svg" alt="">
+                                        <source srcset="img/img-icon.svg" type="image/webp"><img src="img/img-icon.svg" alt="">
                                     </picture>
                                 </div>
                                 <div class="popup-main__form-add-img-info"> (макс. 4, до 10Мб., JPEG, PNG) </div>
