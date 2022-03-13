@@ -8616,6 +8616,7 @@ grummer.feedbacks = {
       responsive: [{
         breakpoint: 768,
         settings: {
+          infinite: true,
           arrows: true,
           // prevArrow: `<div class="prev-arrow slider-arrow"><img src="img/arrow.svg"/></div>`,
           // nextArrow: '<div class="next-arrow slider-arrow"><img src="img/arrow.svg"/></div>',

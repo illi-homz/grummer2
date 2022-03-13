@@ -186,7 +186,8 @@ body.lock {
 }
 
 .feedbacks {
-  margin-bottom: 18px;
+  margin-bottom: 50px;
+
   @include tablet {
     margin-bottom: 68px;
   }

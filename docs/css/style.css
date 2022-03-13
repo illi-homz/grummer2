@@ -2319,7 +2319,6 @@ h1 {
 }
 
 .feedbacks .container {
-  padding-bottom: 120px;
   max-width: 1440px;
   overflow: hidden;
 }
@@ -2334,6 +2333,7 @@ h1 {
 
 .feedbacks__wrapper {
   position: relative;
+  margin-bottom: 56px;
 }
 
 .feedbacks__slider {
@@ -3480,7 +3480,7 @@ body.lock {
 }
 
 .feedbacks {
-  margin-bottom: 18px;
+  margin-bottom: 50px;
 }
 
 .pointer {
@@ -3824,6 +3824,10 @@ body.lock {
 
   .feedbacks h1 {
     margin-bottom: 120px;
+  }
+
+  .feedbacks__wrapper {
+    margin-bottom: 0;
   }
 
   .feedbacks__slider {
