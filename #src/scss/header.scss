@@ -1,14 +1,14 @@
 .header {
   position: relative;
 
-  @media ($tablet) {
+  @include tablet {
     min-height: 100vh;
   }
 
   img {
     height: 40px;
 
-    @media ($tablet) {
+    @include tablet {
       height: 79px;
     }
   }
@@ -57,7 +57,7 @@
     z-index: 2;
     cursor: pointer;
 
-    @media ($tablet) {
+    @include tablet {
       display: none;
     }
   }
@@ -104,7 +104,7 @@
     padding: 16px 0 16px;
     backdrop-filter: blur(8px);
 
-    @media ($tablet) {
+    @include tablet {
       padding-right: 80px;
       padding: 20px 0 20px;
     }
@@ -123,7 +123,7 @@
   &__links {
     display: none;
 
-    @media ($tablet) {
+    @include tablet {
       flex: 1 0;
       display: flex;
       max-width: 654px;
@@ -166,7 +166,7 @@
       margin-bottom: 30px;
     }
 
-    @media ($tablet) {
+    @include tablet {
       margin-top: 12vh;
       padding-bottom: 50px;
       justify-content: start;
@@ -184,7 +184,7 @@
     max-width: none;
     height: 65px;
 
-    @media ($tablet) {
+    @include tablet {
       max-width: 305px;
     }
   }

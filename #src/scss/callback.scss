@@ -6,7 +6,7 @@
     margin-bottom: 25px;
     text-align: center;
     letter-spacing: -1px;
-    @media ($tablet) {
+    @include tablet {
       letter-spacing: normal;
       text-align: left;
       margin-bottom: 15px;
@@ -20,7 +20,7 @@
     position: relative;
     z-index: 5;
 
-    @media ($tablet) {
+    @include tablet {
       padding: 50px 15px 63px;
     }
   }
@@ -29,7 +29,7 @@
     margin-bottom: 15px;
     text-align: center;
 
-    @media ($tablet) {
+    @include tablet {
       text-align: left;
       @include fontSet(18, 23, 500);
       margin-bottom: 50px;
@@ -42,9 +42,9 @@
     }
     &-field:not(:last-child) {
       margin-bottom: 20px;
-      @media ($tablet) {
+      @include tablet {
         margin-bottom: 0;
-        @media ($tablet) {
+        @include tablet {
           margin-right: 20px;
         }
       }
@@ -58,7 +58,7 @@
       border: 2px solid hsla(0, 0%, 0%, 0);
       transition: border-color 0.3s ease;
 
-      @media ($tablet) {
+      @include tablet {
         width: 305px;
         margin-bottom: 0;
       }
@@ -74,7 +74,7 @@
       }
     }
     &-inputs {
-      @media ($tablet) {
+      @include tablet {
         display: flex;
       }
     }
@@ -87,7 +87,7 @@
       width: 100%;
       height: 65px;
       margin-top: 55px;
-      @media ($tablet) {
+      @include tablet {
         max-width: 250px;
         margin-top: 30px;
       }
@@ -99,7 +99,7 @@
     left: 0;
     bottom: 0;
 
-    @media ($tablet) {
+    @include tablet {
       width: auto;
       left: auto;
       right: 0;

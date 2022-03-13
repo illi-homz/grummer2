@@ -124,7 +124,7 @@
       display: flex;
     }
 
-    @media ($tablet) {
+    @include tablet {
       // margin-top: 20px;
       margin-bottom: 0;
       margin-right: 20px;
@@ -134,7 +134,7 @@
     width: 100%;
     margin-bottom: 30px;
 
-    @media ($tablet) {
+    @include tablet {
       width: 1px;
       min-width: 305px;
       margin-right: 20px;
@@ -268,7 +268,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    @media ($tablet) {
+    @include tablet {
       padding-top: 30px;
     }
   }
@@ -277,7 +277,7 @@
     margin-bottom: 10px;
     text-align: center;
 
-    @media ($tablet) {
+    @include tablet {
       height: 120px;
       margin-bottom: 0;
     }
@@ -292,7 +292,7 @@
     @include fontSet(14, 20, 700);
     flex: 1 0;
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(16, 22, 700);
     }
   }
@@ -303,7 +303,7 @@
     margin-bottom: 3px;
     text-align: center;
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(11, 16, 400);
       // height: 65px;
       margin-bottom: 10px;
@@ -314,7 +314,7 @@
     @include fontSet(18, 25, 700);
     margin-bottom: 10px;
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(25, 35, 700);
       margin-bottom: 12px;
     }
@@ -325,7 +325,7 @@
     color: #cdd7dc;
     margin-bottom: 10px;
 
-    @media ($tablet) {
+    @include tablet {
       margin-bottom: 20px;
     }
   }

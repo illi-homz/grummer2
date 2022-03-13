@@ -1,14 +1,14 @@
 .questions {
     padding: 35px 0;
 
-    @media ($tablet) {
+    @include tablet {
         padding: 180px 0;
         background: url("../img/answers-bg.png") center / 100% 100% no-repeat;
     }
     h1 {
         margin-bottom: 40px;
 
-        @media ($tablet) {
+        @include tablet {
             margin-bottom: 70px;
         }
     }
@@ -24,7 +24,7 @@
         background-color: #fff;
         padding: 10px 0;
 
-        @media ($tablet) {
+        @include tablet {
             padding: 5px 0;
         }
     }
@@ -51,7 +51,7 @@
             }
         }
 
-        @media ($tablet) {
+        @include tablet {
             padding: 0 40px;
         }
 
@@ -67,7 +67,7 @@
             transition: all 0.3s ease;
             font-size: 0px;
 
-            @media ($tablet) {
+            @include tablet {
                 right: -10px;
             }
 
@@ -92,7 +92,7 @@
             padding: 16px 25px 16px 0;
             user-select: none;
 
-            @media ($tablet) {
+            @include tablet {
                 @include fontSet(16, 22, 700);
                 padding: 25px 20px 25px 0;
             }
@@ -107,7 +107,7 @@
                 margin-bottom: 15px;
             }
 
-            @media ($tablet) {
+            @include tablet {
                 @include fontSet(18, 29, 500);
             }
         }

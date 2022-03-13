@@ -7,7 +7,7 @@
   }
   &__data {
     flex: 1 0;
-    @media ($tablet) {
+    @include tablet {
       padding-top: 10vh;
     }
   }
@@ -20,7 +20,7 @@
       height: 100%;
     }
 
-    @media ($tablet) {
+    @include tablet {
       height: 124px;
     }
   }
@@ -29,7 +29,7 @@
     text-align: center;
     margin-bottom: 14px;
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(70, 82, 800);
     }
   }
@@ -37,14 +37,14 @@
     @include fontSet(16, 19, 500);
     text-align: center;
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(30, 35, 500);
     }
   }
   &__btn {
     height: 65px;
 
-    @media ($tablet) {
+    @include tablet {
       width: 300px;
       margin: 0 auto;
     }

@@ -9,7 +9,7 @@
     background-color: rgba(0, 0, 0, 0.4);
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 1001;
     overflow-y: auto;
     overflow-x: hidden;
 
@@ -33,7 +33,7 @@
         width: 100%;
         position: relative;
 
-        @media ($tablet) {
+        @include tablet {
             max-width: 850px;
             padding: 30px 105px 45px;
         }
@@ -71,7 +71,7 @@
         height: 38px;
         border-radius: 12px;
 
-        @media ($tablet) {
+        @include tablet {
             left: 20px;
             width: 65px;
             height: 65px;

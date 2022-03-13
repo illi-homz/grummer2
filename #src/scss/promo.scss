@@ -1,21 +1,21 @@
 .promo {
     padding-top: 20px;
 
-    @media ($tablet) {
+    @include tablet {
         padding-top: 50px;
     }
 
     .container {
         padding: 0;
 
-        @media ($tablet) {
+        @include tablet {
             padding: 0 15px;
         }
     }
     h1 {
         margin-bottom: 55px;
         text-align: center;
-        @media ($tablet) {
+        @include tablet {
             text-align: left;
         }
     }

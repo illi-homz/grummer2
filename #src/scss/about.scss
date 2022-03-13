@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  @media ($tablet) {
+  @include tablet {
     padding-top: 50px;
   }
 
@@ -10,7 +10,7 @@
     padding-bottom: 40px;
     @include fontSet(30, 32, 800);
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(45, 47, 800);
       padding-bottom: 70px;
     }
@@ -22,7 +22,7 @@
       margin-bottom: 22px;
     }
 
-    @media ($tablet) {
+    @include tablet {
       @include fontSet(25, 30, 600, -0.2);
       &:first-of-type {
         margin-bottom: 25px;

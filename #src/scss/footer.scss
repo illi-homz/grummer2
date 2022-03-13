@@ -3,7 +3,7 @@
     &__wrapper {
         position: relative;
         padding: 125px 0 70px;
-        @media ($tablet) {
+        @include tablet {
             display: flex;
             justify-content: space-between;
             padding-right: 50px;
@@ -17,7 +17,7 @@
         margin-bottom: 40px;
         img {
             width: 100%;
-            @media ($mobile) {
+            @include mobile {
                 width: auto;
             }
         }
@@ -26,7 +26,7 @@
         flex: 1 0;
         max-width: 350px;
 
-        @media ($tablet) {
+        @include tablet {
             margin-left: 20px;
         }
 
@@ -40,7 +40,7 @@
                 @include fontSet(16, 16.44, 500);
             }
 
-            @media ($tablet) {
+            @include tablet {
                 padding-top: 24px;
             }
 
@@ -69,14 +69,14 @@
                 margin-right: 8px;
             }
 
-            @media ($tablet) {
+            @include tablet {
                 position: static;
                 transform: translateX(0);
             }
         }
     }
     &__contacts {
-        @media ($tablet) {
+        @include tablet {
             padding-top: 25px;
         }
         h5 {
@@ -84,13 +84,13 @@
             margin-bottom: 25px;
         }
         // &-map-m {
-        //     @media ($tablet) {
+        //     @include tablet {
         //         display: none;
         //     }
         // }
         // &-map-d {
         //     display: none;
-        //     @media ($tablet) {
+        //     @include tablet {
         //         display: block;
         //     }
         // }
@@ -107,7 +107,7 @@
                 margin-right: 10px;
             }
 
-            @media ($tablet) {
+            @include tablet {
                 img {
                     margin-right: 16px;
                 }

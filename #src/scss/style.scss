@@ -145,43 +145,50 @@ body.lock {
 
 .about {
   margin-bottom: 50px;
-  @media ($tablet) {
+  @include tablet {
     margin-bottom: 110px;
   }
 }
 
 .services {
   margin-bottom: 110px;
-  @media ($tablet) {
+  @include tablet {
     margin-bottom: 170px;
   }
 }
 
 .zootaxi {
   margin-bottom: 55px;
-  @media ($tablet) {
+  @include tablet {
     margin-bottom: 60px;
   }
 }
 
 .questions {
   margin-bottom: 55px;
-  @media ($tablet) {
+  @include tablet {
     margin-bottom: 50px;
   }
 }
 
 .promo {
   margin-bottom: 55px;
-  @media ($tablet) {
+  @include tablet {
     margin-bottom: 60px;
   }
 }
 
 .callback {
   margin-bottom: 50px;
-  @media ($tablet) {
+  @include tablet {
     margin-bottom: 100px;
+  }
+}
+
+.feedbacks {
+  margin-bottom: 18px;
+  @include tablet {
+    margin-bottom: 68px;
   }
 }
 
